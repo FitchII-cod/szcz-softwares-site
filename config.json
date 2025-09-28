@@ -1,0 +1,147 @@
+{
+  "seo": {
+    "title": "SZCZ Softwares — Web • Apps • IA • Blockchain • Games",
+    "description": "Studio perso : développement web, apps mobiles, IA (LLM/RAG), blockchain (NFT/contrats), jeux indés."
+  },
+  "hero": {
+    "title": "Je construis des produits web, apps et outils intelligents.",
+    "subtitle": "Web, mobile, IA, blockchain et jeux indés — de l’idée au déploiement.",
+    "badges": [
+      "Next.js",
+      "Flutter",
+      "FastAPI",
+      "Python",
+      "LLM/RAG",
+      "Blockchain",
+      "Game Dev"
+    ]
+  },
+  "services": [
+    {
+      "title": "Sites & Apps Web",
+      "text": "Next.js/React, PWA, SEO, intégrations API, auth & paiements."
+    },
+    {
+      "title": "Apps Mobiles",
+      "text": "Flutter iOS/Android, notifications, stockage local/cloud, charts."
+    },
+    {
+      "title": "IA & Automatisation",
+      "text": "RAG/embeddings, copilotes, pipelines de données, FastAPI, scripts."
+    },
+    {
+      "title": "Blockchain & NFT",
+      "text": "Contrats simples (solidity/solana), proof‑of‑ownership, mint portals."
+    },
+    {
+      "title": "Jeux Vidéo",
+      "text": "Prototypes Godot, mécaniques de gameplay, UX/UI, builds desktop/mobile."
+    },
+    {
+      "title": "Dev Outils & Dashboards",
+      "text": "Electron/PWA, dashboards temps réel (Raspberry Pi, IoT), WebSockets."
+    }
+  ],
+  "projects": [
+    {
+      "title": "Seditio — Tactical Roguelite",
+      "tagline": "Godot (GDScript), IA ennemie, economy loop",
+      "tags": [
+        "Godot",
+        "GDScript",
+        "Game design"
+      ]
+    },
+    {
+      "title": "SakiDori — Tracker marchés",
+      "tagline": "Flutter + API Finance, notifications, charts",
+      "tags": [
+        "Flutter",
+        "Mobile",
+        "Charts"
+      ]
+    },
+    {
+      "title": "Billiard Tracker — ELO & Stats",
+      "tagline": "PWA locale + Raspberry Pi, score live, classement",
+      "tags": [
+        "PWA",
+        "Raspberry Pi",
+        "Web"
+      ]
+    },
+    {
+      "title": "LLM Copilote Interne",
+      "tagline": "RAG sur docs privés, embeddings, filtres, audit des réponses",
+      "tags": [
+        "Python",
+        "FastAPI",
+        "LLM/RAG"
+      ]
+    },
+    {
+      "title": "NFT Access Pass",
+      "tagline": "Portail mint + gating de fonctionnalités pour une app",
+      "tags": [
+        "Solidity/Solana",
+        "Web3",
+        "NFT"
+      ]
+    }
+  ],
+  "stack": [
+    "TypeScript",
+    "Next.js",
+    "React",
+    "Flutter/Dart",
+    "Python",
+    "FastAPI",
+    "PostgreSQL",
+    "Supabase",
+    "LLM/RAG",
+    "Godot",
+    "Docker",
+    "GitHub Actions"
+  ],
+  "stats": [
+    {
+      "value": "20+",
+      "label": "projets perso & clients"
+    },
+    {
+      "value": "3",
+      "label": "apps publiées"
+    },
+    {
+      "value": "2",
+      "label": "jeux en dev"
+    },
+    {
+      "value": "<30j",
+      "label": "time-to-value typique"
+    }
+  ],
+  "kpis": [
+    {
+      "value": "x2.3",
+      "label": "productivité (outils maison)"
+    },
+    {
+      "value": "-35%",
+      "label": "temps manuel via automations"
+    },
+    {
+      "value": "100%",
+      "label": "déploiement CI/CD statique"
+    }
+  ],
+  "contact": {
+    "channels": [
+      "bastianniszczota@gmail.com",
+      "LinkedIn (à ajouter)",
+      "GitHub",
+      "Nantes • Paris • Tokyo"
+    ]
+  },
+  "cv": ""
+}

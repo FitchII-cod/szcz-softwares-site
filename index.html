@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SZCZ Softwares — Web • Apps • IA • Blockchain • Games</title>
+  <meta name="description" content="Studio perso : développement web, apps mobiles, IA (LLM/RAG), blockchain (NFT/contrats), jeux indés." />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <meta property="og:title" content="SZCZ Softwares" />
+  <meta property="og:description" content="Web, mobile, IA, blockchain et jeux indés — de l’idée au déploiement." />
+  <meta property="og:image" content="assets/og-image.png" />
+  <meta name="theme-color" content="#6C46FF" />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#">
+      <img src="assets/logo.jpg" alt="Logo SZCZ Softwares" class="logo" />
+      <span class="brand-text"><span class="strong">SZCZ</span> Softwares</span>
+    </a>
+    <nav class="nav" aria-label="Navigation principale">
+      <button class="nav-toggle" aria-expanded="false" aria-label="Ouvrir le menu">☰</button>
+      <ul class="nav-list">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projets">Projets</a></li>
+        <li><a href="#expertise">Expertise</a></li>
+        <li><a href="#a-propos">À propos</a></li>
+        <li><a href="#contact" class="btn btn-primary">Contact</a></li>
+        <li><button id="themeToggle" class="btn btn-ghost" aria-label="Basculer le thème">🌓</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h1 id="hero-title">Je construis des produits web, apps et outils intelligents.</h1>
+        <p id="hero-subtitle">Web, mobile, IA, blockchain et jeux indés — de l’idée au déploiement.</p>
+        <div class="cta-group">
+          <a href="#contact" class="btn btn-primary">Discutons de votre projet</a>
+          <a href="#projets" class="btn btn-outline">Voir le portfolio</a>
+        </div>
+        <div class="badges" id="badges"></div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="gradient-orb"></div>
+        <div class="card-stack">
+          <div class="card">Next.js&nbsp;Web</div>
+          <div class="card">Flutter&nbsp;Mobile</div>
+          <div class="card">LLM&nbsp;/&nbsp;RAG</div>
+          <div class="card">Web3&nbsp;/&nbsp;NFT</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section">
+      <h2>Services</h2>
+      <div class="grid cards" id="services-grid"></div>
+    </section>
+
+    <section id="projets" class="section">
+      <div class="section-head">
+        <h2>Projets sélectionnés</h2>
+        <a class="link" href="#" id="download-cv" style="display:none">Voir le profil</a>
+      </div>
+      <div class="grid projects" id="projects-grid"></div>
+    </section>
+
+    <section id="expertise" class="section">
+      <h2>Stack & Expertise</h2>
+      <ul class="tag-cloud" id="stack"></ul>
+      <div class="stats" id="stats"></div>
+    </section>
+
+    <section id="a-propos" class="section about">
+      <div class="about-content">
+        <h2>À propos</h2>
+        <p id="about-text">Je conçois des solutions sobres et efficaces : de l’idée au déploiement, avec une approche produit et métier. Mon terrain de jeu : web & mobile, IA (LLM/RAG), blockchain (NFT/contrats), jeux vidéo indés, et automatisations.</p>
+        <ul class="checklist">
+          <li>Approche <strong>Lean</strong> orientée valeur</li>
+          <li>Design <strong>clean</strong> & accessible</li>
+          <li>Data-driven & <strong>KPI</strong> clairs</li>
+        </ul>
+      </div>
+      <aside class="about-aside">
+        <div class="card kpis" id="kpi-cards"></div>
+      </aside>
+    </section>
+
+    <section id="contact" class="section contact">
+      <h2>Contact</h2>
+      <div class="contact-grid">
+        <form id="contact-form" class="card" name="contact" method="POST" action="mailto:bastianniszczota@gmail.com" enctype="text/plain">
+          <label>Votre nom
+            <input name="name" required />
+          </label>
+          <label>Votre e-mail
+            <input name="email" type="email" required />
+          </label>
+          <label>Message
+            <textarea name="message" rows="5" required></textarea>
+          </label>
+          <button class="btn btn-primary" type="submit">Envoyer</button>
+          <p class="form-ok" hidden>Merci ! Je reviens vers vous rapidement.</p>
+        </form>
+        <div class="card contact-side">
+          <h3>Disponibilités & Zones</h3>
+          <p>Basé en France. Missions à distance, déplacements en Europe & Japon.</p>
+          <ul class="tag-cloud small" id="contact-channels"></ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> SZCZ Softwares — Tous droits réservés.</p>
+    <nav class="foot-nav">
+      <a href="#a-propos">À propos</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+      <a href="privacy.html">Confidentialité</a>
+      <button id="backToTop" class="btn btn-ghost">↑ Haut</button>
+    </nav>
+  </footer>
+</body>
+</html>
