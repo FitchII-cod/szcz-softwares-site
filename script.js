@@ -1,6 +1,20 @@
+// Gestion d'erreurs globale
+function handleError(error, context) {
+  console.error(`Erreur dans ${context}:`, error);
+  // Afficher un message à l'utilisateur si nécessaire
+  const errorMsg = document.createElement('div');
+  errorMsg.className = 'error-message';
+  errorMsg.textContent = `Une erreur s'est produite. Veuillez réessayer.`;
+  errorMsg.setAttribute('role', 'alert');
+  document.body.appendChild(errorMsg);
+  setTimeout(() => errorMsg.remove(), 5000);
+}
+
 async function loadConfig(){
-  const res = await fetch('config.json');
-  const cfg = await res.json();
+  try {
+    const res = await fetch('config.json');
+    if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+    const cfg = await res.json();
   document.title = cfg.seo.title || document.title;
   document.querySelector('meta[name=description]').setAttribute('content', cfg.seo.description);
   document.getElementById('hero-title').textContent = cfg.hero.title;
@@ -41,6 +55,12 @@ async function loadConfig(){
   cfg.contact.channels.forEach(ch => { const li=document.createElement('li'); li.textContent=ch; c.appendChild(li); });
   const cv = document.getElementById('download-cv');
   if (cfg.cv) { cv.href = cfg.cv; cv.style.display='inline'; }
+
+  return cfg;
+  } catch (error) {
+    handleError(error, 'loadConfig');
+    return null;
+  }
 }
 function setupUI(){
   const key='szcz-theme';
@@ -56,10 +76,132 @@ function setupUI(){
   const btn = document.querySelector('.nav-toggle');
   const list = document.querySelector('.nav-list');
   btn.addEventListener('click', ()=>{
-    const open = list.style.display === 'block';
-    list.style.display = open ? 'none':'block'; btn.setAttribute('aria-expanded', String(!open));
+    const isOpen = list.classList.contains('open');
+    list.classList.toggle('open');
+    btn.setAttribute('aria-expanded', String(!isOpen));
   });
+
+  // Fermer le menu mobile au clic sur un lien
+  document.querySelectorAll('.nav-list a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 900) {
+        list.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+  // Validation et amélioration du formulaire de contact
   const form = document.getElementById('contact-form');
-  form.addEventListener('submit', ()=>{ form.querySelector('.form-ok').hidden=false; });
+  form.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    const formData = new FormData(form);
+    const name = formData.get('name');
+    const email = formData.get('email');
+    const message = formData.get('message');
+
+    // Validation personnalisée
+    if (!name || name.trim().length < 2) {
+      alert('Veuillez entrer un nom valide');
+      return;
+    }
+    if (!email || !email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+      alert('Veuillez entrer une adresse e-mail valide');
+      return;
+    }
+    if (!message || message.trim().length < 10) {
+      alert('Veuillez entrer un message d\'au moins 10 caractères');
+      return;
+    }
+
+    // Simuler l'envoi (remplacer par une vraie intégration)
+    form.querySelector('.form-ok').hidden=false;
+    form.reset();
+
+    // Alternative: utiliser mailto
+    const subject = encodeURIComponent('Contact depuis SZCZ Softwares');
+    const body = encodeURIComponent(`Nom: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+    window.location.href = `mailto:bastianniszczota@gmail.com?subject=${subject}&body=${body}`;
+  });
+
+  // Animations au scroll avec Intersection Observer
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.section').forEach(section => {
+    observer.observe(section);
+  });
+
+  // Animation des compteurs de stats
+  const animateCounter = (element) => {
+    const target = element.textContent;
+    const isNumber = /^\d+\+?$/.test(target);
+    if (!isNumber) return;
+
+    const value = parseInt(target);
+    const duration = 2000;
+    const increment = value / (duration / 16);
+    let current = 0;
+
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= value) {
+        element.textContent = target;
+        clearInterval(timer);
+      } else {
+        element.textContent = Math.floor(current) + (target.includes('+') ? '+' : '');
+      }
+    }, 16);
+  };
+
+  const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const bigElements = entry.target.querySelectorAll('.big, .value');
+        bigElements.forEach(el => animateCounter(el));
+        statsObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  const statsSection = document.getElementById('expertise');
+  const aboutSection = document.getElementById('a-propos');
+  if (statsSection) statsObserver.observe(statsSection);
+  if (aboutSection) statsObserver.observe(aboutSection);
+
+  // Copie de l'email au clic
+  document.addEventListener('click', (e) => {
+    const target = e.target;
+    if (target.textContent && target.textContent.includes('@')) {
+      const email = target.textContent.match(/[\w.]+@[\w.]+\.\w+/);
+      if (email) {
+        e.preventDefault();
+        navigator.clipboard.writeText(email[0]).then(() => {
+          const tooltip = document.createElement('span');
+          tooltip.className = 'copy-tooltip';
+          tooltip.textContent = 'E-mail copié !';
+          target.style.position = 'relative';
+          target.appendChild(tooltip);
+          setTimeout(() => tooltip.remove(), 2000);
+        }).catch(() => {
+          // Fallback pour les navigateurs anciens
+          window.location.href = `mailto:${email[0]}`;
+        });
+      }
+    }
+  });
 }
-loadConfig().then(setupUI);
+
+loadConfig().then(config => {
+  if (config) setupUI();
+});

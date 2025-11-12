@@ -7,16 +7,28 @@
   <meta name="description" content="Studio perso : développement web, apps mobiles, IA (LLM/RAG), blockchain (NFT/contrats), jeux indés." />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <meta property="og:title" content="SZCZ Softwares" />
-  <meta property="og:description" content="Web, mobile, IA, blockchain et jeux indés — de l’idée au déploiement." />
+  <meta property="og:description" content="Web, mobile, IA, blockchain et jeux indés — de l'idée au déploiement." />
   <meta property="og:image" content="assets/og-image.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://szcz-softwares.com" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SZCZ Softwares" />
+  <meta name="twitter:description" content="Web, mobile, IA, blockchain et jeux indés — de l'idée au déploiement." />
+  <meta name="twitter:image" content="assets/og-image.png" />
   <meta name="theme-color" content="#6C46FF" />
+  <link rel="preload" href="styles.css" as="style" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="preload" href="script.js" as="script" />
+  <link rel="preload" href="config.json" as="fetch" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
   <script defer src="script.js"></script>
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="#">
-      <img src="assets/logo.jpg" alt="Logo SZCZ Softwares" class="logo" />
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+  <header class="site-header" role="banner">
+    <a class="brand" href="#" aria-label="Retour à l'accueil">
+      <img src="assets/logo.jpg" alt="Logo SZCZ Softwares" class="logo" loading="eager" />
       <span class="brand-text"><span class="strong">SZCZ</span> Softwares</span>
     </a>
     <nav class="nav" aria-label="Navigation principale">
@@ -32,7 +44,7 @@
     </nav>
   </header>
 
-  <main>
+  <main id="main-content" role="main">
     <section class="hero">
       <div class="hero-content">
         <h1 id="hero-title">Je construis des produits web, apps et outils intelligents.</h1>
@@ -91,18 +103,18 @@
     <section id="contact" class="section contact">
       <h2>Contact</h2>
       <div class="contact-grid">
-        <form id="contact-form" class="card" name="contact" method="POST" action="mailto:bastianniszczota@gmail.com" enctype="text/plain">
-          <label>Votre nom
-            <input name="name" required />
+        <form id="contact-form" class="card" name="contact" method="POST" action="mailto:bastianniszczota@gmail.com" enctype="text/plain" aria-labelledby="contact-heading">
+          <label for="contact-name">Votre nom
+            <input id="contact-name" name="name" type="text" required autocomplete="name" aria-required="true" />
           </label>
-          <label>Votre e-mail
-            <input name="email" type="email" required />
+          <label for="contact-email">Votre e-mail
+            <input id="contact-email" name="email" type="email" required autocomplete="email" aria-required="true" />
           </label>
-          <label>Message
-            <textarea name="message" rows="5" required></textarea>
+          <label for="contact-message">Message
+            <textarea id="contact-message" name="message" rows="5" required aria-required="true"></textarea>
           </label>
           <button class="btn btn-primary" type="submit">Envoyer</button>
-          <p class="form-ok" hidden>Merci ! Je reviens vers vous rapidement.</p>
+          <p class="form-ok" role="status" aria-live="polite" hidden>Merci ! Je reviens vers vous rapidement.</p>
         </form>
         <div class="card contact-side">
           <h3>Disponibilités & Zones</h3>
@@ -113,7 +125,7 @@
     </section>
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer" role="contentinfo">
     <p>© <span id="year"></span> SZCZ Softwares — Tous droits réservés.</p>
     <nav class="foot-nav">
       <a href="#a-propos">À propos</a>
