@@ -92,6 +92,23 @@ function setupUI(){
   });
   // Validation et amélioration du formulaire de contact
   const form = document.getElementById('contact-form');
+
+  // Fonction pour afficher les erreurs de validation
+  const showValidationError = (message) => {
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'form-error';
+    errorDiv.textContent = message;
+    errorDiv.setAttribute('role', 'alert');
+    errorDiv.setAttribute('aria-live', 'assertive');
+
+    // Supprimer les erreurs précédentes
+    const existingError = form.querySelector('.form-error');
+    if (existingError) existingError.remove();
+
+    form.insertBefore(errorDiv, form.firstChild);
+    setTimeout(() => errorDiv.remove(), 5000);
+  };
+
   form.addEventListener('submit', (e)=>{
     e.preventDefault();
     const formData = new FormData(form);
@@ -101,23 +118,27 @@ function setupUI(){
 
     // Validation personnalisée
     if (!name || name.trim().length < 2) {
-      alert('Veuillez entrer un nom valide');
+      showValidationError('Veuillez entrer un nom valide (minimum 2 caractères)');
+      document.getElementById('contact-name').focus();
       return;
     }
     if (!email || !email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
-      alert('Veuillez entrer une adresse e-mail valide');
+      showValidationError('Veuillez entrer une adresse e-mail valide');
+      document.getElementById('contact-email').focus();
       return;
     }
     if (!message || message.trim().length < 10) {
-      alert('Veuillez entrer un message d\'au moins 10 caractères');
+      showValidationError('Veuillez entrer un message d\'au moins 10 caractères');
+      document.getElementById('contact-message').focus();
       return;
     }
 
-    // Simuler l'envoi (remplacer par une vraie intégration)
+    // Afficher le message de succès
     form.querySelector('.form-ok').hidden=false;
+    setTimeout(() => form.querySelector('.form-ok').hidden=true, 5000);
     form.reset();
 
-    // Alternative: utiliser mailto
+    // Utiliser mailto pour l'envoi
     const subject = encodeURIComponent('Contact depuis SZCZ Softwares');
     const body = encodeURIComponent(`Nom: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
     window.location.href = `mailto:bastianniszczota@gmail.com?subject=${subject}&body=${body}`;

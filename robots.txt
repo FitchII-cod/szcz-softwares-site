@@ -1,0 +1,6 @@
+# robots.txt pour SZCZ Softwares
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://szcz-softwares.com/sitemap.xml
