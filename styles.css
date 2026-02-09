@@ -136,3 +136,21 @@ input,textarea{background:transparent;border:1px solid var(--border);border-radi
 .app-gallery figure{margin:0}
 .app-gallery img{border-radius:12px;border:1px solid var(--border)}
 .app-gallery figcaption{margin-top:.5rem;font-size:.9rem;color:var(--muted);text-align:center}
+
+/* === Legal Page Styles === */
+.legal-page{opacity:1;transform:none}
+.legal-page h2{margin-top:2rem}
+.legal-page p,.legal-page li{color:var(--muted);line-height:1.8}
+.legal-page a{color:var(--brand);text-decoration:underline}
+.legal-page a:hover{color:var(--highlight)}
+.legal-page ul{padding-left:1.5rem}
+
+/* === Button disabled state === */
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.btn:disabled:hover{transform:none;box-shadow:none}
+
+/* === Footer responsive === */
+@media (max-width: 900px){
+  .site-footer{flex-direction:column;text-align:center}
+  .foot-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem}
+}

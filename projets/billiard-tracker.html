@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Billiard Tracker — ELO &amp; Stats | SZCZ Softwares</title>
+  <meta name="description" content="Billiard Tracker est une PWA de suivi de scores et classement ELO pour le billard, avec affichage live sur Raspberry Pi.">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#2563EB">
+  <meta property="og:title" content="Billiard Tracker — ELO & Stats | SZCZ Softwares">
+  <meta property="og:description" content="PWA de suivi de scores et classement ELO pour le billard avec Raspberry Pi.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://szcz-softwares.com/projets/billiard-tracker.html">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+  <header class="site-header" role="banner">
+    <a class="brand" href="../index.html" aria-label="Retour à l'accueil">
+      <img src="../assets/logo.jpg" alt="Logo SZCZ Softwares" class="logo" loading="eager">
+      <span class="brand-text"><span class="strong">SZCZ</span> Softwares</span>
+    </a>
+    <nav class="nav" aria-label="Navigation principale">
+      <button class="nav-toggle" aria-expanded="false" aria-label="Ouvrir le menu">&#9776;</button>
+      <ul class="nav-list">
+        <li><a href="../index.html#services">Services</a></li>
+        <li><a href="../index.html#projets">Projets</a></li>
+        <li><a href="../index.html#expertise">Expertise</a></li>
+        <li><a href="../index.html#a-propos">A propos</a></li>
+        <li><a href="../index.html#contact" class="btn btn-primary">Contact</a></li>
+        <li><button id="themeToggle" class="btn btn-ghost" aria-label="Basculer le theme">&#127763;</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content" role="main">
+    <section class="hero app-hero">
+      <div class="hero-content">
+        <nav class="breadcrumb" aria-label="Fil d'Ariane">
+          <a href="../index.html">Accueil</a> / <a href="../index.html#projets">Projets</a> / <span aria-current="page">Billiard Tracker</span>
+        </nav>
+        <h1>Billiard Tracker</h1>
+        <p class="app-tagline">PWA de classement ELO et statistiques en temps reel pour le billard</p>
+        <div class="badges app-tags">
+          <span class="badge">PWA</span>
+          <span class="badge">Raspberry Pi</span>
+          <span class="badge">Web</span>
+          <span class="badge">IoT</span>
+        </div>
+        <div class="cta-group">
+          <a href="#features" class="btn btn-primary">Fonctionnalites</a>
+          <a href="#stack" class="btn btn-outline">Stack technique</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="gradient-orb"></div>
+        <div class="card-stack">
+          <div class="card">ELO Rating</div>
+          <div class="card">Live Scoreboard</div>
+          <div class="card">Raspberry Pi</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="description" class="section">
+      <h2>A propos du projet</h2>
+      <div class="app-description">
+        <p><strong>Billiard Tracker</strong> est une Progressive Web App concue pour un club de billard. Elle permet de suivre les scores en temps reel, de gerer un classement ELO entre joueurs et d'afficher les statistiques sur un ecran connecte via <strong>Raspberry Pi</strong>.</p>
+        <p>L'application fonctionne en mode hors-ligne grace au service worker PWA, puis synchronise les donnees lorsqu'une connexion est disponible. L'ecran du Raspberry Pi affiche le classement live et les resultats des matchs en cours, creant une ambiance de competition au sein du club.</p>
+      </div>
+    </section>
+
+    <section id="features" class="section">
+      <h2>Fonctionnalites cles</h2>
+      <div class="grid cards">
+        <article class="card">
+          <h3>Classement ELO</h3>
+          <p>Algorithme ELO adapte au billard avec historique des matchs, progression et predictions de resultats.</p>
+        </article>
+        <article class="card">
+          <h3>Score live</h3>
+          <p>Mise a jour en temps reel des scores via WebSocket. Affichage instantane sur tous les appareils connectes.</p>
+        </article>
+        <article class="card">
+          <h3>Affichage Raspberry Pi</h3>
+          <p>Dashboard kiosk sur Raspberry Pi avec classement, matchs en cours et statistiques du jour.</p>
+        </article>
+        <article class="card">
+          <h3>Mode hors-ligne</h3>
+          <p>PWA avec service worker : saisie des scores sans connexion et synchronisation automatique au retour en ligne.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="stack" class="section">
+      <h2>Stack technique</h2>
+      <ul class="tag-cloud">
+        <li>HTML / CSS / JS</li>
+        <li>PWA</li>
+        <li>Service Worker</li>
+        <li>WebSocket</li>
+        <li>Raspberry Pi</li>
+        <li>Node.js</li>
+        <li>SQLite</li>
+        <li>Chromium Kiosk</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <div class="card" style="text-align: center; padding: 2rem;">
+        <h2>Interesse par ce projet ?</h2>
+        <p>Vous avez un projet de dashboard IoT ou d'application temps reel ?</p>
+        <a href="../index.html#contact" class="btn btn-primary">Me contacter</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <p>&copy; <span id="year"></span> SZCZ Softwares — Tous droits reserves.</p>
+    <nav class="foot-nav">
+      <a href="../index.html">Accueil</a>
+      <a href="../index.html#projets">Projets</a>
+      <a href="../index.html#contact">Contact</a>
+      <a href="../privacy.html">Confidentialite</a>
+      <a href="../mentions-legales.html">Mentions legales</a>
+      <button id="backToTop" class="btn btn-ghost">&uarr; Haut</button>
+    </nav>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const themeToggle = document.getElementById('themeToggle');
+    const savedTheme = localStorage.getItem('szcz-theme');
+    if (savedTheme === 'light') document.documentElement.classList.add('light');
+    themeToggle?.addEventListener('click', () => {
+      document.documentElement.classList.toggle('light');
+      localStorage.setItem('szcz-theme', document.documentElement.classList.contains('light') ? 'light' : 'dark');
+    });
+    const navToggle = document.querySelector('.nav-toggle');
+    const navList = document.querySelector('.nav-list');
+    navToggle?.addEventListener('click', () => {
+      const isOpen = navList.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', isOpen);
+    });
+    document.getElementById('backToTop')?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    const sections = document.querySelectorAll('.section');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    sections.forEach(s => observer.observe(s));
+  </script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Seditio — Tactical Roguelite | SZCZ Softwares</title>
+  <meta name="description" content="Seditio est un roguelite tactique développé sous Godot avec IA ennemie avancée, boucle économique et gameplay stratégique.">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#2563EB">
+  <meta property="og:title" content="Seditio — Tactical Roguelite | SZCZ Softwares">
+  <meta property="og:description" content="Roguelite tactique sous Godot : IA ennemie, economy loop, game design avancé.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://szcz-softwares.com/projets/seditio.html">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+  <header class="site-header" role="banner">
+    <a class="brand" href="../index.html" aria-label="Retour à l'accueil">
+      <img src="../assets/logo.jpg" alt="Logo SZCZ Softwares" class="logo" loading="eager">
+      <span class="brand-text"><span class="strong">SZCZ</span> Softwares</span>
+    </a>
+    <nav class="nav" aria-label="Navigation principale">
+      <button class="nav-toggle" aria-expanded="false" aria-label="Ouvrir le menu">&#9776;</button>
+      <ul class="nav-list">
+        <li><a href="../index.html#services">Services</a></li>
+        <li><a href="../index.html#projets">Projets</a></li>
+        <li><a href="../index.html#expertise">Expertise</a></li>
+        <li><a href="../index.html#a-propos">A propos</a></li>
+        <li><a href="../index.html#contact" class="btn btn-primary">Contact</a></li>
+        <li><button id="themeToggle" class="btn btn-ghost" aria-label="Basculer le theme">&#127763;</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content" role="main">
+    <section class="hero app-hero">
+      <div class="hero-content">
+        <nav class="breadcrumb" aria-label="Fil d'Ariane">
+          <a href="../index.html">Accueil</a> / <a href="../index.html#projets">Projets</a> / <span aria-current="page">Seditio</span>
+        </nav>
+        <h1>Seditio</h1>
+        <p class="app-tagline">Roguelite tactique au tour par tour avec IA ennemie et boucle economique</p>
+        <div class="badges app-tags">
+          <span class="badge">Godot</span>
+          <span class="badge">GDScript</span>
+          <span class="badge">Game Design</span>
+          <span class="badge">IA Ennemie</span>
+        </div>
+        <div class="cta-group">
+          <a href="#features" class="btn btn-primary">Fonctionnalites</a>
+          <a href="#stack" class="btn btn-outline">Stack technique</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="gradient-orb"></div>
+        <div class="card-stack">
+          <div class="card">Tactical Combat</div>
+          <div class="card">Procedural Maps</div>
+          <div class="card">Economy Loop</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="description" class="section">
+      <h2>A propos du projet</h2>
+      <div class="app-description">
+        <p>Seditio est un jeu roguelite tactique au tour par tour, developpe entierement sous <strong>Godot Engine</strong> avec <strong>GDScript</strong>. Le joueur dirige une escouade a travers des niveaux generes proceduralement, affrontant des ennemis dotes d'une IA adaptative qui reagit aux strategies du joueur.</p>
+        <p>Le jeu integre une boucle economique complete : gestion de ressources, ameliorations permanentes entre les runs, et un systeme de progression qui recompense l'experimentation tactique. Chaque partie est unique grace a la generation procedurale des cartes et des rencontres.</p>
+      </div>
+    </section>
+
+    <section id="features" class="section">
+      <h2>Fonctionnalites cles</h2>
+      <div class="grid cards">
+        <article class="card">
+          <h3>Combat tactique au tour par tour</h3>
+          <p>Systeme de combat sur grille avec positionnement strategique, couvertures, flanquements et capacites speciales pour chaque unite.</p>
+        </article>
+        <article class="card">
+          <h3>IA ennemie adaptative</h3>
+          <p>Les ennemis analysent les patterns du joueur et adaptent leurs strategies. Comportements en arbre de decision avec etats dynamiques.</p>
+        </article>
+        <article class="card">
+          <h3>Generation procedurale</h3>
+          <p>Cartes, rencontres et evenements generes aleatoirement pour garantir une rejouabilite maximale a chaque run.</p>
+        </article>
+        <article class="card">
+          <h3>Boucle economique</h3>
+          <p>Systeme de ressources, boutique entre les niveaux, ameliorations permanentes et objets rares qui modifient le gameplay.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="stack" class="section">
+      <h2>Stack technique</h2>
+      <ul class="tag-cloud">
+        <li>Godot 4</li>
+        <li>GDScript</li>
+        <li>Behaviour Trees</li>
+        <li>Procedural Generation</li>
+        <li>Tilemap</li>
+        <li>State Machines</li>
+        <li>Desktop / Mobile</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <div class="card" style="text-align: center; padding: 2rem;">
+        <h2>Interesse par ce projet ?</h2>
+        <p>Vous avez un projet de jeu similaire ou souhaitez en savoir plus ?</p>
+        <a href="../index.html#contact" class="btn btn-primary">Me contacter</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <p>&copy; <span id="year"></span> SZCZ Softwares — Tous droits reserves.</p>
+    <nav class="foot-nav">
+      <a href="../index.html">Accueil</a>
+      <a href="../index.html#projets">Projets</a>
+      <a href="../index.html#contact">Contact</a>
+      <a href="../privacy.html">Confidentialite</a>
+      <a href="../mentions-legales.html">Mentions legales</a>
+      <button id="backToTop" class="btn btn-ghost">&uarr; Haut</button>
+    </nav>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const themeToggle = document.getElementById('themeToggle');
+    const savedTheme = localStorage.getItem('szcz-theme');
+    if (savedTheme === 'light') document.documentElement.classList.add('light');
+    themeToggle?.addEventListener('click', () => {
+      document.documentElement.classList.toggle('light');
+      localStorage.setItem('szcz-theme', document.documentElement.classList.contains('light') ? 'light' : 'dark');
+    });
+    const navToggle = document.querySelector('.nav-toggle');
+    const navList = document.querySelector('.nav-list');
+    navToggle?.addEventListener('click', () => {
+      const isOpen = navList.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', isOpen);
+    });
+    document.getElementById('backToTop')?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    const sections = document.querySelectorAll('.section');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    sections.forEach(s => observer.observe(s));
+  </script>
+</body>
+</html>
