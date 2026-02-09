@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LLM Copilote Interne | SZCZ Softwares</title>
+  <meta name="description" content="Copilote IA interne base sur RAG : recherche intelligente sur documents prives, embeddings, filtres et audit des reponses.">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#2563EB">
+  <meta property="og:title" content="LLM Copilote Interne | SZCZ Softwares">
+  <meta property="og:description" content="Copilote IA base sur RAG pour recherche intelligente sur documents prives.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://szcz-softwares.com/projets/llm-copilote.html">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+  <header class="site-header" role="banner">
+    <a class="brand" href="../index.html" aria-label="Retour à l'accueil">
+      <img src="../assets/logo.jpg" alt="Logo SZCZ Softwares" class="logo" loading="eager">
+      <span class="brand-text"><span class="strong">SZCZ</span> Softwares</span>
+    </a>
+    <nav class="nav" aria-label="Navigation principale">
+      <button class="nav-toggle" aria-expanded="false" aria-label="Ouvrir le menu">&#9776;</button>
+      <ul class="nav-list">
+        <li><a href="../index.html#services">Services</a></li>
+        <li><a href="../index.html#projets">Projets</a></li>
+        <li><a href="../index.html#expertise">Expertise</a></li>
+        <li><a href="../index.html#a-propos">A propos</a></li>
+        <li><a href="../index.html#contact" class="btn btn-primary">Contact</a></li>
+        <li><button id="themeToggle" class="btn btn-ghost" aria-label="Basculer le theme">&#127763;</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content" role="main">
+    <section class="hero app-hero">
+      <div class="hero-content">
+        <nav class="breadcrumb" aria-label="Fil d'Ariane">
+          <a href="../index.html">Accueil</a> / <a href="../index.html#projets">Projets</a> / <span aria-current="page">LLM Copilote</span>
+        </nav>
+        <h1>LLM Copilote Interne</h1>
+        <p class="app-tagline">Assistant IA prive base sur RAG pour la recherche documentaire interne</p>
+        <div class="badges app-tags">
+          <span class="badge">Python</span>
+          <span class="badge">FastAPI</span>
+          <span class="badge">LLM/RAG</span>
+          <span class="badge">Embeddings</span>
+        </div>
+        <div class="cta-group">
+          <a href="#features" class="btn btn-primary">Fonctionnalites</a>
+          <a href="#stack" class="btn btn-outline">Stack technique</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="gradient-orb"></div>
+        <div class="card-stack">
+          <div class="card">RAG Pipeline</div>
+          <div class="card">Vector Search</div>
+          <div class="card">Audit Trail</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="description" class="section">
+      <h2>A propos du projet</h2>
+      <div class="app-description">
+        <p>Le <strong>LLM Copilote Interne</strong> est un assistant IA deployable en interne qui exploite la technique <strong>RAG (Retrieval-Augmented Generation)</strong> pour repondre aux questions des utilisateurs en se basant exclusivement sur les documents prives de l'entreprise.</p>
+        <p>Le systeme indexe les documents (PDF, Markdown, bases de connaissances) via des embeddings vectoriels, puis utilise la recherche semantique pour extraire les passages pertinents avant de generer une reponse contextuelle. Un systeme d'audit permet de tracer chaque reponse jusqu'a ses sources, garantissant transparence et fiabilite.</p>
+      </div>
+    </section>
+
+    <section id="features" class="section">
+      <h2>Fonctionnalites cles</h2>
+      <div class="grid cards">
+        <article class="card">
+          <h3>Pipeline RAG</h3>
+          <p>Indexation automatique des documents, chunking intelligent, generation d'embeddings et stockage vectoriel pour recherche semantique.</p>
+        </article>
+        <article class="card">
+          <h3>Filtrage et permissions</h3>
+          <p>Systeme de filtres par departement, type de document et niveau de confidentialite. Chaque utilisateur voit uniquement ce qu'il est autorise a consulter.</p>
+        </article>
+        <article class="card">
+          <h3>Audit des reponses</h3>
+          <p>Chaque reponse generee est accompagnee de ses sources, avec liens vers les documents originaux et score de confiance.</p>
+        </article>
+        <article class="card">
+          <h3>API REST</h3>
+          <p>API FastAPI documentee (Swagger), integrables dans les outils internes existants (Slack, Teams, dashboards).</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="stack" class="section">
+      <h2>Stack technique</h2>
+      <ul class="tag-cloud">
+        <li>Python</li>
+        <li>FastAPI</li>
+        <li>LangChain</li>
+        <li>OpenAI / Mistral</li>
+        <li>ChromaDB</li>
+        <li>PostgreSQL</li>
+        <li>Docker</li>
+        <li>Redis</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <div class="card" style="text-align: center; padding: 2rem;">
+        <h2>Interesse par ce projet ?</h2>
+        <p>Vous souhaitez deployer un copilote IA sur vos documents internes ?</p>
+        <a href="../index.html#contact" class="btn btn-primary">Me contacter</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <p>&copy; <span id="year"></span> SZCZ Softwares — Tous droits reserves.</p>
+    <nav class="foot-nav">
+      <a href="../index.html">Accueil</a>
+      <a href="../index.html#projets">Projets</a>
+      <a href="../index.html#contact">Contact</a>
+      <a href="../privacy.html">Confidentialite</a>
+      <a href="../mentions-legales.html">Mentions legales</a>
+      <button id="backToTop" class="btn btn-ghost">&uarr; Haut</button>
+    </nav>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const themeToggle = document.getElementById('themeToggle');
+    const savedTheme = localStorage.getItem('szcz-theme');
+    if (savedTheme === 'light') document.documentElement.classList.add('light');
+    themeToggle?.addEventListener('click', () => {
+      document.documentElement.classList.toggle('light');
+      localStorage.setItem('szcz-theme', document.documentElement.classList.contains('light') ? 'light' : 'dark');
+    });
+    const navToggle = document.querySelector('.nav-toggle');
+    const navList = document.querySelector('.nav-list');
+    navToggle?.addEventListener('click', () => {
+      const isOpen = navList.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', isOpen);
+    });
+    document.getElementById('backToTop')?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    const sections = document.querySelectorAll('.section');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    sections.forEach(s => observer.observe(s));
+  </script>
+</body>
+</html>

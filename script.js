@@ -1,7 +1,6 @@
 // Gestion d'erreurs globale
 function handleError(error, context) {
   console.error(`Erreur dans ${context}:`, error);
-  // Afficher un message à l'utilisateur si nécessaire
   const errorMsg = document.createElement('div');
   errorMsg.className = 'error-message';
   errorMsg.textContent = `Une erreur s'est produite. Veuillez réessayer.`;
@@ -37,12 +36,18 @@ async function loadConfig(){
   cfg.projects.forEach(p => {
     const card = document.createElement('article');
     card.className = 'card';
+    const pageLink = p.page ? `<p><a class="link" href="${p.page}">Voir le projet</a></p>` : '';
     card.innerHTML = `
       <h3>${p.title}</h3>
       <p>${p.tagline}</p>
       <ul class="tag-cloud small">${p.tags.map(t=>`<li>${t}</li>`).join('')}</ul>
-      ${p.link ? `<p><a class="link" href="${p.link}" target="_blank" rel="noopener">Voir</a></p>` : ''}
+      ${pageLink}
     `;
+    if (p.page) {
+      card.addEventListener('click', (e) => {
+        if (!e.target.closest('a')) window.location.href = p.page;
+      });
+    }
     pGrid.appendChild(card);
   });
   const stack = document.getElementById('stack');
@@ -90,10 +95,9 @@ function setupUI(){
       }
     });
   });
-  // Validation et amélioration du formulaire de contact
+  // Validation et soumission du formulaire de contact via Firebase
   const form = document.getElementById('contact-form');
 
-  // Fonction pour afficher les erreurs de validation
   const showValidationError = (message) => {
     const errorDiv = document.createElement('div');
     errorDiv.className = 'form-error';
@@ -101,7 +105,6 @@ function setupUI(){
     errorDiv.setAttribute('role', 'alert');
     errorDiv.setAttribute('aria-live', 'assertive');
 
-    // Supprimer les erreurs précédentes
     const existingError = form.querySelector('.form-error');
     if (existingError) existingError.remove();
 
@@ -109,14 +112,14 @@ function setupUI(){
     setTimeout(() => errorDiv.remove(), 5000);
   };
 
-  form.addEventListener('submit', (e)=>{
+  form.addEventListener('submit', async (e)=>{
     e.preventDefault();
     const formData = new FormData(form);
     const name = formData.get('name');
     const email = formData.get('email');
     const message = formData.get('message');
 
-    // Validation personnalisée
+    // Validation
     if (!name || name.trim().length < 2) {
       showValidationError('Veuillez entrer un nom valide (minimum 2 caractères)');
       document.getElementById('contact-name').focus();
@@ -133,15 +136,39 @@ function setupUI(){
       return;
     }
 
-    // Afficher le message de succès
-    form.querySelector('.form-ok').hidden=false;
-    setTimeout(() => form.querySelector('.form-ok').hidden=true, 5000);
-    form.reset();
+    // Désactiver le bouton pendant l'envoi
+    const submitBtn = form.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Envoi en cours...';
 
-    // Utiliser mailto pour l'envoi
-    const subject = encodeURIComponent('Contact depuis SZCZ Softwares');
-    const body = encodeURIComponent(`Nom: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
-    window.location.href = `mailto:bastianniszczota@gmail.com?subject=${subject}&body=${body}`;
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: name.trim(),
+          email: email.trim(),
+          message: message.trim()
+        })
+      });
+
+      if (response.ok) {
+        form.querySelector('.form-ok').hidden = false;
+        setTimeout(() => form.querySelector('.form-ok').hidden = true, 5000);
+        form.reset();
+      } else {
+        const data = await response.json();
+        showValidationError(data.error || 'Erreur lors de l\'envoi. Veuillez réessayer.');
+      }
+    } catch {
+      // Fallback mailto si le backend est indisponible
+      const subject = encodeURIComponent('Contact depuis SZCZ Softwares');
+      const body = encodeURIComponent(`Nom: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+      window.location.href = `mailto:dev@szczsoftwares.fr?subject=${subject}&body=${body}`;
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Envoyer';
+    }
   });
 
   // Animations au scroll avec Intersection Observer
@@ -215,7 +242,6 @@ function setupUI(){
           target.appendChild(tooltip);
           setTimeout(() => tooltip.remove(), 2000);
         }).catch(() => {
-          // Fallback pour les navigateurs anciens
           window.location.href = `mailto:${email[0]}`;
         });
       }

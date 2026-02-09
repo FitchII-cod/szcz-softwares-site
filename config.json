@@ -5,7 +5,7 @@
   },
   "hero": {
     "title": "Je construis des produits web, apps et outils intelligents.",
-    "subtitle": "Web, mobile, IA, blockchain et jeux indés — de l’idée au déploiement.",
+    "subtitle": "Web, mobile, IA, blockchain et jeux indés — de l'idée au déploiement.",
     "badges": [
       "Next.js",
       "Flutter",
@@ -46,47 +46,32 @@
     {
       "title": "Seditio — Tactical Roguelite",
       "tagline": "Godot (GDScript), IA ennemie, economy loop",
-      "tags": [
-        "Godot",
-        "GDScript",
-        "Game design"
-      ]
+      "tags": ["Godot", "GDScript", "Game design"],
+      "page": "projets/seditio.html"
     },
     {
       "title": "SakiDori — Tracker marchés",
       "tagline": "Flutter + API Finance, notifications, charts",
-      "tags": [
-        "Flutter",
-        "Mobile",
-        "Charts"
-      ]
+      "tags": ["Flutter", "Mobile", "Charts"],
+      "page": "projets/sakidori.html"
     },
     {
       "title": "Billiard Tracker — ELO & Stats",
       "tagline": "PWA locale + Raspberry Pi, score live, classement",
-      "tags": [
-        "PWA",
-        "Raspberry Pi",
-        "Web"
-      ]
+      "tags": ["PWA", "Raspberry Pi", "Web"],
+      "page": "projets/billiard-tracker.html"
     },
     {
       "title": "LLM Copilote Interne",
       "tagline": "RAG sur docs privés, embeddings, filtres, audit des réponses",
-      "tags": [
-        "Python",
-        "FastAPI",
-        "LLM/RAG"
-      ]
+      "tags": ["Python", "FastAPI", "LLM/RAG"],
+      "page": "projets/llm-copilote.html"
     },
     {
       "title": "NFT Access Pass",
       "tagline": "Portail mint + gating de fonctionnalités pour une app",
-      "tags": [
-        "Solidity/Solana",
-        "Web3",
-        "NFT"
-      ]
+      "tags": ["Solidity/Solana", "Web3", "NFT"],
+      "page": "projets/nft-access-pass.html"
     }
   ],
   "stack": [
@@ -97,11 +82,11 @@
     "Python",
     "FastAPI",
     "PostgreSQL",
-    "Supabase",
+    "Firebase",
     "LLM/RAG",
     "Godot",
     "Docker",
-    "GitHub Actions"
+    "Node.js"
   ],
   "stats": [
     {
@@ -137,7 +122,7 @@
   ],
   "contact": {
     "channels": [
-      "bastianniszczota@gmail.com",
+      "dev@szczsoftwares.fr",
       "LinkedIn",
       "GitHub",
       "Nantes • Paris • Tokyo"
