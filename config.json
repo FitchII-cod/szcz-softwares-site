@@ -47,13 +47,15 @@
       "title": "Seditio — Tactical Roguelite",
       "tagline": "Godot (GDScript), IA ennemie, economy loop",
       "tags": ["Godot", "GDScript", "Game design"],
-      "page": "projets/seditio.html"
+      "page": "projets/seditio.html",
+      "stores": {"desktop": null}
     },
     {
       "title": "SakiDori — Tracker marchés",
       "tagline": "Flutter + API Finance, notifications, charts",
       "tags": ["Flutter", "Mobile", "Charts"],
-      "page": "projets/sakidori.html"
+      "page": "projets/sakidori.html",
+      "stores": {"ios": null, "android": null}
     },
     {
       "title": "Billiard Tracker — ELO & Stats",
@@ -95,7 +97,7 @@
     },
     {
       "value": "3",
-      "label": "apps publiées"
+      "label": "apps en cours"
     },
     {
       "value": "2",
@@ -120,12 +122,16 @@
       "label": "déploiement CI/CD statique"
     }
   ],
+  "social": {
+    "linkedin": "https://linkedin.com/company/szcz-softwares",
+    "github": "https://github.com/FitchII-cod"
+  },
   "contact": {
     "channels": [
-      "dev@szczsoftwares.fr",
-      "LinkedIn",
-      "GitHub",
-      "Nantes • Paris • Tokyo"
+      {"label": "dev@szczsoftwares.fr", "url": "mailto:dev@szczsoftwares.fr"},
+      {"label": "LinkedIn", "url": "https://linkedin.com/company/szcz-softwares"},
+      {"label": "GitHub", "url": "https://github.com/FitchII-cod"},
+      {"label": "Nantes • Paris • Tokyo", "url": null}
     ]
   }
 }

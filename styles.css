@@ -149,8 +149,24 @@ input,textarea{background:transparent;border:1px solid var(--border);border-radi
 .btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
 .btn:disabled:hover{transform:none;box-shadow:none}
 
+/* === Social links === */
+.social-links{display:flex;gap:.8rem;align-items:center}
+.social-links a{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;border:1px solid var(--border);transition:all .3s ease;color:var(--muted)}
+.social-links a:hover{border-color:var(--brand);color:var(--brand);background:rgba(37,99,235,.1);transform:translateY(-2px)}
+.social-links svg{width:18px;height:18px;fill:currentColor}
+
+/* === Store links === */
+.store-links{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.5rem}
+.btn-store{padding:.25rem .5rem;font-size:.8rem;border-radius:8px;border:1px solid var(--border);background:transparent;display:inline-block}
+.btn-store.btn-soon{opacity:.5;cursor:default;font-style:italic;color:var(--muted)}
+
+/* === Contact channel links === */
+.tag-cloud a{color:inherit;text-decoration:none;transition:color .3s ease}
+.tag-cloud a:hover{color:var(--brand)}
+
 /* === Footer responsive === */
 @media (max-width: 900px){
   .site-footer{flex-direction:column;text-align:center}
   .foot-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem}
+  .social-links{justify-content:center}
 }
