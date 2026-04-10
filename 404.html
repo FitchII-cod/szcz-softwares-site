@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mentions légales — SZCZ Softwares</title>
-  <meta name="description" content="Mentions légales du site SZCZ Softwares.">
+  <title>Page introuvable — SZCZ Softwares</title>
+  <meta name="description" content="La page que vous recherchez n'existe pas.">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <meta name="theme-color" content="#2563EB">
   <link rel="stylesheet" href="styles.css">
@@ -18,65 +18,34 @@
       <span class="brand-text"><span class="strong">SZCZ</span> Softwares</span>
     </a>
     <nav class="nav" aria-label="Navigation principale">
-      <button class="nav-toggle" aria-expanded="false" aria-label="Ouvrir le menu">☰</button>
+      <button class="nav-toggle" aria-expanded="false" aria-label="Ouvrir le menu">&#9776;</button>
       <ul class="nav-list">
         <li><a href="index.html#services">Services</a></li>
         <li><a href="index.html#projets">Projets</a></li>
         <li><a href="index.html#expertise">Expertise</a></li>
         <li><a href="index.html#a-propos">À propos</a></li>
         <li><a href="index.html#contact" class="btn btn-primary">Contact</a></li>
-        <li><button id="themeToggle" class="btn btn-ghost" aria-label="Basculer le thème">🌓</button></li>
+        <li><button id="themeToggle" class="btn btn-ghost" aria-label="Basculer le thème">&#127763;</button></li>
       </ul>
     </nav>
   </header>
 
-  <main id="main-content" class="section legal-page" role="main">
-    <h1>Mentions légales</h1>
-
-    <h2>Éditeur du site</h2>
-    <p>
-      <strong>SZCZ Softwares</strong><br>
-      Activité : Développement logiciel (web, mobile, IA, blockchain, jeux)<br>
-      E-mail : <a href="mailto:dev@szczsoftwares.fr">dev@szczsoftwares.fr</a><br>
-      Localisation : Nantes, France
-    </p>
-
-    <h2>Hébergement</h2>
-    <p>
-      Ce site est hébergé par <strong>Firebase Hosting</strong> (Google LLC).<br>
-      Google LLC — 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA.<br>
-      Site : <a href="https://firebase.google.com" target="_blank" rel="noopener">firebase.google.com</a>
-    </p>
-
-    <h2>Propriété intellectuelle</h2>
-    <p>L'ensemble du contenu de ce site (textes, images, logos, code source) est protégé par le droit d'auteur. Toute reproduction, même partielle, est soumise à autorisation préalable de l'éditeur.</p>
-    <p>Les marques et logos présents sur le site sont la propriété de leurs détenteurs respectifs.</p>
-
-    <h2>Responsabilité</h2>
-    <p>L'éditeur s'efforce de fournir des informations exactes et à jour. Cependant, il ne saurait être tenu responsable des erreurs, omissions ou résultats obtenus suite à l'utilisation de ces informations.</p>
-    <p>Les liens hypertextes vers des sites tiers ne sauraient engager la responsabilité de l'éditeur quant au contenu de ces sites.</p>
-
-    <h2>Données personnelles</h2>
-    <p>Les informations collectées via le formulaire de contact sont traitées par Firebase Cloud Functions et envoyées à l'adresse <a href="mailto:dev@szczsoftwares.fr">dev@szczsoftwares.fr</a>. Elles sont stockées de manière sécurisée dans Firebase Firestore.</p>
-    <p>Conformément au RGPD, vous disposez d'un droit d'accès, de rectification, de suppression et de portabilité de vos données. Pour exercer ces droits : <a href="mailto:dev@szczsoftwares.fr">dev@szczsoftwares.fr</a></p>
-    <p>Pour en savoir plus, consultez notre <a href="privacy.html">politique de confidentialité</a>.</p>
-
-    <h2>Cookies</h2>
-    <p>Ce site utilise uniquement le stockage local du navigateur (localStorage) pour sauvegarder votre préférence de thème (clair/sombre). Aucun cookie de suivi ou cookie tiers n'est utilisé.</p>
-
-    <h2>Droit applicable</h2>
-    <p>Le présent site et ses mentions légales sont régis par le droit français. En cas de litige, les tribunaux français seront seuls compétents.</p>
-
-    <p><em>Dernière mise à jour : <span id="update-date"></span></em></p>
+  <main id="main-content" role="main">
+    <section class="section legal-page" style="text-align: center; min-height: 50vh; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+      <h1>404 — Page introuvable</h1>
+      <p style="color: var(--muted); font-size: 1.1rem; margin-bottom: 2rem;">La page que vous recherchez n'existe pas ou a été déplacée.</p>
+      <a href="index.html" class="btn btn-primary">Retour à l'accueil</a>
+    </section>
   </main>
 
   <footer class="site-footer" role="contentinfo">
-    <p>© <span id="year"></span> SZCZ Softwares — Tous droits réservés.</p>
+    <p>&copy; <span id="year"></span> SZCZ Softwares — Tous droits réservés.</p>
     <nav class="foot-nav">
       <a href="index.html">Accueil</a>
       <a href="index.html#projets">Projets</a>
       <a href="index.html#contact">Contact</a>
       <a href="privacy.html">Confidentialité</a>
+      <a href="mentions-legales.html">Mentions légales</a>
     </nav>
     <div class="social-links">
       <a href="https://linkedin.com/company/szcz-softwares" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
@@ -90,9 +59,6 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-    document.getElementById('update-date').textContent = new Date().toLocaleDateString('fr-FR', {
-      year: 'numeric', month: 'long', day: 'numeric'
-    });
     const themeToggle = document.getElementById('themeToggle');
     const savedTheme = localStorage.getItem('szcz-theme');
     if (savedTheme === 'light') document.documentElement.classList.add('light');

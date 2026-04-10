@@ -37,10 +37,19 @@ async function loadConfig(){
     const card = document.createElement('article');
     card.className = 'card';
     const pageLink = p.page ? `<p><a class="link" href="${p.page}">Voir le projet</a></p>` : '';
+    let storeLinks = '';
+    if (p.stores) {
+      const badges = [];
+      if (p.stores.ios !== undefined) badges.push(p.stores.ios ? `<a class="btn btn-store" href="${p.stores.ios}" target="_blank" rel="noopener noreferrer">App Store</a>` : `<span class="btn btn-store btn-soon">App Store — Bientôt</span>`);
+      if (p.stores.android !== undefined) badges.push(p.stores.android ? `<a class="btn btn-store" href="${p.stores.android}" target="_blank" rel="noopener noreferrer">Google Play</a>` : `<span class="btn btn-store btn-soon">Google Play — Bientôt</span>`);
+      if (p.stores.desktop !== undefined) badges.push(p.stores.desktop ? `<a class="btn btn-store" href="${p.stores.desktop}" target="_blank" rel="noopener noreferrer">Télécharger</a>` : `<span class="btn btn-store btn-soon">Bientôt disponible</span>`);
+      if (badges.length) storeLinks = `<div class="store-links">${badges.join('')}</div>`;
+    }
     card.innerHTML = `
       <h3>${p.title}</h3>
       <p>${p.tagline}</p>
       <ul class="tag-cloud small">${p.tags.map(t=>`<li>${t}</li>`).join('')}</ul>
+      ${storeLinks}
       ${pageLink}
     `;
     if (p.page) {
@@ -57,7 +66,24 @@ async function loadConfig(){
   const kpiCards = document.getElementById('kpi-cards');
   cfg.kpis.forEach(k => { const el=document.createElement('div'); el.className='kpi'; el.innerHTML=`<div class="value">${k.value}</div><div class="label">${k.label}</div>`; kpiCards.appendChild(el); });
   const c = document.getElementById('contact-channels');
-  cfg.contact.channels.forEach(ch => { const li=document.createElement('li'); li.textContent=ch; c.appendChild(li); });
+  cfg.contact.channels.forEach(ch => {
+    const li = document.createElement('li');
+    if (typeof ch === 'string') {
+      li.textContent = ch;
+    } else if (ch.url) {
+      const a = document.createElement('a');
+      a.href = ch.url;
+      a.textContent = ch.label;
+      if (!ch.url.startsWith('mailto:')) {
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+      }
+      li.appendChild(a);
+    } else {
+      li.textContent = ch.label;
+    }
+    c.appendChild(li);
+  });
   const cv = document.getElementById('download-cv');
   if (cfg.cv) { cv.href = cfg.cv; cv.style.display='inline'; }
 

@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Billiard Tracker — ELO &amp; Stats | SZCZ Softwares</title>
-  <meta name="description" content="Billiard Tracker est une PWA de suivi de scores et classement ELO pour le billard, avec affichage live sur Raspberry Pi.">
+  <title>Susumou — Apprendre le japonais | SZCZ Softwares</title>
+  <meta name="description" content="Susumou (進もう) est une application Flutter d'apprentissage du japonais axée sur le JLPT, avec SRS, dictionnaire offline et coaching IA.">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <meta name="theme-color" content="#2563EB">
-  <meta property="og:title" content="Billiard Tracker — ELO & Stats | SZCZ Softwares">
-  <meta property="og:description" content="PWA de suivi de scores et classement ELO pour le billard avec Raspberry Pi.">
+  <meta property="og:title" content="Susumou — Apprendre le japonais | SZCZ Softwares">
+  <meta property="og:description" content="App Flutter d'apprentissage du japonais : SRS, dictionnaire offline, coaching IA Gemini, gamification.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://szcz-softwares.com/projets/billiard-tracker.html">
+  <meta property="og:url" content="https://szcz-softwares.com/projets/susumou.html">
   <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
@@ -38,27 +38,33 @@
     <section class="hero app-hero">
       <div class="hero-content">
         <nav class="breadcrumb" aria-label="Fil d'Ariane">
-          <a href="../index.html">Accueil</a> / <a href="../index.html#projets">Projets</a> / <span aria-current="page">Billiard Tracker</span>
+          <a href="../index.html">Accueil</a> / <a href="../index.html#projets">Projets</a> / <span aria-current="page">Susumou</span>
         </nav>
-        <h1>Billiard Tracker</h1>
-        <p class="app-tagline">PWA de classement ELO et statistiques en temps réel pour le billard</p>
+        <h1>Susumou <span style="font-weight:400; font-size:.6em; color:var(--muted);">進もう</span></h1>
+        <p class="app-tagline">Application d'apprentissage du japonais axée sur le JLPT avec coaching IA</p>
         <div class="badges app-tags">
-          <span class="badge">PWA</span>
-          <span class="badge">Raspberry Pi</span>
-          <span class="badge">Web</span>
-          <span class="badge">IoT</span>
+          <span class="badge">Flutter</span>
+          <span class="badge">Firebase</span>
+          <span class="badge">Gemini AI</span>
+          <span class="badge">SRS</span>
+          <span class="badge">JLPT N5-N1</span>
         </div>
         <div class="cta-group">
           <a href="#features" class="btn btn-primary">Fonctionnalités</a>
           <a href="#stack" class="btn btn-outline">Stack technique</a>
         </div>
+        <div class="store-links" style="margin-top: 1rem;">
+          <span class="btn btn-store btn-soon">App Store — Bientôt</span>
+          <span class="btn btn-store btn-soon">Google Play — Bientôt</span>
+        </div>
       </div>
       <div class="hero-art" aria-hidden="true">
         <div class="gradient-orb"></div>
         <div class="card-stack">
-          <div class="card">ELO Rating</div>
-          <div class="card">Live Scoreboard</div>
-          <div class="card">Raspberry Pi</div>
+          <div class="card">SRS Flashcards</div>
+          <div class="card">Dictionnaire Offline</div>
+          <div class="card">Coach IA Gemini</div>
+          <div class="card">Gamification</div>
         </div>
       </div>
     </section>
@@ -66,8 +72,8 @@
     <section id="description" class="section">
       <h2>À propos du projet</h2>
       <div class="app-description">
-        <p><strong>Billiard Tracker</strong> est une Progressive Web App conçue pour un club de billard. Elle permet de suivre les scores en temps réel, de gérer un classement ELO entre joueurs et d'afficher les statistiques sur un écran connecté via <strong>Raspberry Pi</strong>.</p>
-        <p>L'application fonctionne en mode hors-ligne grâce au service worker PWA, puis synchronise les données lorsqu'une connexion est disponible. L'écran du Raspberry Pi affiche le classement live et les résultats des matchs en cours, créant une ambiance de compétition au sein du club.</p>
+        <p><strong>Susumou</strong> (進もう, "avançons") est une application mobile d'apprentissage du japonais développée en <strong>Flutter</strong>, conçue pour accompagner les apprenants du niveau débutant au JLPT N1. Elle combine un dictionnaire offline riche (2 136 kanji, 15 000+ vocabulaire, 500+ grammaire), un système de répétition espacée (SRS) basé sur l'algorithme SM-2 modifié, et un coaching IA propulsé par <strong>Gemini</strong>.</p>
+        <p>L'application utilise une architecture dual-database SQLite pour séparer le contenu pédagogique des données utilisateur, garantissant des performances optimales même hors-ligne. La gamification (XP, achievements, streaks) et les 8 thèmes visuels (dont 4 saisons japonaises) maintiennent la motivation des apprenants.</p>
       </div>
     </section>
 
@@ -75,20 +81,28 @@
       <h2>Fonctionnalités clés</h2>
       <div class="grid cards">
         <article class="card">
-          <h3>Classement ELO</h3>
-          <p>Algorithme ELO adapté au billard avec historique des matchs, progression et prédictions de résultats.</p>
+          <h3>SRS & Flashcards</h3>
+          <p>Algorithme SM-2 modifié avec sessions configurables, apprentissage bidirectionnel (JP&#8596;FR), 4 niveaux de réponse et suivi de maîtrise par EMA.</p>
         </article>
         <article class="card">
-          <h3>Score live</h3>
-          <p>Mise à jour en temps réel des scores via WebSocket. Affichage instantané sur tous les appareils connectés.</p>
+          <h3>Dictionnaire offline</h3>
+          <p>Recherche full-text (FTS5) sur 2 136 kanji, 15 000+ mots de vocabulaire et 500+ points de grammaire. Filtrage par niveau JLPT.</p>
         </article>
         <article class="card">
-          <h3>Affichage Raspberry Pi</h3>
-          <p>Dashboard kiosk sur Raspberry Pi avec classement, matchs en cours et statistiques du jour.</p>
+          <h3>Coach IA (Gemini)</h3>
+          <p>Génération de questions JLPT personnalisées via Gemini 3 Flash. Suivi quotidien des tokens et adaptation au niveau de l'apprenant.</p>
         </article>
         <article class="card">
-          <h3>Mode hors-ligne</h3>
-          <p>PWA avec service worker : saisie des scores sans connexion et synchronisation automatique au retour en ligne.</p>
+          <h3>Gamification</h3>
+          <p>Système d'XP et de niveaux, 50+ achievements, streaks quotidiens, contenu du jour et onboarding guidé avec première session interactive.</p>
+        </article>
+        <article class="card">
+          <h3>Thèmes saisonniers</h3>
+          <p>8 thèmes visuels dont 4 saisons japonaises (Printemps, Été, Automne, Hiver) avec changement automatique selon le mois. Light &amp; Dark mode.</p>
+        </article>
+        <article class="card">
+          <h3>Multilingue FR/EN</h3>
+          <p>Interface complète en français et anglais (690+ clés de traduction), détection automatique de la langue au premier lancement. TTS japonais natif.</p>
         </article>
       </div>
     </section>
@@ -96,22 +110,50 @@
     <section id="stack" class="section">
       <h2>Stack technique</h2>
       <ul class="tag-cloud">
-        <li>HTML / CSS / JS</li>
-        <li>PWA</li>
-        <li>Service Worker</li>
-        <li>WebSocket</li>
-        <li>Raspberry Pi</li>
-        <li>Node.js</li>
-        <li>SQLite</li>
-        <li>Chromium Kiosk</li>
+        <li>Flutter 3.27+</li>
+        <li>Dart 3.x</li>
+        <li>SQLite (sqflite)</li>
+        <li>Firebase Auth</li>
+        <li>Firestore</li>
+        <li>Gemini 3 Flash</li>
+        <li>Provider</li>
+        <li>get_it</li>
+        <li>FTS5</li>
+        <li>iOS / Android</li>
       </ul>
     </section>
 
     <section class="section">
       <div class="card" style="text-align: center; padding: 2rem;">
-        <h2>Intéressé par ce projet ?</h2>
-        <p>Vous avez un projet de dashboard IoT ou d'application temps réel ?</p>
-        <a href="../index.html#contact" class="btn btn-primary">Me contacter</a>
+        <h2>Bientôt disponible</h2>
+        <p>Susumou arrive prochainement sur iOS et Android.</p>
+        <div class="cta-group" style="justify-content: center;">
+          <span class="btn btn-store btn-soon">App Store — Bientôt</span>
+          <span class="btn btn-store btn-soon">Google Play — Bientôt</span>
+        </div>
+        <p style="margin-top: 1rem;"><a href="../index.html#contact" class="link">Me contacter pour en savoir plus</a></p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Informations légales</h2>
+      <div class="grid cards">
+        <article class="card" style="cursor: default;">
+          <h3><a href="../susumou/privacy.html" class="link">Politique de confidentialité</a></h3>
+          <p>Données collectées, utilisation et droits RGPD.</p>
+        </article>
+        <article class="card" style="cursor: default;">
+          <h3><a href="../susumou/cgu.html" class="link">Conditions Générales d'Utilisation</a></h3>
+          <p>Règles d'utilisation de l'application.</p>
+        </article>
+        <article class="card" style="cursor: default;">
+          <h3><a href="../susumou/cgv.html" class="link">Conditions Générales de Vente</a></h3>
+          <p>Achats in-app et abonnements.</p>
+        </article>
+        <article class="card" style="cursor: default;">
+          <h3><a href="../susumou/suppression-compte.html" class="link">Suppression de compte</a></h3>
+          <p>Procédure de suppression de compte et des données.</p>
+        </article>
       </div>
     </section>
   </main>
