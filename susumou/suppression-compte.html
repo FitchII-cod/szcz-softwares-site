@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Suppression de compte &mdash; Susumou | SZCZ Softwares</title>
+  <meta name="description" content="Proc&eacute;dure de suppression de compte et des donn&eacute;es personnelles dans l'application Susumou (&#36914;&#12418;&#12358;) par SZCZ Softwares.">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#2563EB">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+  <header class="site-header" role="banner">
+    <a class="brand" href="../index.html" aria-label="Retour &agrave; l'accueil">
+      <img src="../assets/logo.jpg" alt="Logo SZCZ Softwares" class="logo" loading="eager">
+      <span class="brand-text"><span class="strong">SZCZ</span> Softwares</span>
+    </a>
+    <nav class="nav" aria-label="Navigation principale">
+      <button class="nav-toggle" aria-expanded="false" aria-label="Ouvrir le menu">&#9776;</button>
+      <ul class="nav-list">
+        <li><a href="../index.html#services">Services</a></li>
+        <li><a href="../index.html#projets">Projets</a></li>
+        <li><a href="../index.html#expertise">Expertise</a></li>
+        <li><a href="../index.html#a-propos">&Agrave; propos</a></li>
+        <li><a href="../index.html#contact" class="btn btn-primary">Contact</a></li>
+        <li><button id="themeToggle" class="btn btn-ghost" aria-label="Basculer le th&egrave;me">&#127763;</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content" class="section legal-page" role="main">
+    <nav class="breadcrumb" aria-label="Fil d'Ariane">
+      <a href="../index.html">Accueil</a> / <a href="../projets/susumou.html">Susumou</a> / <span aria-current="page">Suppression de compte</span>
+    </nav>
+
+    <h1>Suppression de compte &mdash; Susumou (&#36914;&#12418;&#12358;)</h1>
+    <p><em>Derni&egrave;re mise &agrave; jour : <span id="update-date"></span></em></p>
+
+    <p>Conform&eacute;ment au RGPD et aux exigences de l'App Store et de Google Play, vous pouvez &agrave; tout moment demander la suppression de votre compte <strong>Susumou</strong> et de l'ensemble des donn&eacute;es personnelles associ&eacute;es.</p>
+
+    <h2>1. Supprimer votre compte depuis l'application</h2>
+    <p>La m&eacute;thode la plus simple et la plus rapide consiste &agrave; utiliser la fonctionnalit&eacute; int&eacute;gr&eacute;e dans l'application :</p>
+    <ol>
+      <li>Ouvrez l'application <strong>Susumou</strong></li>
+      <li>Acc&eacute;dez &agrave; <strong>Param&egrave;tres</strong> (ic&ocirc;ne engrenage)</li>
+      <li>Faites d&eacute;filer jusqu'&agrave; la section <strong>Compte</strong></li>
+      <li>Appuyez sur <strong>&laquo;&nbsp;Supprimer mon compte&nbsp;&raquo;</strong></li>
+      <li>Confirmez votre choix dans la bo&icirc;te de dialogue de confirmation</li>
+      <li>Votre compte et vos donn&eacute;es seront supprim&eacute;s</li>
+    </ol>
+    <!-- [&Agrave; COMPL&Eacute;TER] Adapter le chemin exact dans l'application si diff&eacute;rent -->
+
+    <h2>2. Supprimer votre compte par e-mail</h2>
+    <p>Si vous ne pouvez pas acc&eacute;der &agrave; l'application, vous pouvez demander la suppression de votre compte par e-mail :</p>
+    <ol>
+      <li>Envoyez un e-mail &agrave; <a href="mailto:dev@szczsoftwares.fr">dev@szczsoftwares.fr</a></li>
+      <li>Indiquez en objet : <strong>&laquo;&nbsp;Suppression de compte Susumou&nbsp;&raquo;</strong></li>
+      <li>Pr&eacute;cisez dans le corps du message :
+        <ul>
+          <li>L'adresse e-mail associ&eacute;e &agrave; votre compte (si applicable)</li>
+          <li>Le type de connexion utilis&eacute; (e-mail, Google, Apple, anonyme)</li>
+          <li>Toute information permettant d'identifier votre compte</li>
+        </ul>
+      </li>
+      <li>Nous traiterons votre demande dans un d&eacute;lai maximum de <strong>30 jours</strong></li>
+    </ol>
+
+    <h2>3. Donn&eacute;es supprim&eacute;es</h2>
+    <p>Lors de la suppression de votre compte, les donn&eacute;es suivantes seront d&eacute;finitivement effac&eacute;es :</p>
+    <ul>
+      <li><strong>Donn&eacute;es d'authentification</strong> &mdash; compte Firebase Auth (e-mail, identifiants li&eacute;s Google/Apple)</li>
+      <li><strong>Profil utilisateur</strong> &mdash; pseudo, pr&eacute;f&eacute;rences, niveau JLPT choisi, param&egrave;tres</li>
+      <li><strong>Progression d'apprentissage</strong> &mdash; le&ccedil;ons compl&eacute;t&eacute;es, scores, historique</li>
+      <li><strong>&Eacute;tats SRS</strong> &mdash; intervalles de r&eacute;p&eacute;tition, facteurs de facilit&eacute;, prochaines r&eacute;visions pour tous les &eacute;l&eacute;ments (kanji, vocabulaire, grammaire)</li>
+      <li><strong>Achievements et gamification</strong> &mdash; XP, niveaux, streaks, achievements d&eacute;bloqu&eacute;s</li>
+      <li><strong>Donn&eacute;es Firestore</strong> &mdash; tous les documents associ&eacute;s &agrave; votre identifiant utilisateur</li>
+    </ul>
+
+    <h2>4. Donn&eacute;es conserv&eacute;es</h2>
+    <p>Certaines donn&eacute;es peuvent &ecirc;tre conserv&eacute;es apr&egrave;s la suppression du compte :</p>
+    <ul>
+      <li><strong>Donn&eacute;es analytiques anonymis&eacute;es</strong> &mdash; les donn&eacute;es d'utilisation collect&eacute;es par Firebase Analytics sont agr&eacute;g&eacute;es et anonymis&eacute;es ; elles ne permettent pas de vous identifier</li>
+      <li><strong>Donn&eacute;es locales</strong> &mdash; les donn&eacute;es stock&eacute;es localement sur votre appareil (SQLite) ne sont pas supprim&eacute;es automatiquement c&ocirc;t&eacute; serveur. Pour les supprimer, d&eacute;sinstallez l'application</li>
+      <li><strong>Achats in-app</strong> &mdash; l'historique des transactions reste g&eacute;r&eacute; par Apple/Google et n'est pas affect&eacute; par la suppression du compte Susumou. Les achats pourront &ecirc;tre restaur&eacute;s sur un nouveau compte</li>
+      <li><strong>Obligations l&eacute;gales</strong> &mdash; certaines donn&eacute;es peuvent &ecirc;tre conserv&eacute;es si la loi l'exige (par exemple, les donn&eacute;es de facturation pendant la dur&eacute;e l&eacute;gale de conservation)</li>
+    </ul>
+
+    <h2>5. D&eacute;lai de suppression</h2>
+    <ul>
+      <li><strong>Depuis l'application :</strong> la suppression est effectu&eacute;e imm&eacute;diatement. La propagation compl&egrave;te sur tous les syst&egrave;mes peut prendre jusqu'&agrave; <strong>30 jours</strong>.</li>
+      <li><strong>Par e-mail :</strong> nous accusons r&eacute;ception de votre demande sous <strong>48 heures ouvr&eacute;es</strong> et proc&eacute;dons &agrave; la suppression dans un d&eacute;lai maximum de <strong>30 jours</strong>.</li>
+    </ul>
+
+    <h2>6. Cons&eacute;quences de la suppression</h2>
+    <p><strong>Attention :</strong> la suppression de votre compte est <strong>irr&eacute;versible</strong>. Une fois effectu&eacute;e :</p>
+    <ul>
+      <li>Vous ne pourrez plus acc&eacute;der &agrave; votre progression, vos &eacute;tats SRS, vos achievements ou vos statistiques</li>
+      <li>Toutes les donn&eacute;es synchronis&eacute;es sur Firebase seront d&eacute;finitivement supprim&eacute;es</li>
+      <li>Vous pourrez cr&eacute;er un nouveau compte, mais votre progression ne sera pas restaur&eacute;e</li>
+      <li>Les abonnements actifs ne sont pas automatiquement annul&eacute;s &mdash; pensez &agrave; les r&eacute;silier manuellement (voir ci-dessous)</li>
+    </ul>
+
+    <h2>7. Abonnements actifs</h2>
+    <p>La suppression de votre compte <strong>ne r&eacute;silie pas automatiquement</strong> vos abonnements. Vous devez les annuler manuellement pour &eacute;viter tout pr&eacute;l&egrave;vement futur :</p>
+    <ul>
+      <li><strong>iOS :</strong> R&eacute;glages &gt; [Votre nom] &gt; Abonnements &gt; Susumou &gt; R&eacute;silier</li>
+      <li><strong>Android :</strong> Google Play Store &gt; Menu &gt; Abonnements &gt; Susumou &gt; R&eacute;silier</li>
+    </ul>
+
+    <h2>8. Contact</h2>
+    <p>Pour toute question concernant la suppression de votre compte ou de vos donn&eacute;es :</p>
+    <p>
+      <strong>SZCZ Softwares</strong><br>
+      E-mail : <a href="mailto:dev@szczsoftwares.fr">dev@szczsoftwares.fr</a><br>
+      Localisation : Nantes, France
+    </p>
+    <p>Vous pouvez &eacute;galement exercer vos droits RGPD (acc&egrave;s, rectification, portabilit&eacute;, opposition) en nous contactant &agrave; cette m&ecirc;me adresse. Pour plus d'informations, consultez notre <a href="privacy.html">Politique de confidentialit&eacute;</a>.</p>
+
+    <p style="margin-top: 2rem;"><a href="../projets/susumou.html" class="link">&larr; Retour &agrave; la page Susumou</a></p>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <p>&copy; <span id="year"></span> SZCZ Softwares &mdash; Tous droits r&eacute;serv&eacute;s.</p>
+    <nav class="foot-nav">
+      <a href="../index.html">Accueil</a>
+      <a href="../index.html#projets">Projets</a>
+      <a href="../index.html#contact">Contact</a>
+      <a href="../privacy.html">Confidentialit&eacute;</a>
+      <a href="../mentions-legales.html">Mentions l&eacute;gales</a>
+      <button id="backToTop" class="btn btn-ghost">&uarr; Haut</button>
+    </nav>
+    <div class="social-links">
+      <a href="https://linkedin.com/company/szcz-softwares" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+      <a href="https://github.com/FitchII-cod" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('update-date').textContent = new Date().toLocaleDateString('fr-FR', {
+      year: 'numeric', month: 'long', day: 'numeric'
+    });
+    const themeToggle = document.getElementById('themeToggle');
+    const savedTheme = localStorage.getItem('szcz-theme');
+    if (savedTheme === 'light') document.documentElement.classList.add('light');
+    themeToggle?.addEventListener('click', () => {
+      document.documentElement.classList.toggle('light');
+      localStorage.setItem('szcz-theme', document.documentElement.classList.contains('light') ? 'light' : 'dark');
+    });
+    const navToggle = document.querySelector('.nav-toggle');
+    const navList = document.querySelector('.nav-list');
+    navToggle?.addEventListener('click', () => {
+      const isOpen = navList.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', isOpen);
+    });
+    document.getElementById('backToTop')?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    const sections = document.querySelectorAll('.section');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    sections.forEach(s => observer.observe(s));
+  </script>
+</body>
+</html>

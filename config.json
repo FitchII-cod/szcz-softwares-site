@@ -74,6 +74,20 @@
       "tagline": "Portail mint + gating de fonctionnalités pour une app",
       "tags": ["Solidity/Solana", "Web3", "NFT"],
       "page": "projets/nft-access-pass.html"
+    },
+    {
+      "title": "Susumou — Apprendre le japonais",
+      "tagline": "Flutter + SRS + Gemini AI, dictionnaire offline, JLPT N5-N1",
+      "tags": ["Flutter", "Firebase", "Gemini AI", "SRS"],
+      "page": "projets/susumou.html",
+      "stores": {"ios": null, "android": null}
+    },
+    {
+      "title": "Soccer Link — Football amateur",
+      "tagline": "Réseau social Flutter pour clubs, joueurs et coachs",
+      "tags": ["Flutter", "Firebase", "Algolia", "Riverpod"],
+      "page": "projets/soccer-link.html",
+      "stores": {"ios": null, "android": null}
     }
   ],
   "stack": [
@@ -96,7 +110,7 @@
       "label": "projets perso & clients"
     },
     {
-      "value": "3",
+      "value": "5",
       "label": "apps en cours"
     },
     {
