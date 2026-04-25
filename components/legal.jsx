@@ -26,6 +26,18 @@ const LEGAL_COPY = {
         { h: "6. Cookies", b: "Only strictly necessary cookies are used. No advertising or third-party tracking cookies are set." },
       ],
     },
+    ja: {
+      title: "プライバシーポリシー",
+      updated: "最終更新日:2026年4月",
+      sections: [
+        { h: "1. 管理者", b: "本サイトおよび関連アプリで収集されるデータの管理者は、Bastian Niszczotaが運営するSZCZ Softwaresです。連絡先：dev@szczsoftwares.fr。" },
+        { h: "2. 収集するデータ", b: "お問い合わせフォームではお名前、メールアドレス、メッセージを記録します。アプリではサービス運営のため、ユーザー識別子、設定、匿名化された利用統計を収集する場合があります。" },
+        { h: "3. 利用目的", b: "ご依頼への返信、サービスの提供と改善、法令上の義務の遵守。第三者へのデータ販売は行いません。" },
+        { h: "4. 保存期間", b: "お問い合わせメッセージは24か月間保存します。アプリのデータはご依頼またはアカウント閉鎖時に削除します。" },
+        { h: "5. 利用者の権利", b: "アクセス、訂正、削除、異議申立、ポータビリティの権利があります。dev@szczsoftwares.fr までメールでご連絡ください。" },
+        { h: "6. Cookie", b: "厳密に必要なCookieのみ使用します。広告用Cookieや第三者のトラッキングCookieは設置しません。" },
+      ],
+    },
   },
   legal: {
     fr: {
@@ -48,6 +60,17 @@ const LEGAL_COPY = {
         { h: "Intellectual property", b: "All content, text, graphics, logos and code on this site are the exclusive property of SZCZ Softwares, unless otherwise stated." },
         { h: "Liability", b: "Information is provided for reference. SZCZ Softwares cannot be held liable for any errors or service interruptions." },
         { h: "Applicable law", b: "This notice is governed by French law. Any dispute falls under the jurisdiction of Nantes." },
+      ],
+    },
+    ja: {
+      title: "法的事項",
+      updated: "最終更新日:2026年4月",
+      sections: [
+        { h: "発行者", b: "SZCZ Softwares — Bastian Niszczota（独立系開発者）。本社所在地：フランス・ナント。メール：dev@szczsoftwares.fr。" },
+        { h: "ホスティング", b: "本サイトはFirebase Hosting（Google Ireland Limited、Gordon House, Barrow Street, Dublin 4, Ireland）でホストされています。" },
+        { h: "知的財産権", b: "本サイトのすべてのコンテンツ、テキスト、グラフィック、ロゴ、コードは、別段の記載がない限りSZCZ Softwaresの独占的財産です。" },
+        { h: "責任", b: "情報は参考目的で提供されます。SZCZ Softwaresは誤りやサービス中断について責任を負いません。" },
+        { h: "準拠法", b: "本通知はフランス法に準拠します。すべての紛争はナントの管轄に属します。" },
       ],
     },
   },

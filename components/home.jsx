@@ -109,7 +109,7 @@ function ProjectCard({ p, lang, onOpen, compact }) {
         <h3 className="project-title">
           <span className="project-title-slash">/</span>{p.slug}
         </h3>
-        <p className="project-tagline">{lang === "fr" ? p.tagline_fr : p.tagline_en}</p>
+        <p className="project-tagline">{tx(p, "tagline", lang)}</p>
       </div>
       <div className="project-card-foot">
         <div className="project-tags">
@@ -173,8 +173,8 @@ function Services({ lang }) {
             <div className="service-idx">{String(i + 1).padStart(2, "0")}</div>
             <div className="service-body">
               <div className="service-cmd">$ {s.cmd}</div>
-              <h3 className="service-title">{lang === "fr" ? s.fr : s.en}</h3>
-              <p className="service-desc">{lang === "fr" ? s.desc_fr : s.desc_en}</p>
+              <h3 className="service-title">{s[lang] || s.en || s.fr}</h3>
+              <p className="service-desc">{tx(s, "desc", lang)}</p>
             </div>
           </div>
         ))}
@@ -225,7 +225,7 @@ function StackSection({ lang }) {
           {STATS.map(s => (
             <div key={s.value} className="stat-card">
               <div className="stat-value">{s.value}</div>
-              <div className="stat-label">{lang === "fr" ? s.label_fr : s.label_en}</div>
+              <div className="stat-label">{tx(s, "label", lang)}</div>
             </div>
           ))}
         </div>
@@ -316,7 +316,7 @@ function Contact({ lang }) {
               <div className="form-success-icon">✓</div>
               <div className="form-success-msg">{c.contact_ok}</div>
               <button type="button" className="btn btn-ghost" onClick={() => { setSent(false); setForm({ name: "", email: "", msg: "" }); }}>
-                ← {lang === "fr" ? "nouveau message" : "new message"}
+                ← {c.contact_new_message}
               </button>
             </div>
           ) : (
@@ -341,12 +341,12 @@ function Contact({ lang }) {
         </form>
         <aside className="contact-side">
           <div className="contact-block">
-            <div className="contact-label">{lang === "fr" ? "disponibilité" : "availability"}</div>
+            <div className="contact-label">{c.contact_availability}</div>
             <div className="contact-value"><span className="status-live-dot">●</span> {c.contact_open}</div>
             <p className="contact-sub">{c.contact_sub}</p>
           </div>
           <div className="contact-block">
-            <div className="contact-label">{lang === "fr" ? "canaux" : "channels"}</div>
+            <div className="contact-label">{c.contact_channels}</div>
             <ul className="contact-channels">
               <li>
                 <span className="chan-key">email</span>
@@ -367,7 +367,7 @@ function Contact({ lang }) {
             </ul>
           </div>
           <div className="contact-block">
-            <div className="contact-label">{lang === "fr" ? "temps de réponse" : "response time"}</div>
+            <div className="contact-label">{c.contact_response}</div>
             <div className="contact-value">&lt; 48h</div>
           </div>
         </aside>

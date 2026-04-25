@@ -25,7 +25,7 @@ function ProjectPage({ slug, lang, onBack, onOpen, onOpenLegal }) {
               [{meta.label}] {p.category}
             </div>
             <h1 className="project-hero-title">{p.title}</h1>
-            <p className="project-hero-tagline">{lang === "fr" ? p.tagline_fr : p.tagline_en}</p>
+            <p className="project-hero-tagline">{tx(p, "tagline", lang)}</p>
 
             <div className="project-meta-grid">
               <div className="project-meta-item">
@@ -78,7 +78,7 @@ function ProjectPage({ slug, lang, onBack, onOpen, onOpenLegal }) {
           <Prompt>cat overview.md</Prompt>
         </div>
         <h2 className="project-section-title">{c.overview}</h2>
-        <p className="project-summary">{lang === "fr" ? p.summary_fr : p.summary_en}</p>
+        <p className="project-summary">{tx(p, "summary", lang)}</p>
       </section>
 
       <section className="project-section">
@@ -87,7 +87,7 @@ function ProjectPage({ slug, lang, onBack, onOpen, onOpenLegal }) {
         </div>
         <h2 className="project-section-title">{c.highlights}</h2>
         <ul className="highlight-list">
-          {(lang === "fr" ? p.highlights_fr : p.highlights_en).map((h, i) => (
+          {(tx(p, "highlights", lang) || []).map((h, i) => (
             <li key={i}>
               <span className="highlight-num">{String(i + 1).padStart(2, "0")}</span>
               <span className="highlight-text">{h}</span>
@@ -112,7 +112,7 @@ function ProjectPage({ slug, lang, onBack, onOpen, onOpenLegal }) {
           <div className="project-section-head">
             <Prompt>ls ./legal</Prompt>
           </div>
-          <h2 className="project-section-title">{lang === "fr" ? "Documents légaux" : "Legal documents"}</h2>
+          <h2 className="project-section-title">{c.legal_documents}</h2>
           <div className="project-legal-grid">
             {legalDocs.map(doc => (
               <button key={doc.id} className="project-legal-card" onClick={() => onOpenLegal(slug, doc.id)}>
