@@ -4,17 +4,12 @@
     "ignore": [
       "firebase.json",
       "**/node_modules/**",
-      "functions/**",
       "README.md",
       "RAPPORT_ANALYSE.md",
       ".gitignore",
       ".firebaserc"
     ],
     "rewrites": [
-      {
-        "source": "/api/contact",
-        "function": "contactForm"
-      },
       {
         "source": "**",
         "destination": "/index.html"
@@ -30,8 +25,5 @@
         ]
       }
     ]
-  },
-  "functions": {
-    "source": "functions"
   }
 }
