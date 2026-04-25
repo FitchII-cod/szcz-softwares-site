@@ -1,4 +1,4 @@
-// Shared primitives + data for SZCZ Softwares terminal portfolio
+﻿// Shared primitives + data for SZCZ Softwares terminal portfolio
 
 // i18n helper: pick `${base}_${lang}` with fallback to en/fr.
 const tx = (obj, base, lang) =>
@@ -19,15 +19,15 @@ const PROJECTS = [
     year: "2025",
     category: "mobile",
     stores: { ios: "soon", android: "soon" },
-    highlights_fr: ["Dictionnaire offline 170k entrées", "SRS adaptatif à l'utilisateur", "Explications IA contextuelles"],
-    highlights_en: ["Offline dictionary, 170k entries", "User-adaptive SRS", "Contextual AI explanations"],
-    highlights_ja: ["17万語のオフライン辞書", "ユーザーに適応するSRS", "文脈に応じたAI解説"],
+    highlights_fr: ["Dictionnaire offline 10k entrées", "SRS adaptatif à l'utilisateur", "Explications IA contextuelles"],
+    highlights_en: ["Offline dictionary, 10k entries", "User-adaptive SRS", "Contextual AI explanations"],
+    highlights_ja: ["1万語のオフライン辞書", "ユーザーに適応するSRS", "文脈に応じたAI解説"],
     legal: [
-      { id: "privacy", fr: "Politique de confidentialité", en: "Privacy policy", ja: "プライバシーポリシー" },
-      { id: "cgu", fr: "CGU", en: "Terms of use", ja: "利用規約" },
-      { id: "cgv", fr: "CGV", en: "Terms of sale", ja: "販売条件" },
-      { id: "mentions-legales", fr: "Mentions légales", en: "Legal notice", ja: "法的事項" },
-      { id: "account-deletion", fr: "Suppression de compte", en: "Account deletion", ja: "アカウント削除" },
+      { id: "privacy", fr: "Politique de confidentialité", en: "Privacy policy" },
+      { id: "cgu", fr: "CGU", en: "Terms of use" },
+      { id: "cgv", fr: "CGV", en: "Terms of sale" },
+      { id: "mentions-legales", fr: "Mentions légales", en: "Legal notice" },
+      { id: "account-deletion", fr: "Suppression de compte", en: "Account deletion" },
     ],
   },
   {
@@ -48,11 +48,11 @@ const PROJECTS = [
     highlights_en: ["Algolia search < 50ms", "Multi-role profiles", "Aggregated personal stats"],
     highlights_ja: ["Algolia検索50ms未満", "複数ロール対応プロフィール", "個人スタッツ集計"],
     legal: [
-      { id: "privacy", fr: "Politique de confidentialité", en: "Privacy policy", ja: "プライバシーポリシー" },
-      { id: "cgu", fr: "CGU", en: "Terms of use", ja: "利用規約" },
-      { id: "cgv", fr: "CGV", en: "Terms of sale", ja: "販売条件" },
-      { id: "mentions-legales", fr: "Mentions légales", en: "Legal notice", ja: "法的事項" },
-      { id: "account-deletion", fr: "Suppression de compte", en: "Account deletion", ja: "アカウント削除" },
+      { id: "privacy", fr: "Politique de confidentialité", en: "Privacy policy" },
+      { id: "cgu", fr: "CGU", en: "Terms of use" },
+      { id: "cgv", fr: "CGV", en: "Terms of sale" },
+      { id: "mentions-legales", fr: "Mentions légales", en: "Legal notice" },
+      { id: "account-deletion", fr: "Suppression de compte", en: "Account deletion" },
     ],
   },
   {
@@ -300,575 +300,1073 @@ const CATEGORY_META = {
   blockchain: { label: "CHN", hue: 25 },
 };
 
-// Per-project legal doc content (FR + EN). keyed by project slug + doc id.
+// Per-project legal doc content, translated from the product Markdown sources.
 const PROJECT_LEGAL = {
   "susumou": {
     "privacy": {
-      fr: {
-        title: "Politique de confidentialité — Susumou (進もう)",
-        updated: "Version 1.1 — Dernière mise à jour : 21 mars 2026",
-        intro: "La présente politique décrit comment SZCZ Softwares (« Éditeur ») collecte, utilise, stocke et protège les données personnelles des utilisateurs de l'application mobile Susumou, disponible sur iOS et Android. En utilisant l'Application, vous acceptez les pratiques décrites ci-dessous.",
-        sections: [
-          { h: "1. Éditeur et responsable du traitement", b: "SZCZ Softwares (SASU). Siège social : France. E-mail : contact@szcz-softwares.com." },
-          { h: "2. Données collectées", b: "Données de compte (authentification anonyme Firebase, e-mail + mot de passe haché, Google ou Apple Sign-In). Données d'apprentissage (progression, cartes étudiées, statistiques SRS, objectifs, préférences). Données techniques (Firebase Analytics, Crashlytics, Remote Config, App Check — modèle, OS, version). Données d'IA (prompts, niveau, progression transmis à l'API Google Gemini, sans donnée directement identifiante). Stockage local pour performances et mode hors-ligne." },
-          { h: "3. Finalités du traitement", b: "Gérer votre compte, synchroniser votre progression, personnaliser les contenus, améliorer l'algorithme SRS, analyser l'utilisation de façon statistique, assurer la sécurité, respecter nos obligations légales." },
-          { h: "4. Base légale", b: "Exécution du contrat (fourniture du service), intérêt légitime (amélioration, analyse, sécurité), consentement pour les traitements qui le nécessitent." },
-          { h: "5. Partage des données", b: "Vos données ne sont jamais vendues. Partages possibles avec Google / Firebase, Google Gemini, Google AdMob (version gratuite), Apple / Google pour les achats in-app, autorités compétentes en cas d'obligation légale." },
-          { h: "6. Transferts internationaux", b: "Certaines données peuvent être hébergées hors UE via les services Google. Des garanties appropriées (clauses contractuelles types, cadres de transfert applicables) sont mises en place conformément au RGPD." },
-          { h: "7. Durée de conservation", b: "Compte actif : tant que le compte est actif. Suppression : données supprimées sous 30 jours, sauvegardes sous 90 jours. Inactivité : rappel après 24 mois, archivage possible au-delà de 36 mois." },
-          { h: "8. Sécurité", b: "Chiffrement en transit (HTTPS/TLS), authentification Firebase, règles Firestore par utilisateur, App Check, mots de passe hachés." },
-          { h: "9. Vos droits (RGPD)", b: "Accès, rectification, suppression, portabilité, opposition, limitation. Contact : contact@szcz-softwares.com. Droit de réclamation auprès de la CNIL (www.cnil.fr)." },
-          { h: "10. Données des mineurs", b: "L'Application n'est pas destinée aux moins de 16 ans. Pour signaler des données d'un mineur : contact@szcz-softwares.com." },
-          { h: "11. Achats in-app", b: "Transactions gérées par Apple ou Google. Nous ne recevons pas vos données bancaires." },
-          { h: "12. Modifications", b: "Nous pouvons mettre à jour cette politique à tout moment. En cas de modification substantielle, une notification est envoyée dans l'Application ou par e-mail." },
-          { h: "13. Contact", b: "SZCZ Softwares (SASU), France. E-mail : contact@szcz-softwares.com." },
-        ],
+      "en": {
+        "title": "Susumou Privacy Policy",
+        "updated": "Version 1.2 - Last updated: April 25, 2026",
+        "intro": "This privacy policy explains how SZCZ Softwares processes personal data collected and used in connection with the Susumou mobile application.",
+        "sections": [
+          {
+            "h": "1. Data controller",
+            "b": "The data controller is SZCZ Softwares, SASU with share capital of EUR 1,000, registered with the Boulogne-sur-Mer Trade and Companies Register under number 100 523 067. Registered office: 95 avenue de Deauville, 62520 Le Touquet-Paris-Plage, France. SIRET: 100 523 067 00013. Intra-community VAT: FR93100523067. NAF/APE code: 6201Z - Computer programming. Website: https://szczsoftwares.fr. Contact: dev@szczsoftwares.fr."
+          },
+          {
+            "h": "2. Data collected",
+            "b": "Susumou only collects data necessary to operate, personalize, secure and improve the app: Firebase identifier, email address when signing in by email, Google or Apple, names provided by the authentication provider, account settings, language and notification preferences, learning progress, studied cards, spaced-repetition statistics, goals, tests, level indicators, usage data, AI feature interactions, device type, operating system, app version, session identifiers, diagnostics and advertising data needed to display ads in the free version according to available consent and tracking settings. SZCZ Softwares does not collect banking data; payments are processed by the Apple App Store or Google Play Store."
+          },
+          {
+            "h": "3. Purposes and legal bases",
+            "b": "Data is processed to provide the app and its features, manage accounts, authentication, synchronization and progress backups, perform the contract with the user, provide free or paid features, manage the Supporter subscription, personalize learning, generate or adapt AI content, improve the service through usage statistics and anonymized or aggregated analytics, fix bugs, develop new features, secure the service, prevent abuse, protect against unauthorized access, verify app integrity, display ads in the free version where applicable, comply with legal obligations and respond to rights requests. Legal bases include contract performance, consent where required, SZCZ Softwares' legitimate interest in securing and improving the service, and legal obligations."
+          },
+          {
+            "h": "4. Use of artificial intelligence",
+            "b": "Susumou uses generative AI technologies through the Google Gemini API, including for the AI coach, question generation, adaptive reading texts and study recommendations. The model may change for technical and quality improvements, and the active version may be configured remotely through Firebase Remote Config. Data sent to AI services is limited to what is necessary: user prompts, questions and requests, useful learning data such as level, progress or study statistics, and strictly necessary learning context. Directly identifying data is avoided where possible. AI features may produce inaccurate or incomplete responses; users remain responsible for checking important information."
+          },
+          {
+            "h": "5. Processors and third-party services",
+            "b": "SZCZ Softwares uses Firebase / Google Cloud for authentication, Firestore database, storage, analytics, remote configuration and App Check security; Google Gemini for educational content generation and AI request processing; Google AdMob for advertising in the free version; and the Apple App Store and Google Play Store for app distribution, in-app purchases, subscriptions and payments. These providers may process personal data as processors or independent controllers depending on their role and their own terms."
+          },
+          {
+            "h": "6. Retention periods",
+            "b": "Data is kept for periods proportionate to the purposes pursued. Account, progress and statistics data are kept while the account is active. When an account is deleted, personal data is deleted or anonymized within a reasonable period, in principle within 30 days, subject to technical constraints, legal requirements and backups. Backups may be retained for up to 90 days before final deletion. Anonymized or aggregated data may be kept without time limit when it no longer identifies the user. After a long period of inactivity, an account may be archived and then deleted after informing the user where possible. Users may request deletion from the app or by email to dev@szczsoftwares.fr."
+          },
+          {
+            "h": "7. User rights",
+            "b": "Under the GDPR and the French Data Protection Act, users have rights of access, rectification, erasure within legal limits, objection where processing is based on legitimate interest, restriction of processing, portability of provided data, and withdrawal of consent where processing is based on consent. Requests may be sent to dev@szczsoftwares.fr and should specify the account identifier or associated email address and the right being exercised. A response will be provided within one month, extendable by two months for complex or multiple requests. Users may also lodge a complaint with the CNIL: https://www.cnil.fr."
+          },
+          {
+            "h": "8. Security",
+            "b": "SZCZ Softwares implements technical and organizational measures to protect personal data, including HTTPS/TLS encryption in transit, secure authentication through Firebase Authentication, Firebase security rules, limited access to personal data, and incident management and vulnerability correction procedures. No electronic transmission or storage method is completely secure, so SZCZ Softwares cannot guarantee absolute security but undertakes to maintain protection appropriate to the risks."
+          },
+          {
+            "h": "9. Transfers outside the European Union",
+            "b": "Some providers, including Google, Apple or their subprocessors, may process data outside the European Union. Where such transfers occur, they are covered by appropriate safeguards such as European Commission standard contractual clauses, applicable adequacy decisions or any other mechanism recognized by the regulations."
+          },
+          {
+            "h": "10. Cookies, trackers and advertising",
+            "b": "The Susumou mobile app may use technologies similar to cookies, including Firebase Analytics and Google AdMob. These tools may be used to measure audience, improve the app, detect anomalies and display ads in the free version. Users can limit advertising tracking in their device settings and, where the app provides it, in the integrated privacy settings."
+          },
+          {
+            "h": "11. Minors",
+            "b": "Susumou may be used by minors with authorization from their legal representative. The legal representative may contact SZCZ Softwares at dev@szczsoftwares.fr for any request concerning a minor's data."
+          },
+          {
+            "h": "12. Changes to this policy",
+            "b": "SZCZ Softwares may modify this privacy policy to reflect legal, technical or functional changes to the app. The new version will be published in the app or on https://szczsoftwares.fr. In the event of a substantial change, users may be informed by any appropriate means."
+          }
+        ]
       },
-      en: {
-        title: "Privacy Policy — Susumou (進もう)",
-        updated: "Version 1.1 — Last updated: March 21, 2026",
-        intro: "This policy describes how SZCZ Softwares (the \"Publisher\") collects, uses, stores and protects personal data of users of the Susumou mobile application, available on iOS and Android. By using the App, you accept the practices described below.",
-        sections: [
-          { h: "1. Publisher & data controller", b: "SZCZ Softwares (SASU). Registered office: France. Email: contact@szcz-softwares.com." },
-          { h: "2. Data collected", b: "Account data (Firebase anonymous auth, email + hashed password, Google or Apple Sign-In). Learning data (progress, studied cards, SRS statistics, goals, preferences). Technical data (Firebase Analytics, Crashlytics, Remote Config, App Check — model, OS, version). AI data (prompts, level, progress sent to the Google Gemini API, with no directly identifying data). Local storage for performance and offline mode." },
-          { h: "3. Purposes", b: "Manage your account, sync progress, personalize content, improve the SRS algorithm, analyze usage statistically, ensure security, meet legal obligations." },
-          { h: "4. Legal basis", b: "Contract performance (service delivery), legitimate interest (improvement, analysis, security), consent where required." },
-          { h: "5. Data sharing", b: "Your data is never sold. Possible sharing with Google / Firebase, Google Gemini, Google AdMob (free version), Apple / Google for in-app purchases, competent authorities in case of legal obligation." },
-          { h: "6. International transfers", b: "Some data may be hosted outside the EU via Google services. Appropriate safeguards (standard contractual clauses, applicable transfer frameworks) are in place under the GDPR." },
-          { h: "7. Retention", b: "Active account: while the account is active. Deletion: data deleted within 30 days, backups within 90 days. Inactivity: reminder after 24 months, possible archiving after 36 months." },
-          { h: "8. Security", b: "In-transit encryption (HTTPS/TLS), Firebase auth, per-user Firestore rules, App Check, hashed passwords." },
-          { h: "9. Your rights (GDPR)", b: "Access, rectification, erasure, portability, objection, restriction. Contact: contact@szcz-softwares.com. Right to lodge a complaint with the CNIL (www.cnil.fr)." },
-          { h: "10. Minors", b: "The App is not intended for children under 16. To report minor data: contact@szcz-softwares.com." },
-          { h: "11. In-app purchases", b: "Transactions handled by Apple or Google. We do not receive your payment details." },
-          { h: "12. Updates", b: "We may update this policy at any time. Material changes are notified via the App or by email." },
-          { h: "13. Contact", b: "SZCZ Softwares (SASU), France. Email: contact@szcz-softwares.com." },
-        ],
-      },
-      ja: {
-        title: "プライバシーポリシー — Susumou（進もう）",
-        updated: "バージョン 1.1 — 最終更新日：2026年3月21日",
-        intro: "本ポリシーは、SZCZ Softwares（以下「発行者」）が、iOSおよびAndroidで提供するモバイルアプリ「Susumou」の利用者の個人データをどのように収集・利用・保管・保護するかを説明するものです。本アプリをご利用いただくことで、以下の取扱いに同意いただいたものとみなします。",
-        sections: [
-          { h: "1. 発行者および管理者", b: "SZCZ Softwares（SASU）。本社所在地：フランス。連絡先：contact@szcz-softwares.com。" },
-          { h: "2. 収集するデータ", b: "アカウント情報（Firebase匿名認証、メールアドレス＋ハッシュ化パスワード、Google／Apple Sign-In）、学習データ（進捗、学習カード、SRS統計、目標、設定）、技術情報（Firebase Analytics、Crashlytics、Remote Config、App Check — 端末モデル、OS、バージョン）、AIデータ（プロンプト、レベル、進捗をGoogle Gemini APIに送信。直接識別可能な情報は含みません）、パフォーマンスおよびオフラインモードのためのローカルストレージ。" },
-          { h: "3. 利用目的", b: "アカウントの管理、進捗の同期、コンテンツのパーソナライズ、SRSアルゴリズムの改善、統計的な利用分析、セキュリティの確保、法令遵守。" },
-          { h: "4. 法的根拠", b: "契約の履行（サービス提供）、正当な利益（改善・分析・セキュリティ）、必要な場合の同意。" },
-          { h: "5. データの共有", b: "データを販売することは一切ありません。共有の可能性がある相手：Google／Firebase、Google Gemini、Google AdMob（無料版）、アプリ内課金についてはApple／Google、法令上の義務がある場合は管轄当局。" },
-          { h: "6. 国外への移転", b: "一部のデータはGoogleのサービスを通じてEU域外で処理される場合があります。GDPRに従い、標準契約条項などの適切な保護措置を講じています。" },
-          { h: "7. 保存期間", b: "アクティブなアカウント：アカウントが有効な間。削除：30日以内に削除、バックアップは90日以内。非アクティブ：24か月後にリマインド、36か月超でアーカイブの可能性。" },
-          { h: "8. セキュリティ", b: "通信の暗号化（HTTPS/TLS）、Firebase認証、ユーザー単位のFirestoreルール、App Check、パスワードのハッシュ化。" },
-          { h: "9. 利用者の権利（GDPR）", b: "アクセス、訂正、削除、ポータビリティ、異議申立、制限の権利。連絡先：contact@szcz-softwares.com。CNIL（www.cnil.fr）への申立も可能です。" },
-          { h: "10. 未成年者", b: "本アプリは16歳未満を対象としていません。未成年者のデータを通報するには：contact@szcz-softwares.com。" },
-          { h: "11. アプリ内課金", b: "決済はAppleまたはGoogleが処理します。当社は決済情報を受領しません。" },
-          { h: "12. ポリシーの変更", b: "本ポリシーは予告なく変更されることがあります。重要な変更はアプリ内またはメールで通知します。" },
-          { h: "13. お問い合わせ", b: "SZCZ Softwares（SASU）、フランス。メール：contact@szcz-softwares.com。" },
-        ],
-      },
+      "fr": {
+        "title": "Politique de confidentialité de Susumou",
+        "updated": "Version 1.2 - Dernière mise à jour : 25 avril 2026",
+        "intro": "La présente politique de confidentialité explique comment SZCZ Softwares traite les données personnelles collectées et utilisées dans le cadre de l'application mobile Susumou.",
+        "sections": [
+          {
+            "h": "1. Responsable du traitement",
+            "b": "Le responsable du traitement est : SZCZ Softwares, SASU au capital social de 1 000 euros, immatriculée au RCS de Boulogne-sur-Mer sous le numéro 100 523 067. Siège social : 95 avenue de Deauville, 62520 Le Touquet-Paris-Plage, France SIRET : 100 523 067 00013 TVA intracommunautaire : FR93100523067 Code NAF/APE : 6201Z - Programmation informatique Site web : https://szczsoftwares.fr Contact : dev@szczsoftwares.fr"
+          },
+          {
+            "h": "2. Données collectées",
+            "b": "Susumou collecte uniquement les données nécessaires au fonctionnement, à la personnalisation, à la sécurité et à l'amélioration de l'application. Les catégories de données susceptibles d'être collectées sont les suivantes : - Données d'identification : identifiant Firebase, adresse email en cas de connexion par email, Google ou Apple, nom et prénom lorsqu'ils sont fournis par le fournisseur d'authentification. - Données de compte : mode d'authentification, paramètres du compte, préférences de langue et de notification. - Données pédagogiques : progression dans l'application, cartes étudiées, statistiques de répétition espacée, objectifs d'apprentissage, résultats aux tests et indicateurs de niveau. - Données d'usage : fonctionnalités utilisées, fréquence et durée des sessions, interactions avec les fonctionnalités d'intelligence artificielle. - Données techniques : type d'appareil, système d'exploitation, version de l'application, identifiants de session, informations de diagnostic nécessaires à la sécurité et au bon fonctionnement. - Données publicitaires : données nécessaires à l'affichage de publicités dans la version gratuite, selon les réglages de consentement et de suivi disponibles sur l'appareil. SZCZ Softwares ne collecte pas de données bancaires. Les paiements sont traités par l'Apple App Store ou Google Play Store."
+          },
+          {
+            "h": "3. Finalités et bases légales",
+            "b": "Les données sont traitées pour les finalités suivantes : - Fournir l'application et ses fonctionnalités : gestion du compte, authentification, synchronisation et sauvegarde de la progression. - Exécuter le contrat conclu avec l'utilisateur : accès aux fonctionnalités gratuites ou payantes, gestion de l'abonnement Supporter. - Personnaliser l'expérience d'apprentissage : recommandations, adaptation du niveau de difficulté, contenus générés ou adaptés par l'IA. - Améliorer le service : statistiques d'usage, analyse anonymisée ou agrégée, correction de bugs, développement de nouvelles fonctionnalités. - Assurer la sécurité : prévention des abus, protection contre les accès non autorisés, vérification de l'intégrité de l'application. - Afficher des publicités dans la version gratuite, lorsque cela est applicable et selon les choix de l'utilisateur. - Répondre aux obligations légales et aux demandes d'exercice de droits. Les bases légales utilisées sont l'exécution du contrat, le consentement lorsque requis, l'intérêt légitime de SZCZ Softwares à sécuriser et améliorer son service, et le respect d'obligations légales."
+          },
+          {
+            "h": "4. Utilisation de l'intelligence artificielle",
+            "b": "Susumou utilise des technologies d'intelligence artificielle générative via l'API Google Gemini, notamment pour le coach IA, la génération de questions, les textes de lecture adaptés et les recommandations d'étude. Le modèle utilisé peut évoluer afin de tenir compte des améliorations techniques et de qualité. La version active peut être configurée à distance via Firebase Remote Config. Les données susceptibles d'être transmises aux services d'IA sont limitées à ce qui est nécessaire : - prompts, questions et demandes de l'utilisateur ; - données pédagogiques utiles à la personnalisation, telles que le niveau, la progression ou les statistiques d'apprentissage ; - contexte d'apprentissage strictement nécessaire à la génération de la réponse. Dans la mesure du possible, les données directement identifiantes ne sont pas transmises aux services d'IA. Les fonctionnalités IA peuvent produire des réponses inexactes ou incomplètes ; l'utilisateur reste responsable de vérifier les informations importantes."
+          },
+          {
+            "h": "5. Sous-traitants et services tiers",
+            "b": "SZCZ Softwares utilise notamment les services suivants : - Firebase / Google Cloud : authentification, base de données Firestore, stockage, analytics, configuration à distance, sécurité App Check. - Google Gemini : génération de contenus pédagogiques et traitement des requêtes IA. - Google AdMob : affichage publicitaire dans la version gratuite. - Apple App Store et Google Play Store : distribution de l'application, achats intégrés, abonnements et paiements. Ces prestataires peuvent traiter des données personnelles en qualité de sous-traitants ou de responsables indépendants selon leurs rôles respectifs et leurs propres conditions."
+          },
+          {
+            "h": "6. Durées de conservation",
+            "b": "Les données sont conservées pendant des durées proportionnées aux finalités poursuivies : - Compte actif : les données de compte, de progression et de statistiques sont conservées tant que le compte reste actif. - Suppression du compte : les données personnelles sont supprimées ou anonymisées dans un délai raisonnable, en principe sous 30 jours, hors contraintes techniques, légales ou sauvegardes. - Sauvegardes : les copies de sauvegarde peuvent être conservées jusqu'à 90 jours avant suppression définitive. - Données anonymisées ou agrégées : elles peuvent être conservées sans limitation de durée lorsqu'elles ne permettent plus d'identifier l'utilisateur. - Inactivité : après une longue période d'inactivité, le compte peut être archivé puis supprimé, après information de l'utilisateur lorsque cela est possible. L'utilisateur peut demander la suppression de son compte ou de ses données à tout moment depuis l'application ou par email à dev@szczsoftwares.fr."
+          },
+          {
+            "h": "7. Droits des utilisateurs",
+            "b": "Conformément au RGPD et à la loi Informatique et Libertés, l'utilisateur dispose des droits suivants : - droit d'accès à ses données personnelles ; - droit de rectification des données inexactes ou incomplètes ; - droit à l'effacement, dans les limites prévues par la loi ; - droit d'opposition, lorsque le traitement repose sur l'intérêt légitime ; - droit à la limitation du traitement ; - droit à la portabilité des données fournies ; - droit de retirer son consentement lorsque le traitement repose sur celui-ci. Pour exercer ces droits, l'utilisateur peut contacter SZCZ Softwares à l'adresse suivante : dev@szczsoftwares.fr. La demande doit préciser l'identifiant du compte ou l'adresse email associée, ainsi que le droit exercé. Une réponse sera apportée dans un délai d'un mois, prolongeable de deux mois en cas de demande complexe ou multiple. L'utilisateur peut également introduire une réclamation auprès de la CNIL : https://www.cnil.fr."
+          },
+          {
+            "h": "8. Sécurité",
+            "b": "SZCZ Softwares met en œuvre des mesures techniques et organisationnelles destinées à protéger les données personnelles : - chiffrement des communications en transit via HTTPS/TLS ; - authentification sécurisée via Firebase Authentication ; - règles de sécurité Firebase ; - accès limité aux données personnelles ; - procédures de gestion des incidents et de correction des vulnérabilités. Aucune méthode de transmission ou de stockage électronique n'est totalement sûre. SZCZ Softwares ne peut donc garantir une sécurité absolue, mais s'engage à maintenir un niveau de protection adapté aux risques."
+          },
+          {
+            "h": "9. Transferts hors Union européenne",
+            "b": "Certains prestataires, notamment Google, Apple ou leurs sous-traitants, peuvent traiter des données hors de l'Union européenne. Lorsque de tels transferts ont lieu, ils sont encadrés par des garanties appropriées, telles que les clauses contractuelles types de la Commission européenne, les décisions d'adéquation applicables ou tout autre mécanisme reconnu par la réglementation."
+          },
+          {
+            "h": "10. Cookies, traceurs et publicité",
+            "b": "L'application mobile Susumou peut utiliser des technologies similaires à des cookies, notamment via Firebase Analytics et Google AdMob. Ces outils peuvent servir à mesurer l'audience, améliorer l'application, détecter les anomalies et afficher des publicités dans la version gratuite. L'utilisateur peut limiter le suivi publicitaire depuis les paramètres de son appareil et, lorsque l'application le propose, depuis les réglages de confidentialité intégrés."
+          },
+          {
+            "h": "11. Mineurs",
+            "b": "Susumou peut être utilisée par des mineurs avec l'autorisation de leur représentant légal. Le représentant légal peut contacter SZCZ Softwares à dev@szczsoftwares.fr pour toute demande relative aux données d'un mineur."
+          },
+          {
+            "h": "12. Modification de la politique",
+            "b": "SZCZ Softwares peut modifier la présente politique de confidentialité afin de tenir compte des évolutions légales, techniques ou fonctionnelles de l'application. La nouvelle version sera publiée dans l'application ou sur le site https://szczsoftwares.fr. En cas de modification substantielle, les utilisateurs pourront être informés par tout moyen approprié."
+          }
+        ]
+      }
     },
     "cgu": {
-      fr: {
-        title: "Conditions Générales d'Utilisation — Susumou (進もう)",
-        updated: "Version 1.1 — Dernière mise à jour : 21 mars 2026",
-        intro: "Les présentes CGU régissent l'utilisation de l'application mobile Susumou, éditée par SZCZ Softwares (SASU). En téléchargeant, installant ou utilisant l'Application, vous acceptez sans réserve les présentes CGU.",
-        sections: [
-          { h: "1. Objet", b: "Susumou (進もう, « Avançons ! ») est une application mobile d'aide à l'apprentissage du japonais combinant flashcards SRS, dictionnaire, leçons JLPT et coach IA." },
-          { h: "2. Acceptation", b: "L'utilisation de l'Application implique l'acceptation pleine et entière des CGU. L'utilisateur doit disposer de la capacité juridique nécessaire ; les mineurs doivent obtenir l'autorisation de leur représentant légal." },
-          { h: "3. Accès au service", b: "Disponible sur l'App Store et Google Play. L'utilisateur est responsable de la compatibilité de son terminal, de sa connexion et des frais réseau." },
-          { h: "4. Compte utilisateur", b: "Authentification possible en mode anonyme, e-mail/mot de passe, Google ou Apple Sign-In. L'utilisateur s'engage à fournir des informations exactes, à protéger ses identifiants et à ne pas partager son compte." },
-          { h: "5. Fonctionnalités", b: "Version gratuite avec publicités et version Supporter par abonnement mensuel (suppression des pubs, fonctionnalités IA, avantages premium)." },
-          { h: "6. Utilisation de l'IA", b: "Susumou utilise l'API Google Gemini pour le coach IA, la génération de tests, les lectures adaptées et les recommandations. Les prompts et données pédagogiques anonymisées peuvent être transmis. L'utilisateur reconnaît que l'IA peut produire des contenus inexacts." },
-          { h: "7. Limites pédagogiques", b: "Susumou est un outil d'aide. Il ne constitue ni un enseignement officiel, ni une certification, ni un substitut à un enseignement professionnel." },
-          { h: "8. Comportements interdits", b: "Usage abusif, contournement de sécurité, surcharge serveur, reverse engineering, bots/scripts, partage de compte, exploitation commerciale non autorisée." },
-          { h: "9. Suspension / suppression", b: "SZCZ Softwares peut suspendre ou supprimer un compte en cas de violation des CGU. L'utilisateur peut supprimer son compte via les paramètres ou par e-mail." },
-          { h: "10. Propriété intellectuelle", b: "L'Application, son design, son code et ses contenus sont la propriété exclusive de SZCZ Softwares. L'utilisateur bénéficie d'une licence d'usage personnelle, non exclusive et révocable." },
-          { h: "11. Responsabilité", b: "Service fourni « en l'état ». SZCZ Softwares ne saurait être tenu responsable des interruptions, bugs, erreurs IA ou échecs à un examen." },
-          { h: "12. Modification des CGU", b: "Modifications possibles à tout moment. La poursuite de l'utilisation vaut acceptation." },
-          { h: "13. Droit applicable", b: "Droit français. Juridictions françaises compétentes, sans préjudice des dispositions impératives consommateur UE." },
-          { h: "14. Contact", b: "SZCZ Softwares (SASU), France. E-mail : contact@szcz-softwares.com." },
-        ],
+      "en": {
+        "title": "Susumou Terms of Use",
+        "updated": "Version 1.2 - Last updated: April 25, 2026",
+        "intro": "These Terms of Use govern access to and use of the Susumou mobile application.",
+        "sections": [
+          {
+            "h": "1. Publisher",
+            "b": "Susumou is published by SZCZ Softwares, SASU with share capital of EUR 1,000, registered with the Boulogne-sur-Mer Trade and Companies Register under number 100 523 067. Registered office: 95 avenue de Deauville, 62520 Le Touquet-Paris-Plage, France. SIRET: 100 523 067 00013. Intra-community VAT: FR93100523067. Website: https://szczsoftwares.fr. Contact: dev@szczsoftwares.fr."
+          },
+          {
+            "h": "2. Purpose",
+            "b": "Susumou, meaning 'Let's move forward', is a mobile app designed to help users learn Japanese. It offers flashcards with spaced repetition, dictionary and kanji, vocabulary and grammar content, lessons and educational content for different JLPT levels, AI features to support learning, and statistics and progress-tracking tools. Susumou is a digital educational tool and is not official teaching, a language certification or a guarantee of exam success."
+          },
+          {
+            "h": "3. Acceptance of the Terms",
+            "b": "Use of Susumou implies full acceptance of these Terms. Acceptance may occur when creating an account, on first use of the app or when subscribing to a paid feature. The user declares that they have the legal capacity to accept these Terms. Minors must obtain authorization from their legal representative."
+          },
+          {
+            "h": "4. Access to the app",
+            "b": "The app is available on compatible distribution platforms, including the Apple App Store and Google Play Store. The user is responsible for device compatibility, internet connection, acquiring and maintaining equipment, and network or store-related costs. SZCZ Softwares uses best efforts to keep the app accessible but does not guarantee permanent or uninterrupted availability."
+          },
+          {
+            "h": "5. Account creation and management",
+            "b": "Some features require an account. Authentication may be offered through an automatically created anonymous account, email and password, Google Sign-In, or Apple Sign-In where available. An anonymous account may be converted into a permanent account depending on available options. The user agrees to provide accurate information, keep credentials confidential, not share the account, and report unauthorized use. Only one account per user is allowed unless there is a legitimate need such as an email change, migration or support request."
+          },
+          {
+            "h": "6. Free and paid features",
+            "b": "Susumou may offer a free version with basic features and advertising, and a Supporter or premium version by subscription, including ad removal and access to certain advanced or AI features. Available features may change over time. SZCZ Softwares may add, change or remove features to improve the app, ensure security, or address technical, legal or economic constraints."
+          },
+          {
+            "h": "7. Artificial intelligence",
+            "b": "Some features use generative AI technologies, including the Google Gemini API, to generate explanations, exercises, questions, reading texts, recommendations or personalized answers. Users acknowledge that AI-generated content may be inaccurate, incomplete or unsuitable, does not constitute professional advice, does not guarantee learning results or exam success, and must be checked for important information. Users must not use AI features to generate unlawful, hateful, violent, discriminatory, misleading or third-party-rights-infringing content."
+          },
+          {
+            "h": "8. User obligations",
+            "b": "Users must use Susumou in accordance with these Terms, applicable laws and distribution platform terms. Abuse or fraudulent use, attempts to bypass security, intentional server overload, unauthorized commercial exploitation, copying, mass extraction, resale or redistribution of content, reverse engineering, decompilation, unauthorized modification, unauthorized bots or scripts, and account sharing or resale are prohibited. Breach may lead to suspension or deletion of the account, without prejudice to actions SZCZ Softwares may take."
+          },
+          {
+            "h": "9. Account suspension and deletion",
+            "b": "SZCZ Softwares may suspend or delete an account in case of breach of these Terms, abusive behavior, suspected fraud, harm to service security or prolonged inactivity. Users may request account deletion at any time from the app settings or by email to dev@szczsoftwares.fr. Deletion may permanently remove progress, statistics, preferences and content associated with the account."
+          },
+          {
+            "h": "10. Intellectual property",
+            "b": "The Susumou app, its name, interface, design, code, original educational content, texts, structure and graphic elements are protected by intellectual property law. Unless otherwise stated, these elements are the exclusive property of SZCZ Softwares or are used under rights granted to SZCZ Softwares. Users receive a personal, non-exclusive, non-transferable, revocable license limited to normal use of the app. Unauthorized reproduction, adaptation, extraction, distribution, modification or exploitation is prohibited."
+          },
+          {
+            "h": "11. Personal data",
+            "b": "Personal data processing is described in the Susumou Privacy Policy. For any question about personal data, users may contact SZCZ Softwares at dev@szczsoftwares.fr."
+          },
+          {
+            "h": "12. Liability",
+            "b": "SZCZ Softwares provides the app with a quality and reliability objective but cannot guarantee the absence of errors, interruptions, data loss or inaccuracies. SZCZ Softwares is not liable for temporary interruptions, bugs or technical incompatibilities, errors in AI-generated content, failure in an exam or certification, indirect damages related to use of the app, or consequences of misuse by the user. Liability limitations do not apply in case of gross or intentional fault or to rights that cannot be waived under applicable law."
+          },
+          {
+            "h": "13. Changes to the Terms",
+            "b": "SZCZ Softwares may change these Terms at any time to reflect changes to the app, regulations or services. Users may be informed by publication in the app, on https://szczsoftwares.fr or by any other appropriate means. Continued use after the new Terms enter into force constitutes acceptance."
+          },
+          {
+            "h": "14. Governing law and disputes",
+            "b": "These Terms are governed by French law. In case of dispute, the user is invited to contact SZCZ Softwares at dev@szczsoftwares.fr to seek an amicable solution. Failing amicable resolution, the competent French courts may be seized, subject to mandatory consumer provisions. For consumers residing in the European Union, mandatory provisions of the country of residence remain applicable where they cannot be contractually waived."
+          }
+        ]
       },
-      en: {
-        title: "Terms of Use — Susumou (進もう)",
-        updated: "Version 1.1 — Last updated: March 21, 2026",
-        intro: "These Terms of Use govern the use of the Susumou mobile application, published by SZCZ Softwares (SASU). By downloading, installing or using the App, you fully accept these Terms.",
-        sections: [
-          { h: "1. Purpose", b: "Susumou (進もう, \"Let's move forward!\") is a Japanese-learning mobile app combining SRS flashcards, a dictionary, JLPT lessons and an AI coach." },
-          { h: "2. Acceptance", b: "Using the App means full acceptance of the Terms. Users must have the required legal capacity; minors need authorization from their legal representative." },
-          { h: "3. Access", b: "Available on the App Store and Google Play. Users are responsible for device compatibility, connection, and network fees." },
-          { h: "4. User account", b: "Sign-in available as anonymous, email/password, Google or Apple. Users must provide accurate information, protect their credentials and not share accounts." },
-          { h: "5. Features", b: "Free version with ads and a Supporter version via monthly subscription (ads removed, AI features, premium perks)." },
-          { h: "6. AI use", b: "Susumou uses the Google Gemini API for the AI coach, test generation, adapted reading and recommendations. Prompts and anonymized learning data may be transmitted. Users acknowledge AI may produce inaccurate content." },
-          { h: "7. Educational limits", b: "Susumou is a learning aid. It is not official teaching, a certification, or a substitute for professional instruction." },
-          { h: "8. Prohibited behavior", b: "Misuse, security bypass, server overload, reverse engineering, bots/scripts, account sharing, unauthorized commercial use." },
-          { h: "9. Suspension / deletion", b: "SZCZ Softwares may suspend or delete accounts for Terms violations. Users may delete their account via settings or email." },
-          { h: "10. Intellectual property", b: "The App, design, code and content are the exclusive property of SZCZ Softwares. Users receive a personal, non-exclusive, revocable license." },
-          { h: "11. Liability", b: "Service provided \"as is.\" SZCZ Softwares is not liable for interruptions, bugs, AI errors or exam failures." },
-          { h: "12. Updates", b: "Terms may change at any time. Continued use means acceptance." },
-          { h: "13. Governing law", b: "French law. French courts have jurisdiction, without prejudice to mandatory EU consumer rights." },
-          { h: "14. Contact", b: "SZCZ Softwares (SASU), France. Email: contact@szcz-softwares.com." },
-        ],
-      },
-      ja: {
-        title: "利用規約 — Susumou（進もう）",
-        updated: "バージョン 1.1 — 最終更新日：2026年3月21日",
-        intro: "本利用規約は、SZCZ Softwares（SASU）が提供するモバイルアプリ「Susumou」の利用条件を定めるものです。本アプリをダウンロード・インストールまたは利用することで、本規約に全面的に同意したものとみなされます。",
-        sections: [
-          { h: "1. 目的", b: "Susumou（進もう）は、SRSフラッシュカード、辞書、JLPTレッスン、AIコーチを組み合わせた日本語学習モバイルアプリです。" },
-          { h: "2. 同意", b: "本アプリの利用は本規約への完全な同意を意味します。利用者は必要な法的能力を有する必要があり、未成年者は法定代理人の同意が必要です。" },
-          { h: "3. アクセス", b: "App StoreおよびGoogle Playで提供されます。端末の互換性、通信環境、通信費用は利用者の責任となります。" },
-          { h: "4. アカウント", b: "匿名、メール／パスワード、Google、Apple Sign-Inでのログインに対応。正確な情報の提供、認証情報の管理、アカウントの共有禁止を遵守してください。" },
-          { h: "5. 機能", b: "広告付きの無料版と、月額制のSupporter版（広告削除、AI機能、プレミアム特典）を提供します。" },
-          { h: "6. AIの利用", b: "SusumouはAIコーチ、テスト生成、適応読解、レコメンドのためにGoogle Gemini APIを使用します。プロンプトおよび匿名化された学習データが送信される場合があります。AIは不正確な内容を生成する可能性があることをご了承ください。" },
-          { h: "7. 学習上の限界", b: "Susumouは学習を補助するツールです。公式教育、資格認定、または専門家による指導の代替ではありません。" },
-          { h: "8. 禁止事項", b: "不正利用、セキュリティ回避、サーバー過負荷、リバースエンジニアリング、ボット／スクリプトの使用、アカウント共有、無断の商用利用。" },
-          { h: "9. 停止・削除", b: "規約違反があった場合、SZCZ Softwaresはアカウントを停止または削除することがあります。利用者は設定またはメールでアカウントを削除できます。" },
-          { h: "10. 知的財産権", b: "本アプリ、デザイン、コード、コンテンツはSZCZ Softwaresの独占的財産です。利用者には個人的・非独占的・取消可能な使用許諾が与えられます。" },
-          { h: "11. 責任", b: "サービスは「現状のまま」提供されます。SZCZ Softwaresは中断、バグ、AIエラー、試験不合格について責任を負いません。" },
-          { h: "12. 規約の変更", b: "規約はいつでも変更される可能性があります。利用を継続することで変更に同意したものとみなされます。" },
-          { h: "13. 準拠法", b: "フランス法に準拠します。EUの強行法規による消費者の権利を妨げない範囲で、フランスの裁判所が管轄を有します。" },
-          { h: "14. お問い合わせ", b: "SZCZ Softwares（SASU）、フランス。メール：contact@szcz-softwares.com。" },
-        ],
-      },
+      "fr": {
+        "title": "Conditions générales d'utilisation de Susumou",
+        "updated": "Version 1.2 - Dernière mise à jour : 25 avril 2026",
+        "intro": "Les présentes Conditions Générales d'Utilisation (CGU) encadrent l'accès et l'utilisation de l'application mobile Susumou.",
+        "sections": [
+          {
+            "h": "1. Éditeur",
+            "b": "Susumou est éditée par SZCZ Softwares, SASU au capital social de 1 000 euros, immatriculée au RCS de Boulogne-sur-Mer sous le numéro 100 523 067. Siège social : 95 avenue de Deauville, 62520 Le Touquet-Paris-Plage, France SIRET : 100 523 067 00013 TVA intracommunautaire : FR93100523067 Site web : https://szczsoftwares.fr Contact : dev@szczsoftwares.fr"
+          },
+          {
+            "h": "2. Objet",
+            "b": "Susumou (進もう - \"Avançons !\") est une application mobile d'aide à l'apprentissage du japonais. Elle propose notamment : - des flashcards avec répétition espacée ; - un dictionnaire et des contenus liés aux kanji, au vocabulaire et à la grammaire ; - des leçons et contenus pédagogiques pour différents niveaux JLPT ; - des fonctionnalités d'intelligence artificielle pour accompagner l'apprentissage ; - des statistiques et outils de suivi de progression. Susumou est un outil pédagogique numérique. Elle ne constitue ni un enseignement officiel, ni une certification linguistique, ni une garantie de réussite à un examen."
+          },
+          {
+            "h": "3. Acceptation des CGU",
+            "b": "L'utilisation de Susumou implique l'acceptation pleine et entière des présentes CGU. Cette acceptation peut intervenir lors de la création d'un compte, lors de la première utilisation de l'application ou lors de la souscription à une fonctionnalité payante. L'utilisateur déclare disposer de la capacité juridique nécessaire pour accepter les présentes CGU. Les mineurs doivent obtenir l'autorisation de leur représentant légal."
+          },
+          {
+            "h": "4. Accès à l'application",
+            "b": "L'application est disponible sur les plateformes de distribution compatibles, notamment l'Apple App Store et le Google Play Store. L'utilisateur est responsable : - de la compatibilité de son appareil ; - de sa connexion internet ; - de l'acquisition et de la maintenance de son équipement ; - des coûts liés à l'accès au réseau ou aux services des stores. SZCZ Softwares fait ses meilleurs efforts pour maintenir l'application accessible, mais ne garantit pas une disponibilité permanente ou sans interruption."
+          },
+          {
+            "h": "5. Création et gestion du compte",
+            "b": "Certaines fonctionnalités nécessitent la création d'un compte. L'authentification peut être proposée via : - un compte anonyme créé automatiquement ; - une adresse email et un mot de passe ; - Google Sign-In ; - Apple Sign-In, lorsque disponible. Un compte anonyme peut être converti en compte permanent selon les options disponibles dans l'application. L'utilisateur s'engage à fournir des informations exactes, à garder ses identifiants confidentiels, à ne pas partager son compte et à signaler toute utilisation non autorisée. Un seul compte est autorisé par utilisateur, sauf nécessité légitime telle qu'un changement d'adresse email, une migration ou une demande de support."
+          },
+          {
+            "h": "6. Fonctionnalités gratuites et payantes",
+            "b": "Susumou peut proposer : - une version gratuite, avec accès aux fonctionnalités de base et affichage de publicités ; - une version Supporter ou premium, sous forme d'abonnement, permettant notamment la suppression des publicités et l'accès à certaines fonctionnalités avancées ou IA. Les fonctionnalités disponibles peuvent évoluer. SZCZ Softwares peut ajouter, modifier ou supprimer certaines fonctionnalités afin d'améliorer l'application, assurer sa sécurité ou tenir compte de contraintes techniques, légales ou économiques."
+          },
+          {
+            "h": "7. Intelligence artificielle",
+            "b": "Certaines fonctionnalités utilisent des technologies d'intelligence artificielle générative, notamment via l'API Google Gemini. Ces fonctionnalités peuvent servir à générer des explications, exercices, questions, textes de lecture, recommandations ou réponses personnalisées. L'utilisateur reconnaît que : - les contenus générés par IA peuvent être inexacts, incomplets ou inadaptés ; - les réponses fournies ne constituent pas des conseils professionnels ; - aucun résultat d'apprentissage ou de réussite à un examen n'est garanti ; - il reste responsable de vérifier les informations importantes. L'utilisateur s'engage à ne pas utiliser les fonctionnalités IA pour générer des contenus illicites, haineux, violents, discriminatoires, trompeurs ou portant atteinte aux droits de tiers."
+          },
+          {
+            "h": "8. Obligations de l'utilisateur",
+            "b": "L'utilisateur s'engage à utiliser Susumou conformément aux présentes CGU, aux lois applicables et aux conditions des plateformes de distribution. Sont notamment interdits : - l'utilisation abusive ou frauduleuse de l'application ; - les tentatives de contournement des systèmes de sécurité ; - la surcharge volontaire des serveurs ; - l'exploitation commerciale non autorisée des contenus ; - la copie, extraction massive, revente ou redistribution des contenus ; - le reverse engineering, la décompilation ou la modification non autorisée ; - l'utilisation de bots, scripts ou moyens automatisés non autorisés ; - le partage ou la revente de compte. Tout manquement peut entraîner la suspension ou la suppression du compte, sans préjudice des actions que SZCZ Softwares pourrait engager."
+          },
+          {
+            "h": "9. Suspension et suppression du compte",
+            "b": "SZCZ Softwares peut suspendre ou supprimer un compte en cas de violation des présentes CGU, comportement abusif, suspicion de fraude, atteinte à la sécurité du service ou inactivité prolongée. L'utilisateur peut demander la suppression de son compte à tout moment depuis les paramètres de l'application ou par email à dev@szczsoftwares.fr. La suppression du compte peut entraîner la perte définitive de la progression, des statistiques, des préférences et des contenus associés au compte."
+          },
+          {
+            "h": "10. Propriété intellectuelle",
+            "b": "L'application Susumou, son nom, son interface, son design, son code, ses contenus pédagogiques originaux, ses textes, sa structure et ses éléments graphiques sont protégés par le droit de la propriété intellectuelle. Sauf mention contraire, ces éléments sont la propriété exclusive de SZCZ Softwares ou font l'objet de droits d'utilisation accordés à SZCZ Softwares. L'utilisateur bénéficie d'une licence personnelle, non exclusive, non transférable, révocable et limitée à l'utilisation normale de l'application. Toute reproduction, adaptation, extraction, diffusion, modification ou exploitation non autorisée est interdite."
+          },
+          {
+            "h": "11. Données personnelles",
+            "b": "Le traitement des données personnelles est décrit dans la Politique de confidentialité de Susumou. Pour toute question relative aux données personnelles, l'utilisateur peut contacter SZCZ Softwares à dev@szczsoftwares.fr."
+          },
+          {
+            "h": "12. Responsabilité",
+            "b": "SZCZ Softwares fournit l'application avec un objectif de qualité et de fiabilité, mais ne peut garantir l'absence totale d'erreurs, d'interruptions, de pertes de données ou d'inexactitudes. SZCZ Softwares ne peut être tenue responsable : - des interruptions temporaires du service ; - des bugs ou incompatibilités techniques ; - des erreurs dans les contenus générés par IA ; - de l'échec à un examen ou à une certification ; - des dommages indirects liés à l'utilisation de l'application ; - des conséquences d'une mauvaise utilisation par l'utilisateur. Les limitations de responsabilité ne s'appliquent pas en cas de faute lourde ou intentionnelle, ni aux droits dont l'utilisateur ne peut être privé en vertu de la loi applicable."
+          },
+          {
+            "h": "13. Modification des CGU",
+            "b": "SZCZ Softwares peut modifier les présentes CGU à tout moment afin de tenir compte des évolutions de l'application, de la réglementation ou de ses services. Les utilisateurs pourront être informés des modifications par publication dans l'application, sur le site https://szczsoftwares.fr ou par tout autre moyen approprié. La poursuite de l'utilisation de l'application après l'entrée en vigueur des nouvelles CGU vaut acceptation de celles-ci."
+          },
+          {
+            "h": "14. Droit applicable et règlement des litiges",
+            "b": "Les présentes CGU sont régies par le droit français. En cas de litige, l'utilisateur est invité à contacter SZCZ Softwares à dev@szczsoftwares.fr afin de rechercher une solution amiable. À défaut de résolution amiable, les tribunaux français compétents pourront être saisis, sous réserve des dispositions impératives applicables aux consommateurs. Pour les consommateurs résidant dans l'Union européenne, les dispositions impératives du pays de résidence demeurent applicables lorsqu'elles ne peuvent être écartées contractuellement."
+          }
+        ]
+      }
     },
     "cgv": {
-      fr: {
-        title: "Conditions Générales de Vente — Susumou (進もう)",
-        updated: "Version 1.1 — Dernière mise à jour : 21 mars 2026",
-        intro: "Les présentes CGV définissent les modalités de souscription et d'utilisation de l'abonnement payant Susumou Supporter, édité par SZCZ Softwares (SASU).",
-        sections: [
-          { h: "1. Objet", b: "L'abonnement Susumou Supporter donne accès à des fonctionnalités premium dans l'Application." },
-          { h: "2. Offre d'abonnement", b: "Suppression des publicités, coach IA personnalisé, génération de tests IA, lectures adaptées, rapports de progression, recommandations d'étude, accès aux futures fonctionnalités premium. Abonnement mensuel." },
-          { h: "3. Prix", b: "Prix affiché dans l'Application TTC, en devise locale. Modifiable à tout moment avec notification avant renouvellement." },
-          { h: "4. Modalités d'achat", b: "Achats effectués via l'App Store (iOS) ou Google Play (Android). Paiement géré par Apple ou Google. SZCZ Softwares n'a pas accès aux informations bancaires." },
-          { h: "5. Durée et renouvellement", b: "Durée mensuelle avec renouvellement automatique, sauf résiliation avant échéance." },
-          { h: "6. Résiliation", b: "iOS : Réglages > Abonnements > Susumou > Résilier. Android : Google Play > Abonnements > Susumou > Résilier. Effet à la fin de la période en cours, pas de remboursement au prorata sauf disposition contraire." },
-          { h: "7. Droit de rétractation", b: "Conformément à l'article L.221-28 du Code de la consommation, le droit de rétractation ne s'applique pas aux contenus numériques fournis sur support immatériel dont l'exécution a commencé avec l'accord du consommateur." },
-          { h: "8. Remboursements", b: "Demandes à adresser directement à la plateforme (Apple : support.apple.com / Google Play : support.google.com). Réclamations : contact@szcz-softwares.com." },
-          { h: "9. Accès premium", b: "Accessible via le compte utilisateur associé à l'achat. Les achats restent liés au compte Apple ou Google." },
-          { h: "10. Responsabilité", b: "Les fonctionnalités décrites sont fournies sous réserve de la disponibilité du service. SZCZ Softwares ne saurait être tenu responsable d'interruptions ou de dysfonctionnements imputables aux plateformes tierces." },
-          { h: "11. Modification", b: "CGV modifiables. Les conditions applicables sont celles en vigueur lors de la souscription ou du renouvellement." },
-          { h: "12. Droit applicable", b: "Droit français. Juridictions françaises compétentes." },
-          { h: "13. Contact", b: "SZCZ Softwares (SASU), France. E-mail : contact@szcz-softwares.com." },
-        ],
+      "en": {
+        "title": "Susumou Terms of Sale",
+        "updated": "Version 1.2 - Last updated: April 25, 2026",
+        "intro": "These Terms of Sale define the subscription and use conditions for Susumou paid offers, including the Susumou Supporter subscription.",
+        "sections": [
+          {
+            "h": "1. Seller",
+            "b": "Susumou paid offers are provided by SZCZ Softwares, SASU with share capital of EUR 1,000, registered with the Boulogne-sur-Mer Trade and Companies Register under number 100 523 067. Registered office: 95 avenue de Deauville, 62520 Le Touquet-Paris-Plage, France. SIRET: 100 523 067 00013. Intra-community VAT: FR93100523067. Website: https://szczsoftwares.fr. Contact: dev@szczsoftwares.fr."
+          },
+          {
+            "h": "2. Subscription offer",
+            "b": "The Susumou Supporter subscription gives access to paid features that may include ad removal, access to the personalized AI coach, generation of AI tests, questions or content, reading texts adapted to the user's level, detailed progress reports, personalized study recommendations, and current or future premium features. The exact list of features, their availability and usage limits are shown in the app and may change."
+          },
+          {
+            "h": "3. Price",
+            "b": "The subscription price is displayed in the app before purchase validation, including taxes where applicable, in the currency offered by the distribution platform. Prices may vary by country, applicable taxes, Apple App Store or Google Play Store rules, and promotional offers. SZCZ Softwares may change the subscription price. Any change affecting renewal will be communicated according to the relevant platform rules."
+          },
+          {
+            "h": "4. Order and payment",
+            "b": "Subscription is made exclusively through the Apple App Store for iOS devices or Google Play Store for Android devices. These platforms act as payment intermediaries and handle order validation, collection, invoicing, renewal, cancellation and any refund requests under their own terms. SZCZ Softwares does not collect or store banking data."
+          },
+          {
+            "h": "5. Term and renewal",
+            "b": "Unless otherwise indicated in the app, the Susumou Supporter subscription is offered monthly. It renews automatically at each term unless cancelled by the user before the renewal date in the Apple or Google account settings. Renewal and collection are managed by the platform used for purchase."
+          },
+          {
+            "h": "6. Cancellation",
+            "b": "Users may cancel their subscription at any time from the App Store subscription settings or Google Play subscription settings. Cancellation takes effect at the end of the already paid period, and the user keeps access to paid features until then. SZCZ Softwares does not issue prorated refunds for cancellation during a period."
+          },
+          {
+            "h": "7. Right of withdrawal",
+            "b": "Susumou paid offers concern digital services or content accessible immediately after purchase. Under Article L221-28 of the French Consumer Code, the right of withdrawal may not apply to digital content or services whose performance has begun before the end of the withdrawal period with the consumer's prior agreement and, where required, express waiver of this right. Exact withdrawal procedures, where available, are handled by the Apple App Store or Google Play Store depending on the platform used."
+          },
+          {
+            "h": "8. Refunds",
+            "b": "Refund requests must be sent directly to the platform used for purchase: Apple through App Store purchase history and refund procedures, or Google through Google Play purchase history and refund procedures. SZCZ Softwares does not make direct refunds when the purchase was made through Apple or Google. Unless the platform decides otherwise or applicable law requires it, no refund is due for non-use of features, dissatisfaction with learning results, cancellation during a period or inability to use the app due to an incompatible device."
+          },
+          {
+            "h": "9. Changes to the offer",
+            "b": "SZCZ Softwares may change features included in the subscription, including by adding new features, improving the service, removing obsolete features, complying with technical or legal constraints, or adapting operating costs. Significant changes may be communicated to subscribers through the app, the store or any other appropriate means."
+          },
+          {
+            "h": "10. Service availability",
+            "b": "SZCZ Softwares uses best efforts to ensure availability of paid features. Temporary interruptions may occur due to maintenance, updates, outages, security incidents, third-party provider failures or force majeure. A temporary interruption does not automatically give a right to refund, unless the law or the payment platform decides otherwise."
+          },
+          {
+            "h": "11. Educational and AI limits",
+            "b": "Susumou is a learning support tool. The subscription does not guarantee success in an exam such as the JLPT, achievement of a specific language level, permanent content accuracy, or absence of errors in AI-generated content. AI-generated answers and content must be checked by the user."
+          },
+          {
+            "h": "12. Liability",
+            "b": "Within the limits permitted by applicable law, SZCZ Softwares' liability is limited to proven direct damages and may not exceed the amount paid by the user for the subscription during the previous twelve months. SZCZ Softwares is not liable for indirect damages, data loss, loss of opportunity, loss of revenue, commercial harm or consequences of misuse of the app. This limitation does not apply in case of gross or intentional fault or to legal guarantees a consumer cannot waive."
+          },
+          {
+            "h": "13. Customer service",
+            "b": "For any question about the subscription or paid features, users may contact SZCZ Softwares at dev@szczsoftwares.fr. For payment, billing, cancellation or refund questions, users must also consult the tools and terms of the platform used for purchase."
+          },
+          {
+            "h": "14. Mediation and dispute resolution",
+            "b": "In case of dispute, users are invited to contact SZCZ Softwares at dev@szczsoftwares.fr to seek an amicable solution. If the user acts as a consumer, they may use a consumer mediator free of charge under the conditions of the French Consumer Code. The competent mediator's details will be communicated once designated or on request. Users may also consult the European online dispute resolution platform: https://ec.europa.eu/consumers/odr."
+          },
+          {
+            "h": "15. Governing law",
+            "b": "These Terms of Sale are governed by French law. Failing amicable resolution, the competent French courts may be seized, subject to mandatory consumer provisions. For disputes concerning payments, refunds and subscription management, Apple App Store or Google Play Store terms may also apply."
+          }
+        ]
       },
-      en: {
-        title: "Terms of Sale — Susumou (進もう)",
-        updated: "Version 1.1 — Last updated: March 21, 2026",
-        intro: "These Terms of Sale define the subscription and use of the paid Susumou Supporter subscription, published by SZCZ Softwares (SASU).",
-        sections: [
-          { h: "1. Purpose", b: "The Susumou Supporter subscription grants access to premium features in the App." },
-          { h: "2. Subscription offering", b: "Ad removal, personalized AI coach, AI-generated tests, adapted reading, progress reports, study recommendations, access to future premium features. Monthly subscription." },
-          { h: "3. Pricing", b: "Price shown in the App, tax included, in local currency. May change at any time with notice before renewal." },
-          { h: "4. Purchase", b: "Purchases are made via the App Store (iOS) or Google Play (Android). Payment handled by Apple or Google. SZCZ Softwares does not access your payment details." },
-          { h: "5. Term & renewal", b: "Monthly term with automatic renewal unless canceled before the renewal date." },
-          { h: "6. Cancellation", b: "iOS: Settings > Subscriptions > Susumou > Cancel. Android: Google Play > Subscriptions > Susumou > Cancel. Effective at period end, no pro-rata refund unless otherwise required." },
-          { h: "7. Right of withdrawal", b: "Under French Consumer Code L.221-28, the right of withdrawal does not apply to digital content whose execution began with consumer consent." },
-          { h: "8. Refunds", b: "Requests must be addressed directly to the platform (Apple: support.apple.com / Google Play: support.google.com). Complaints: contact@szcz-softwares.com." },
-          { h: "9. Premium access", b: "Accessible via the user account associated with the purchase. Purchases remain linked to your Apple or Google account." },
-          { h: "10. Liability", b: "Features are provided subject to service availability. SZCZ Softwares is not liable for interruptions or malfunctions caused by third-party platforms." },
-          { h: "11. Updates", b: "Terms may be updated. The applicable terms are those in force at subscription or renewal." },
-          { h: "12. Governing law", b: "French law. French courts have jurisdiction." },
-          { h: "13. Contact", b: "SZCZ Softwares (SASU), France. Email: contact@szcz-softwares.com." },
-        ],
-      },
-      ja: {
-        title: "販売条件 — Susumou（進もう）",
-        updated: "バージョン 1.1 — 最終更新日：2026年3月21日",
-        intro: "本販売条件は、SZCZ Softwares（SASU）が提供する有料サブスクリプション「Susumou Supporter」の申込みと利用について定めるものです。",
-        sections: [
-          { h: "1. 目的", b: "Susumou Supporterサブスクリプションは、アプリ内のプレミアム機能へのアクセスを提供します。" },
-          { h: "2. サブスクリプション内容", b: "広告削除、パーソナライズドAIコーチ、AI生成テスト、適応読解、進捗レポート、学習推薦、今後のプレミアム機能へのアクセス。月額制。" },
-          { h: "3. 価格", b: "アプリ内に表示される価格は税込・現地通貨建てです。更新前に通知のうえ、いつでも変更される可能性があります。" },
-          { h: "4. 購入方法", b: "App Store（iOS）またはGoogle Play（Android）経由で購入します。決済はAppleまたはGoogleが処理し、SZCZ Softwaresは決済情報にアクセスしません。" },
-          { h: "5. 期間と更新", b: "1か月単位で、更新日前に解約しない限り自動更新されます。" },
-          { h: "6. 解約", b: "iOS：設定 > サブスクリプション > Susumou > 解約。Android：Google Play > サブスクリプション > Susumou > 解約。期間終了時に有効となり、法令で定める場合を除き日割返金はありません。" },
-          { h: "7. 撤回権", b: "フランス消費法典L.221-28に基づき、消費者の同意のもと履行が開始されたデジタルコンテンツには撤回権が適用されません。" },
-          { h: "8. 返金", b: "返金請求は各プラットフォームへ直接行ってください（Apple：support.apple.com／Google Play：support.google.com）。苦情：contact@szcz-softwares.com。" },
-          { h: "9. プレミアムアクセス", b: "購入したアカウントに紐付けて利用できます。購入はAppleまたはGoogleアカウントに紐付いたままです。" },
-          { h: "10. 責任", b: "機能はサービスの可用性を前提に提供されます。SZCZ Softwaresは第三者プラットフォームによる中断や不具合について責任を負いません。" },
-          { h: "11. 規約の変更", b: "条件は更新される可能性があります。適用される条件は、申込みまたは更新時に有効なものです。" },
-          { h: "12. 準拠法", b: "フランス法に準拠し、フランスの裁判所が管轄します。" },
-          { h: "13. お問い合わせ", b: "SZCZ Softwares（SASU）、フランス。メール：contact@szcz-softwares.com。" },
-        ],
-      },
+      "fr": {
+        "title": "Conditions générales de vente de Susumou",
+        "updated": "Version 1.2 - Dernière mise à jour : 25 avril 2026",
+        "intro": "Les présentes Conditions Générales de Vente (CGV) définissent les modalités de souscription et d'utilisation des offres payantes de l'application Susumou, notamment l'abonnement Susumou Supporter.",
+        "sections": [
+          {
+            "h": "1. Vendeur",
+            "b": "Les offres payantes de Susumou sont proposées par SZCZ Softwares, SASU au capital social de 1 000 euros, immatriculée au RCS de Boulogne-sur-Mer sous le numéro 100 523 067. Siège social : 95 avenue de Deauville, 62520 Le Touquet-Paris-Plage, France SIRET : 100 523 067 00013 TVA intracommunautaire : FR93100523067 Site web : https://szczsoftwares.fr Contact : dev@szczsoftwares.fr"
+          },
+          {
+            "h": "2. Offre d'abonnement",
+            "b": "L'abonnement Susumou Supporter donne accès à des fonctionnalités payantes pouvant notamment inclure : - la suppression des publicités ; - l'accès au coach IA personnalisé ; - la génération de tests, questions ou contenus via IA ; - des textes de lecture adaptés au niveau de l'utilisateur ; - des rapports de progression détaillés ; - des recommandations d'étude personnalisées ; - certaines fonctionnalités premium actuelles ou futures. La liste exacte des fonctionnalités, leur disponibilité et leurs limites d'utilisation sont indiquées dans l'application et peuvent évoluer."
+          },
+          {
+            "h": "3. Prix",
+            "b": "Le prix de l'abonnement est affiché dans l'application avant validation de l'achat, toutes taxes comprises lorsque cela est applicable, dans la devise proposée par la plateforme de distribution. Les prix peuvent varier selon le pays, les taxes applicables, les règles de l'Apple App Store ou du Google Play Store, et les éventuelles offres promotionnelles. SZCZ Softwares peut modifier le prix de l'abonnement. Toute modification applicable au renouvellement sera communiquée selon les règles de la plateforme concernée."
+          },
+          {
+            "h": "4. Commande et paiement",
+            "b": "La souscription est effectuée exclusivement via les plateformes de distribution : - Apple App Store pour les appareils iOS ; - Google Play Store pour les appareils Android. Ces plateformes agissent comme intermédiaires de paiement et gèrent la validation de la commande, le prélèvement, la facturation, le renouvellement, la résiliation et les éventuelles demandes de remboursement selon leurs propres conditions. SZCZ Softwares ne collecte et ne stocke aucune donnée bancaire."
+          },
+          {
+            "h": "5. Durée et renouvellement",
+            "b": "Sauf indication contraire dans l'application, l'abonnement Susumou Supporter est proposé sur une base mensuelle. L'abonnement se renouvelle automatiquement à chaque échéance, sauf résiliation par l'utilisateur avant la date de renouvellement dans les paramètres de son compte Apple ou Google. Le renouvellement et le prélèvement sont gérés par la plateforme utilisée lors de l'achat."
+          },
+          {
+            "h": "6. Résiliation",
+            "b": "L'utilisateur peut résilier son abonnement à tout moment depuis : - les paramètres d'abonnement de l'App Store ; - les paramètres d'abonnement de Google Play. La résiliation prend effet à la fin de la période déjà payée. L'utilisateur conserve l'accès aux fonctionnalités payantes jusqu'à cette échéance. Aucun remboursement au prorata n'est effectué par SZCZ Softwares en cas de résiliation en cours de période."
+          },
+          {
+            "h": "7. Droit de rétractation",
+            "b": "Les offres payantes de Susumou portent sur la fourniture de services ou contenus numériques accessibles immédiatement après l'achat. Conformément à l'article L221-28 du Code de la consommation, le droit de rétractation peut ne pas s'appliquer aux contenus ou services numériques dont l'exécution a commencé avant la fin du délai de rétractation avec l'accord préalable du consommateur et, lorsque requis, renoncement exprès à ce droit. Les modalités exactes de rétractation, lorsqu'elles sont disponibles, sont gérées par l'Apple App Store ou Google Play Store selon la plateforme utilisée."
+          },
+          {
+            "h": "8. Remboursements",
+            "b": "Les demandes de remboursement doivent être adressées directement à la plateforme utilisée pour l'achat : - Apple : via l'historique d'achat et les procédures de remboursement de l'App Store ; - Google : via l'historique d'achat et les procédures de remboursement de Google Play. SZCZ Softwares ne procède pas à des remboursements directs lorsque l'achat a été effectué via Apple ou Google. Sauf décision contraire de la plateforme ou obligation légale applicable, aucun remboursement n'est dû pour la non-utilisation des fonctionnalités, l'insatisfaction quant aux résultats d'apprentissage, la résiliation en cours de période ou l'impossibilité d'utiliser l'application résultant d'un appareil incompatible."
+          },
+          {
+            "h": "9. Modification de l'offre",
+            "b": "SZCZ Softwares peut faire évoluer les fonctionnalités incluses dans l'abonnement, notamment pour ajouter de nouvelles fonctionnalités, améliorer le service, supprimer une fonctionnalité obsolète, respecter une contrainte technique ou légale, ou adapter les coûts d'exploitation. Les modifications significatives pourront être communiquées aux abonnés par l'application, par le store ou par tout autre moyen approprié."
+          },
+          {
+            "h": "10. Disponibilité du service",
+            "b": "SZCZ Softwares fait ses meilleurs efforts pour assurer la disponibilité des fonctionnalités payantes. Des interruptions temporaires peuvent toutefois intervenir en raison de maintenance, mises à jour, pannes, incidents de sécurité, défaillances de prestataires tiers ou cas de force majeure. Une interruption temporaire ne donne pas automatiquement droit à remboursement, sauf disposition légale contraire ou décision de la plateforme de paiement."
+          },
+          {
+            "h": "11. Limites pédagogiques et IA",
+            "b": "Susumou est un outil d'aide à l'apprentissage. L'abonnement ne garantit pas : - la réussite à un examen, notamment le JLPT ; - l'atteinte d'un niveau linguistique déterminé ; - l'exactitude permanente des contenus ; - l'absence d'erreur dans les contenus générés par intelligence artificielle. Les réponses et contenus générés par IA doivent être vérifiés par l'utilisateur."
+          },
+          {
+            "h": "12. Responsabilité",
+            "b": "Dans les limites permises par la loi applicable, la responsabilité de SZCZ Softwares est limitée aux dommages directs prouvés et ne peut excéder le montant payé par l'utilisateur au titre de l'abonnement au cours des douze derniers mois. SZCZ Softwares ne peut être tenue responsable des dommages indirects, pertes de données, pertes de chance, pertes de revenus, préjudices commerciaux ou conséquences d'une mauvaise utilisation de l'application. Cette limitation ne s'applique pas en cas de faute lourde ou intentionnelle, ni aux garanties légales auxquelles un consommateur ne peut renoncer."
+          },
+          {
+            "h": "13. Service client",
+            "b": "Pour toute question relative à l'abonnement ou aux fonctionnalités payantes, l'utilisateur peut contacter SZCZ Softwares à dev@szczsoftwares.fr. Pour les questions de paiement, de facturation, de résiliation ou de remboursement, l'utilisateur doit également consulter les outils et conditions de la plateforme utilisée pour l'achat."
+          },
+          {
+            "h": "14. Médiation et règlement des litiges",
+            "b": "En cas de litige, l'utilisateur est invité à contacter SZCZ Softwares à dev@szczsoftwares.fr afin de rechercher une solution amiable. Si l'utilisateur agit en qualité de consommateur, il peut recourir gratuitement à un médiateur de la consommation dans les conditions prévues par le Code de la consommation. Les coordonnées du médiateur compétent seront communiquées dès désignation ou sur demande. L'utilisateur peut également consulter la plateforme européenne de règlement en ligne des litiges : https://ec.europa.eu/consumers/odr."
+          },
+          {
+            "h": "15. Droit applicable",
+            "b": "Les présentes CGV sont régies par le droit français. À défaut de résolution amiable, les tribunaux français compétents pourront être saisis, sous réserve des dispositions impératives applicables aux consommateurs. Pour les litiges relatifs aux paiements, aux remboursements et à la gestion des abonnements, les conditions de l'Apple App Store ou du Google Play Store peuvent également s'appliquer."
+          }
+        ]
+      }
     },
     "mentions-legales": {
-      fr: {
-        title: "Mentions légales — Susumou (進もう)",
-        updated: "Dernière mise à jour : avril 2026",
-        intro: "Les présentes mentions légales s'appliquent à l'application mobile Susumou et à la communication associée, conformément à la loi n°2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique.",
-        sections: [
-          { h: "1. Éditeur", b: "SZCZ Softwares (SASU), exploitée par Bastian Niszczota. Siège social : France. E-mail : contact@szcz-softwares.com." },
-          { h: "2. Directeur de la publication", b: "Bastian Niszczota, en sa qualité de représentant légal de SZCZ Softwares." },
-          { h: "3. Hébergement", b: "Le site et les services backend de l'application sont hébergés par Google Ireland Limited (Firebase Hosting, Cloud Firestore, Cloud Functions), Gordon House, Barrow Street, Dublin 4, Irlande. Région principale : europe-west1." },
-          { h: "4. Distribution", b: "L'Application est distribuée via l'App Store (Apple Distribution International, Hollyhill Industrial Estate, Hollyhill, Cork, Irlande) et Google Play (Google Ireland Limited). SZCZ Softwares n'est pas responsable des conditions propres à ces plateformes." },
-          { h: "5. Propriété intellectuelle", b: "L'Application Susumou, son code source, sa charte graphique, ses contenus pédagogiques, ses logos et son nom sont la propriété exclusive de SZCZ Softwares, sauf mention contraire. Toute reproduction, représentation ou exploitation sans autorisation écrite est interdite." },
-          { h: "6. Marques", b: "« Susumou » et le logo associé sont des marques de SZCZ Softwares. Les marques tierces citées (Apple, Google, Gemini, Firebase, etc.) demeurent la propriété de leurs détenteurs respectifs." },
-          { h: "7. Crédits & licences tiers", b: "Données de dictionnaire dérivées de JMdict / EDICT (Electronic Dictionary Research and Development Group, licence Creative Commons Attribution-ShareAlike). Polices et icônes sous licences open source. La liste détaillée est disponible dans l'Application : Paramètres > À propos > Licences." },
-          { h: "8. Limitation de responsabilité", b: "SZCZ Softwares met tout en œuvre pour offrir une information fiable, mais ne peut garantir l'exactitude, l'exhaustivité ou l'actualité des contenus pédagogiques générés, notamment par l'IA. L'utilisation de l'Application se fait sous la seule responsabilité de l'utilisateur." },
-          { h: "9. Liens externes", b: "L'Application peut contenir des liens vers des sites tiers. SZCZ Softwares n'exerce aucun contrôle sur ces ressources et décline toute responsabilité quant à leur contenu." },
-          { h: "10. Données personnelles", b: "Le traitement des données personnelles est détaillé dans la Politique de confidentialité accessible depuis l'Application et sur szczsoftwares.fr/susumou/privacy." },
-          { h: "11. Droit applicable", b: "Les présentes mentions sont soumises au droit français. Tout litige relève des juridictions françaises compétentes, sans préjudice des dispositions impératives consommateur de l'Union européenne." },
-          { h: "12. Contact", b: "Pour toute question relative aux présentes mentions : SZCZ Softwares — contact@szcz-softwares.com." },
-        ],
+      "en": {
+        "title": "Legal Notice - Susumou",
+        "updated": "Version 1.2 - Last updated: April 25, 2026",
+        "intro": "This legal notice concerns the website https://szczsoftwares.fr and the Susumou mobile application.",
+        "sections": [
+          {
+            "h": "1. Publisher",
+            "b": "The website and app are published by SZCZ Softwares, SASU with share capital of EUR 1,000, registered with the Boulogne-sur-Mer Trade and Companies Register under number 100 523 067. Registered office: 95 avenue de Deauville, 62520 Le Touquet-Paris-Plage, France. SIREN: 100 523 067. SIRET: 100 523 067 00013. Intra-community VAT: FR93100523067. NAF/APE code: 6201Z - Computer programming. Incorporation date: January 29, 2026. Registry: RCS Boulogne-sur-Mer. Website: https://szczsoftwares.fr. Email: dev@szczsoftwares.fr."
+          },
+          {
+            "h": "2. Publishing director",
+            "b": "The publishing director is Bastian Niszczota, president of SZCZ Softwares."
+          },
+          {
+            "h": "3. Hosting",
+            "b": "The Susumou app and part of its technical services are hosted through Firebase and Google Cloud. Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, United States. If https://szczsoftwares.fr is hosted by a provider separate from the app's technical services, the hosting information applicable to the website may be specified on dedicated pages of the site."
+          },
+          {
+            "h": "4. Contact",
+            "b": "For any question about the website, the app or this legal notice, contact SZCZ Softwares at dev@szczsoftwares.fr."
+          },
+          {
+            "h": "5. Intellectual property",
+            "b": "All elements composing the website and the Susumou app, including texts, interfaces, logos, graphic elements, features, educational content, databases, architecture, design and code, are protected by intellectual property law. Unless otherwise stated, these elements are the exclusive property of SZCZ Softwares or are used under authorization. The name 'Susumou', the app design and original educational content are operated by SZCZ Softwares. Any unauthorized reproduction, representation, modification, extraction, adaptation, distribution or exploitation, in whole or in part, is prohibited and may constitute infringement."
+          },
+          {
+            "h": "6. Credits",
+            "b": "Susumou is a Japanese-learning app inspired by JLPTGO. Icons used in the app may come from Material Design Icons or graphic libraries integrated into the frameworks used. Third-party trademarks, logos and services mentioned, including Apple, Google, Firebase, Google Play, App Store, AdMob and Gemini, belong to their respective owners."
+          },
+          {
+            "h": "7. Personal data",
+            "b": "Information concerning personal data processing is detailed in the Susumou Privacy Policy. For any personal data request, contact SZCZ Softwares at dev@szczsoftwares.fr."
+          },
+          {
+            "h": "8. Cookies and trackers",
+            "b": "The Susumou app may use audience measurement, diagnostic and advertising tools, including Firebase Analytics and Google AdMob. These technologies help improve the service, ensure security, understand app usage and, in the free version, display advertisements. Users can limit certain advertising tracking from their device settings and, where available, from privacy settings offered in the app."
+          },
+          {
+            "h": "9. Liability",
+            "b": "SZCZ Softwares strives to provide accurate and up-to-date information but does not guarantee the accuracy, completeness or permanent availability of the website, the app or their content. The user remains responsible for using the service, checking educational content and decisions made based on provided information. SZCZ Softwares cannot be held liable for indirect damages, temporary interruptions, technical errors, data loss or AI-generated content that may be inaccurate or incomplete."
+          }
+        ]
       },
-      en: {
-        title: "Legal Notice — Susumou (進もう)",
-        updated: "Last updated: April 2026",
-        intro: "This legal notice applies to the Susumou mobile application and related communications, in compliance with French Act No. 2004-575 of 21 June 2004 on confidence in the digital economy.",
-        sections: [
-          { h: "1. Publisher", b: "SZCZ Softwares (SASU), operated by Bastian Niszczota. Registered office: France. Email: contact@szcz-softwares.com." },
-          { h: "2. Publishing director", b: "Bastian Niszczota, as legal representative of SZCZ Softwares." },
-          { h: "3. Hosting", b: "The site and backend services are hosted by Google Ireland Limited (Firebase Hosting, Cloud Firestore, Cloud Functions), Gordon House, Barrow Street, Dublin 4, Ireland. Primary region: europe-west1." },
-          { h: "4. Distribution", b: "The App is distributed via the App Store (Apple Distribution International, Hollyhill Industrial Estate, Hollyhill, Cork, Ireland) and Google Play (Google Ireland Limited). SZCZ Softwares is not responsible for terms specific to these platforms." },
-          { h: "5. Intellectual property", b: "The Susumou App, its source code, visual identity, educational content, logos and name are the exclusive property of SZCZ Softwares, unless otherwise stated. Any reproduction, representation or use without written permission is prohibited." },
-          { h: "6. Trademarks", b: "\"Susumou\" and its logo are trademarks of SZCZ Softwares. Third-party trademarks cited (Apple, Google, Gemini, Firebase, etc.) remain the property of their respective owners." },
-          { h: "7. Third-party credits & licenses", b: "Dictionary data derived from JMdict / EDICT (Electronic Dictionary Research and Development Group, Creative Commons Attribution-ShareAlike). Fonts and icons under open-source licenses. The full list is available in-app: Settings > About > Licenses." },
-          { h: "8. Liability", b: "SZCZ Softwares strives to provide reliable information but cannot guarantee the accuracy, completeness or timeliness of educational content, particularly AI-generated content. Use of the App is at the user's sole responsibility." },
-          { h: "9. External links", b: "The App may contain links to third-party sites. SZCZ Softwares has no control over these resources and disclaims any liability for their content." },
-          { h: "10. Personal data", b: "Personal data processing is detailed in the Privacy Policy available from the App and at szczsoftwares.fr/susumou/privacy." },
-          { h: "11. Governing law", b: "This notice is governed by French law. Any dispute falls under the jurisdiction of French courts, without prejudice to mandatory EU consumer rights." },
-          { h: "12. Contact", b: "For any question about this notice: SZCZ Softwares — contact@szcz-softwares.com." },
-        ],
-      },
-      ja: {
-        title: "法的事項 — Susumou（進もう）",
-        updated: "最終更新日：2026年4月",
-        intro: "本法的事項は、デジタル経済における信頼に関するフランス法律2004年6月21日第2004-575号に従い、モバイルアプリ「Susumou」および関連するコミュニケーションに適用されます。",
-        sections: [
-          { h: "1. 発行者", b: "SZCZ Softwares（SASU）、Bastian Niszczotaが運営。本社所在地：フランス。メール：contact@szcz-softwares.com。" },
-          { h: "2. 発行責任者", b: "Bastian Niszczota（SZCZ Softwaresの法的代理人として）。" },
-          { h: "3. ホスティング", b: "サイトおよびアプリのバックエンドはGoogle Ireland Limited（Firebase Hosting、Cloud Firestore、Cloud Functions、Gordon House, Barrow Street, Dublin 4, Ireland）でホストされています。主要リージョン：europe-west1。" },
-          { h: "4. 配布", b: "本アプリはApp Store（Apple Distribution International、Hollyhill Industrial Estate, Hollyhill, Cork, Ireland）およびGoogle Play（Google Ireland Limited）を通じて配布されます。これらプラットフォーム固有の条件についてSZCZ Softwaresは責任を負いません。" },
-          { h: "5. 知的財産権", b: "Susumouアプリ、ソースコード、ビジュアルアイデンティティ、教育コンテンツ、ロゴ、名称は、別段の記載がない限りSZCZ Softwaresの独占的財産です。書面による許可なしの複製、公表、利用は禁止されます。" },
-          { h: "6. 商標", b: "「Susumou」および関連ロゴはSZCZ Softwaresの商標です。引用される第三者商標（Apple、Google、Gemini、Firebase等）はそれぞれの所有者の財産です。" },
-          { h: "7. 第三者クレジット・ライセンス", b: "辞書データはJMdict / EDICT（Electronic Dictionary Research and Development Group、Creative Commons Attribution-ShareAlike）に由来します。フォントおよびアイコンはオープンソースライセンスで提供されています。詳細はアプリ内：設定 > このアプリについて > ライセンスでご確認いただけます。" },
-          { h: "8. 責任", b: "SZCZ Softwaresは信頼性のある情報の提供に努めますが、特にAIによって生成された教育コンテンツの正確性、網羅性、最新性は保証されません。本アプリの利用は利用者の自己責任で行われます。" },
-          { h: "9. 外部リンク", b: "本アプリには第三者サイトへのリンクが含まれる場合があります。SZCZ Softwaresは当該リソースを管理しておらず、その内容について一切の責任を負いません。" },
-          { h: "10. 個人データ", b: "個人データの取扱いについては、アプリ内およびszczsoftwares.fr/susumou/privacyのプライバシーポリシーをご参照ください。" },
-          { h: "11. 準拠法", b: "本通知はフランス法に準拠します。EUの強行法規による消費者の権利を妨げない範囲で、フランスの裁判所が管轄を有します。" },
-          { h: "12. お問い合わせ", b: "本通知に関するお問い合わせ：SZCZ Softwares — contact@szcz-softwares.com。" },
-        ],
-      },
+      "fr": {
+        "title": "Mentions légales",
+        "updated": "Version 1.2 - Dernière mise à jour : 25 avril 2026",
+        "intro": "Les présentes mentions légales concernent le site https://szczsoftwares.fr et l'application mobile Susumou.",
+        "sections": [
+          {
+            "h": "1. Éditeur",
+            "b": "Le site et l'application sont édités par : SZCZ Softwares, SASU au capital social de 1 000 euros, immatriculée au RCS de Boulogne-sur-Mer sous le numéro 100 523 067. Siège social : 95 avenue de Deauville, 62520 Le Touquet-Paris-Plage, France SIREN : 100 523 067 SIRET : 100 523 067 00013 TVA intracommunautaire : FR93100523067 Code NAF/APE : 6201Z - Programmation informatique Date d'immatriculation : 29 janvier 2026 Greffe : RCS Boulogne-sur-Mer Site web : https://szczsoftwares.fr Email : dev@szczsoftwares.fr"
+          },
+          {
+            "h": "2. Directeur de la publication",
+            "b": "Le directeur de la publication est Bastian Niszczota, président de SZCZ Softwares."
+          },
+          {
+            "h": "3. Hébergement",
+            "b": "L'application Susumou et une partie de ses services techniques sont hébergés via Firebase et Google Cloud. Google LLC 1600 Amphitheatre Parkway Mountain View, CA 94043 États-Unis Si le site https://szczsoftwares.fr est hébergé par un prestataire distinct des services techniques de l'application, les informations d'hébergement applicables au site peuvent être précisées sur les pages dédiées du site."
+          },
+          {
+            "h": "4. Contact",
+            "b": "Pour toute question concernant le site, l'application ou les présentes mentions légales, vous pouvez contacter SZCZ Softwares à l'adresse suivante : dev@szczsoftwares.fr"
+          },
+          {
+            "h": "5. Propriété intellectuelle",
+            "b": "L'ensemble des éléments composant le site et l'application Susumou, notamment les textes, interfaces, logos, éléments graphiques, fonctionnalités, contenus pédagogiques, bases de données, architecture, design et code, est protégé par le droit de la propriété intellectuelle. Sauf mention contraire, ces éléments sont la propriété exclusive de SZCZ Softwares ou font l'objet d'une autorisation d'utilisation. Le nom \"Susumou\" (進もう), le design de l'application et les contenus pédagogiques originaux sont exploités par SZCZ Softwares. Toute reproduction, représentation, modification, extraction, adaptation, diffusion ou exploitation non autorisée, totale ou partielle, est interdite et peut constituer une contrefaçon."
+          },
+          {
+            "h": "6. Crédits",
+            "b": "Susumou est une application d'apprentissage du japonais inspirée par JLPTGO. Les icônes utilisées dans l'application peuvent provenir de Material Design Icons ou des bibliothèques graphiques intégrées aux frameworks utilisés. Les marques, logos et services tiers cités, notamment Apple, Google, Firebase, Google Play, App Store, AdMob et Gemini, appartiennent à leurs titulaires respectifs."
+          },
+          {
+            "h": "7. Données personnelles",
+            "b": "Les informations relatives au traitement des données personnelles sont détaillées dans la Politique de confidentialité de Susumou. Pour toute demande relative aux données personnelles, vous pouvez contacter SZCZ Softwares à l'adresse suivante : dev@szczsoftwares.fr."
+          },
+          {
+            "h": "8. Cookies et traceurs",
+            "b": "L'application Susumou peut utiliser des outils de mesure d'audience, de diagnostic et de publicité, notamment Firebase Analytics et Google AdMob. Ces technologies permettent d'améliorer le service, d'assurer la sécurité, de comprendre l'usage de l'application et, dans la version gratuite, d'afficher des publicités. L'utilisateur peut limiter certains suivis publicitaires depuis les paramètres de son appareil et, lorsque disponible, depuis les réglages de confidentialité proposés dans l'application."
+          },
+          {
+            "h": "9. Responsabilité",
+            "b": "SZCZ Softwares s'efforce de fournir des informations exactes et à jour, mais ne garantit pas l'exactitude, l'exhaustivité ou la disponibilité permanente du site, de l'application ou de leurs contenus. L'utilisateur demeure responsable de son utilisation du service, de la vérification des contenus pédagogiques et des décisions prises sur la base des informations fournies. SZCZ Softwares ne saurait être tenue responsable des dommages indirects, interruptions temporaires, erreurs techniques, pertes de données ou contenus générés par intelligence artificielle qui seraient inexacts ou incomplets."
+          }
+        ]
+      }
     },
     "account-deletion": {
-      fr: {
-        title: "Suppression de compte — Susumou (進もう)",
-        updated: "Version 1.1 — Dernière mise à jour : 21 mars 2026",
-        intro: "Conformément au RGPD et aux exigences de l'App Store et de Google Play, vous pouvez à tout moment demander la suppression de votre compte Susumou et de l'ensemble des données personnelles associées.",
-        sections: [
-          { h: "1. Depuis l'application", b: "Paramètres > Compte > « Supprimer mon compte » > confirmer. Suppression immédiatement prise en compte, traitement complet sous 30 jours." },
-          { h: "2. Par e-mail", b: "Envoyer un e-mail à contact@szcz-softwares.com avec l'objet « Suppression de compte Susumou », en précisant l'adresse associée, le type de connexion (e-mail, Google, Apple, anonyme) et toute information permettant d'identifier votre compte. Traitement sous 30 jours." },
-          { h: "3. Données supprimées", b: "Authentification (Firebase Auth, e-mail, identifiants Google/Apple), profil et préférences (pseudo, niveau, objectifs), données pédagogiques (progression, SRS, tests), gamification (XP, séries, achievements), documents synchronisés." },
-          { h: "4. Données conservées", b: "Données analytiques anonymisées (statistiques agrégées), sauvegardes techniques (jusqu'à 90 jours), historique d'achats in-app (géré par Apple/Google), obligations légales." },
-          { h: "5. Délai", b: "Depuis l'application : prise en compte immédiate, suppression complète sous 30 jours. Par e-mail : accusé de réception puis suppression sous 30 jours." },
-          { h: "6. Conséquences", b: "La suppression est irréversible. Plus d'accès à la progression, aux achievements ou aux statistiques. Un nouveau compte peut être créé sans restauration." },
-          { h: "7. Abonnements actifs", b: "La suppression ne résilie pas automatiquement un abonnement. iOS : Réglages > Abonnements > Susumou > Résilier. Android : Google Play > Abonnements > Susumou > Résilier." },
-          { h: "8. Contact", b: "SZCZ Softwares (SASU), France. E-mail : contact@szcz-softwares.com." },
-        ],
+      "fr": {
+        "title": "Suppression de compte - Susumou",
+        "updated": "Derniere mise a jour : 25 avril 2026",
+        "intro": "Vous pouvez demander la suppression de votre compte Susumou et des donnees personnelles associees depuis l'application ou par email.",
+        "sections": [
+          {
+            "h": "1. Depuis l'application",
+            "b": "Ouvrez les parametres de Susumou, puis Compte > Supprimer mon compte, et confirmez la demande. La suppression est prise en compte et traitee dans un delai raisonnable, en principe sous 30 jours."
+          },
+          {
+            "h": "2. Par email",
+            "b": "Envoyez une demande a dev@szczsoftwares.fr avec l'objet 'Suppression de compte Susumou', en precisant l'adresse email associee, le mode de connexion utilise et toute information permettant d'identifier le compte."
+          },
+          {
+            "h": "3. Donnees supprimees",
+            "b": "Les donnees d'authentification, de profil, de preferences, de progression pedagogique, de repetition espacee, de tests, de statistiques et les donnees synchronisees associees au compte sont supprimees ou anonymisees."
+          },
+          {
+            "h": "4. Donnees conservees",
+            "b": "Certaines donnees peuvent etre conservees lorsque la loi l'exige, lorsqu'elles sont necessaires a la securite du service, aux sauvegardes techniques temporaires ou sous forme anonymisee et agregee."
+          },
+          {
+            "h": "5. Abonnements actifs",
+            "b": "La suppression du compte ne resilie pas automatiquement un abonnement gere par Apple ou Google. L'utilisateur doit resilier l'abonnement depuis les reglages de l'App Store ou de Google Play."
+          },
+          {
+            "h": "6. Consequences",
+            "b": "La suppression est irreversible. La progression, les statistiques, les preferences et les contenus associes au compte ne pourront pas etre restaures."
+          },
+          {
+            "h": "7. Contact",
+            "b": "SZCZ Softwares - dev@szczsoftwares.fr."
+          }
+        ]
       },
-      en: {
-        title: "Account Deletion — Susumou (進もう)",
-        updated: "Version 1.1 — Last updated: March 21, 2026",
-        intro: "In accordance with the GDPR and App Store / Google Play requirements, you may at any time request the deletion of your Susumou account and associated personal data.",
-        sections: [
-          { h: "1. From the app", b: "Settings > Account > \"Delete my account\" > confirm. Deletion recorded immediately, full processing within 30 days." },
-          { h: "2. By email", b: "Email contact@szcz-softwares.com with subject \"Susumou account deletion,\" including the associated email, sign-in method (email, Google, Apple, anonymous) and any info identifying your account. Processed within 30 days." },
-          { h: "3. Data deleted", b: "Authentication (Firebase Auth, email, Google/Apple IDs), profile and preferences (nickname, level, goals), learning data (progress, SRS, tests), gamification (XP, streaks, achievements), synced documents." },
-          { h: "4. Data retained", b: "Anonymized analytics (aggregated statistics), technical backups (up to 90 days), in-app purchase history (managed by Apple/Google), legal obligations." },
-          { h: "5. Timing", b: "From the app: immediate, full deletion within 30 days. By email: acknowledgment then deletion within 30 days." },
-          { h: "6. Consequences", b: "Deletion is irreversible. No more access to progress, achievements or statistics. A new account can be created without restoration." },
-          { h: "7. Active subscriptions", b: "Deletion does not automatically cancel a subscription. iOS: Settings > Subscriptions > Susumou > Cancel. Android: Google Play > Subscriptions > Susumou > Cancel." },
-          { h: "8. Contact", b: "SZCZ Softwares (SASU), France. Email: contact@szcz-softwares.com." },
-        ],
-      },
-      ja: {
-        title: "アカウント削除 — Susumou（進もう）",
-        updated: "バージョン 1.1 — 最終更新日：2026年3月21日",
-        intro: "GDPRおよびApp Store／Google Playの要件に従い、Susumouのアカウントおよび関連する個人データの削除をいつでもリクエストできます。",
-        sections: [
-          { h: "1. アプリから削除", b: "設定 > アカウント > 「アカウントを削除する」 > 確認。削除は即座に受付され、30日以内に完了します。" },
-          { h: "2. メールから削除", b: "件名「Susumouアカウント削除」とし、登録メールアドレス、ログイン方法（メール／Google／Apple／匿名）、アカウントを特定できる情報を記載してcontact@szcz-softwares.comまでご連絡ください。30日以内に処理します。" },
-          { h: "3. 削除されるデータ", b: "認証情報（Firebase Auth、メール、Google／Apple ID）、プロフィールと設定（ニックネーム、レベル、目標）、学習データ（進捗、SRS、テスト）、ゲーミフィケーション（XP、連続記録、実績）、同期されたドキュメント。" },
-          { h: "4. 保持されるデータ", b: "匿名化された分析データ（集計統計）、技術的バックアップ（最大90日）、アプリ内購入履歴（Apple／Google管理）、法令上の義務に基づく情報。" },
-          { h: "5. 処理時間", b: "アプリから：即時、30日以内に完全削除。メールから：受領確認後、30日以内に削除。" },
-          { h: "6. 結果", b: "削除は取り消せません。進捗、実績、統計にはアクセスできなくなります。新規アカウントの作成は可能ですが、復元はできません。" },
-          { h: "7. 有効なサブスクリプション", b: "アカウント削除はサブスクリプションを自動解約しません。iOS：設定 > サブスクリプション > Susumou > 解約。Android：Google Play > サブスクリプション > Susumou > 解約。" },
-          { h: "8. お問い合わせ", b: "SZCZ Softwares（SASU）、フランス。メール：contact@szcz-softwares.com。" },
-        ],
-      },
-    },
+      "en": {
+        "title": "Account Deletion - Susumou",
+        "updated": "Last updated: April 25, 2026",
+        "intro": "You can request deletion of your Susumou account and associated personal data from the app or by email.",
+        "sections": [
+          {
+            "h": "1. From the app",
+            "b": "Open Susumou settings, then Account > Delete my account, and confirm the request. Deletion is recorded and processed within a reasonable period, in principle within 30 days."
+          },
+          {
+            "h": "2. By email",
+            "b": "Send a request to dev@szczsoftwares.fr with subject \"Susumou account deletion\", providing the associated email address, sign-in method and any information that can identify the account."
+          },
+          {
+            "h": "3. Data deleted",
+            "b": "Authentication data, profile data, preferences, learning progress, spaced-repetition data, tests, statistics and synchronized data associated with the account are deleted or anonymized."
+          },
+          {
+            "h": "4. Data retained",
+            "b": "Some data may be retained where required by law, where necessary for service security, for temporary technical backups, or in anonymized and aggregated form."
+          },
+          {
+            "h": "5. Active subscriptions",
+            "b": "Account deletion does not automatically cancel a subscription managed by Apple or Google. The user must cancel the subscription from the App Store or Google Play settings."
+          },
+          {
+            "h": "6. Consequences",
+            "b": "Deletion is irreversible. Progress, statistics, preferences and content associated with the account cannot be restored."
+          },
+          {
+            "h": "7. Contact",
+            "b": "SZCZ Softwares - dev@szczsoftwares.fr."
+          }
+        ]
+      }
+    }
   },
   "soccer-link": {
     "privacy": {
-      fr: {
-        title: "Politique de confidentialité — Soccer Link",
-        updated: "Dernière mise à jour : mars 2026",
-        intro: "Soccer Link s'engage à protéger la vie privée de ses utilisateurs. Cette politique explique comment nous collectons, utilisons, stockons et protégeons vos données personnelles lorsque vous utilisez l'Application.",
-        sections: [
-          { h: "1. Responsable du traitement", b: "Soccer Link. E-mail : privacy@soccerlink.app. Conforme au RGPD et à la loi Informatique et Libertés modifiée." },
-          { h: "2. Données collectées", b: "Identification (nom, prénom, e-mail, photo optionnelle, ville). Profil (rôle : joueur, entraîneur, arbitre, dirigeant, parent ; poste, pied, taille ; club actuel ; bio). Utilisation (messages, connexions, activité). Techniques (Firebase Crashlytics, Performance, Analytics anonymisé, modèle d'appareil, OS, version)." },
-          { h: "3. Utilisation", b: "Créer et gérer votre compte, permettre la communication, améliorer nos services, envoyer des notifications pertinentes, assurer la sécurité, diagnostiquer les bugs, analyser les performances, respecter nos obligations légales." },
-          { h: "4. Base légale", b: "Consentement explicite à l'inscription, exécution du contrat, intérêt légitime (amélioration, sécurité), respect d'obligations légales." },
-          { h: "5. Partage et sous-traitants", b: "Certaines infos de profil peuvent être visibles selon vos paramètres. Aucune vente. Sous-traitants : Google Firebase (hébergement, auth, stockage, Analytics, Crashlytics, Performance, Cloud Messaging), Google Sign-In, Algolia SAS (moteur de recherche)." },
-          { h: "6. Transferts hors UE", b: "Google peut traiter des données aux États-Unis, encadré par le Data Privacy Framework, les clauses contractuelles types et des mesures complémentaires conformes aux recommandations du CEPD. Algolia traite en UE." },
-          { h: "7. Conservation", b: "Compte : tant qu'il est actif. Messages : tant que la conversation existe. Analytics : 14 mois max. Crashs : 90 jours. Logs techniques : 12 mois max. Après suppression : effacement sous 30 jours sauf obligation légale." },
-          { h: "8. Vos droits", b: "Accès, rectification, effacement, portabilité, opposition, limitation, retrait du consentement. Contact : privacy@soccerlink.app. Réponse sous 1 mois, prolongeable de 2 mois." },
-          { h: "9. Cookies et stockage local", b: "Stockage local pour session, préférences et cache. Firebase Analytics pour données d'utilisation anonymisées, désactivable dans les paramètres." },
-          { h: "10. Mineurs", b: "Destinée aux 13 ans et plus. Moins de 18 ans : autorisation parentale. Consentement parental requis en France en dessous de 16 ans. Pas de collecte sciemment en dessous de 13 ans." },
-          { h: "11. Modifications", b: "Politique modifiable. Modifications importantes notifiées dans l'Application ; un nouveau consentement peut être demandé." },
-          { h: "12. Contact et réclamation", b: "Soccer Link — privacy@soccerlink.app. CNIL : 3 Place de Fontenoy, TSA 80715, 75334 Paris Cedex 07, www.cnil.fr." },
-        ],
+      "en": {
+        "title": "SoccerLink Privacy Policy",
+        "updated": "Last updated: April 25, 2026",
+        "intro": "This privacy policy explains how SZCZ SOFTWARES collects, uses, retains and protects personal data of SoccerLink app users. It is drafted in accordance with the GDPR and the French Data Protection Act of January 6, 1978 as amended.",
+        "sections": [
+          {
+            "h": "1. Data controller",
+            "b": "The data controller is SZCZ SOFTWARES, SAS with share capital of EUR 1,000. SIREN: 100 523 067. SIRET: 100 523 067 00013. RCS Boulogne-sur-Mer: 100 523 067. Registered office: 95 avenue de Deauville, 62520 Le Touquet-Paris-Plage, France. Website: https://szczsoftwares.fr. Email: dev@szczsoftwares.fr. SZCZ SOFTWARES has not appointed a data protection officer; any personal data request may be sent to this address."
+          },
+          {
+            "h": "2. Data collected",
+            "b": "Depending on app use, SoccerLink may collect identification data such as first and last name or display name, email address, profile photo, city or geographic area and account technical identifiers; sports profile data such as amateur football role, position, preferred foot, height, club, biography, experience, certifications or equivalent information, and data linked to clubs, teams, offers, applications, publications and interactions; communication and usage data such as in-app messages, connections, requests, relationships, interactions, publications, comments, applications, offers and content shared by the user, notification, privacy and account preferences; and technical data such as device, operating system and app version information, technical logs, Firebase Crashlytics crash and error reports, Firebase Performance Monitoring data, and Firebase Analytics usage events when analytics collection is enabled."
+          },
+          {
+            "h": "3. Processing purposes",
+            "b": "Data is used to create, authenticate and manage user accounts; provide SoccerLink features including profiles, clubs, messaging, search, offers, applications, publications and notifications; enable communication between users; manage privacy and notification preferences; ensure security, prevent abuse and protect service integrity; diagnose technical incidents and improve performance; measure app usage when analytics is enabled; respond to support requests; and comply with applicable legal obligations."
+          },
+          {
+            "h": "4. Legal bases",
+            "b": "Processing is based, depending on the case, on contract performance where necessary to provide the service, user consent including acceptance of contractual documents and certain optional features, SZCZ SOFTWARES' legitimate interest in securing, maintaining and improving the app, and compliance with legal obligations. Consent may be withdrawn where the processing relies on it, without affecting the lawfulness of processing carried out before withdrawal."
+          },
+          {
+            "h": "5. Data visibility",
+            "b": "Some profile information may be visible to other users depending on features used and privacy settings: display name, photo, city, role, club, sports information or published content. Users remain responsible for information they choose to make visible or communicate to other users."
+          },
+          {
+            "h": "6. Processors and providers",
+            "b": "SZCZ SOFTWARES uses Google Firebase / Google Cloud for authentication, Firestore database, file storage, hosting, server functions, push notifications, crash reporting, performance monitoring and analytics; Google Sign-In for Google account login if chosen by the user; and Algolia SAS for search engine and indexing of profiles, clubs or content needed for in-app search. These providers process data on behalf of SZCZ SOFTWARES or under their own responsibility where their services require it. They are subject to contractual confidentiality and security obligations. SZCZ SOFTWARES does not sell users' personal data."
+          },
+          {
+            "h": "7. Transfers outside the European Union",
+            "b": "Some providers, including Google, may process data outside the European Union. When this occurs, transfers are covered by recognized mechanisms such as the EU-US Data Privacy Framework where applicable, European Commission standard contractual clauses and additional security measures."
+          },
+          {
+            "h": "8. Security",
+            "b": "SZCZ SOFTWARES implements technical and organizational measures to protect data, including encrypted HTTPS/TLS connections, secure authentication, Firestore and Storage security rules limiting data access, separation of sensitive server-side operations where necessary, monitoring of errors, incidents and performance, and access control for administration tools and third-party services. No security measure can guarantee absolute protection; in the event of an incident creating a risk for data subjects' rights and freedoms, SZCZ SOFTWARES will take measures required by applicable regulations."
+          },
+          {
+            "h": "9. Retention periods",
+            "b": "Data is retained for periods necessary to the stated purposes: account data while the account exists; profile data and published content while the account exists or until user deletion where available; messages while conversation threads exist and according to applicable deletion rules; analytics data for up to 14 months subject to service configuration; crash reports for up to 90 days unless a specific technical or security need applies; and technical logs for up to 12 months unless a legal obligation or security need applies. After account deletion, personal data is deleted or anonymized within a reasonable period, in principle within 30 days, unless legal retention or evidence preservation is required."
+          },
+          {
+            "h": "10. Local storage and similar technologies",
+            "b": "The app uses local storage technologies necessary for operation, including maintaining the login session, saving preferences, improving performance through caching, and managing local app settings. Firebase Analytics may collect usage data. Users can disable analytics collection in app settings when this option is available."
+          },
+          {
+            "h": "11. Minors",
+            "b": "SoccerLink is intended for people aged at least 13. Minors must use the app with authorization from their parents or legal representatives. In France, where consent is required for processing data of a minor under 15, that consent must be given or authorized by the holder of parental authority. If SZCZ SOFTWARES finds that a child's data was collected without required authorization, it will be deleted as soon as possible."
+          },
+          {
+            "h": "12. Your rights",
+            "b": "Users have rights of access, rectification, erasure, restriction of processing, objection, portability, withdrawal of consent where processing is based on consent, and the right to define instructions concerning the fate of their data after death. To exercise these rights, contact dev@szczsoftwares.fr. A response will be provided within one month from receipt of the request, extendable by two months for complex or numerous requests."
+          },
+          {
+            "h": "13. CNIL complaint",
+            "b": "If users believe their rights are not respected, they may lodge a complaint with the CNIL: Commission Nationale de l'Informatique et des Libertés, 3 place de Fontenoy - TSA 80715, 75334 Paris Cedex 07, https://www.cnil.fr."
+          },
+          {
+            "h": "14. Changes to this policy",
+            "b": "SZCZ SOFTWARES may modify this privacy policy to reflect changes in the app, services used or regulations. In the event of a significant change, users will be informed by any appropriate means, including in the app."
+          }
+        ]
       },
-      en: {
-        title: "Privacy Policy — Soccer Link",
-        updated: "Last updated: March 2026",
-        intro: "Soccer Link is committed to protecting its users' privacy. This policy explains how we collect, use, store and protect your personal data when you use the App.",
-        sections: [
-          { h: "1. Data controller", b: "Soccer Link. Email: privacy@soccerlink.app. Compliant with the GDPR and the French Data Protection Act." },
-          { h: "2. Data collected", b: "Identification (name, email, optional photo, city). Profile (role: player, coach, referee, manager, parent; position, preferred foot, height; current club; bio). Usage (messages, connections, activity). Technical (Firebase Crashlytics, Performance, anonymized Analytics, device model, OS, version)." },
-          { h: "3. Use", b: "Create and manage your account, enable communication, improve services, send relevant notifications, ensure security, diagnose bugs, analyze performance, meet legal obligations." },
-          { h: "4. Legal basis", b: "Explicit consent at sign-up, contract performance, legitimate interest (improvement, security), legal obligations." },
-          { h: "5. Sharing & processors", b: "Some profile info may be visible per your settings. Never sold. Processors: Google Firebase (hosting, auth, storage, Analytics, Crashlytics, Performance, Cloud Messaging), Google Sign-In, Algolia SAS (search)." },
-          { h: "6. Transfers outside EU", b: "Google may process data in the US, under the Data Privacy Framework, standard contractual clauses and additional measures per EDPB recommendations. Algolia processes in the EU." },
-          { h: "7. Retention", b: "Account: while active. Messages: while the thread exists. Analytics: up to 14 months. Crashes: 90 days. Technical logs: up to 12 months. After deletion: erased within 30 days unless legally required." },
-          { h: "8. Your rights", b: "Access, rectification, erasure, portability, objection, restriction, consent withdrawal. Contact: privacy@soccerlink.app. Reply within 1 month, extendable 2 months." },
-          { h: "9. Cookies & local storage", b: "Local storage for session, preferences and cache. Firebase Analytics for anonymized usage data, can be disabled in settings." },
-          { h: "10. Minors", b: "For ages 13+. Under 18: parental authorization. Parental consent required in France under 16. We do not knowingly collect data under 13." },
-          { h: "11. Updates", b: "Policy may be updated. Material changes notified in the App; renewed consent may be requested." },
-          { h: "12. Contact & complaints", b: "Soccer Link — privacy@soccerlink.app. CNIL: 3 Place de Fontenoy, TSA 80715, 75334 Paris Cedex 07, www.cnil.fr." },
-        ],
-      },
-      ja: {
-        title: "プライバシーポリシー — Soccer Link",
-        updated: "最終更新日：2026年3月",
-        intro: "Soccer Linkは利用者のプライバシー保護に努めています。本ポリシーは、本アプリの利用にあたり当社がどのように個人データを収集・利用・保管・保護するかを説明します。",
-        sections: [
-          { h: "1. 管理者", b: "Soccer Link。メール：privacy@soccerlink.app。GDPRおよびフランス情報処理・自由法に準拠します。" },
-          { h: "2. 収集するデータ", b: "識別情報（氏名、メール、任意の写真、都市）、プロフィール（ロール：選手・コーチ・審判・運営・保護者、ポジション、利き足、身長、所属クラブ、自己紹介）、利用情報（メッセージ、繋がり、活動）、技術情報（Firebase Crashlytics、Performance、匿名化されたAnalytics、端末モデル、OS、バージョン）。" },
-          { h: "3. 利用目的", b: "アカウントの作成・管理、コミュニケーション、サービス改善、関連通知の送信、セキュリティ確保、バグ診断、パフォーマンス分析、法令遵守。" },
-          { h: "4. 法的根拠", b: "登録時の明示的な同意、契約の履行、正当な利益（改善・セキュリティ）、法令上の義務。" },
-          { h: "5. 共有と委託先", b: "設定に応じて一部のプロフィール情報が他者に表示される場合があります。データを販売することはありません。委託先：Google Firebase（ホスティング、認証、ストレージ、Analytics、Crashlytics、Performance、Cloud Messaging）、Google Sign-In、Algolia SAS（検索）。" },
-          { h: "6. EU域外への移転", b: "Googleは米国でデータを処理する場合があり、Data Privacy Framework、標準契約条項、EDPB勧告に基づく追加措置によって保護されています。AlgoliaはEU域内で処理します。" },
-          { h: "7. 保存期間", b: "アカウント：有効である間。メッセージ：スレッドが存在する間。Analytics：最長14か月。クラッシュ：90日。技術ログ：最長12か月。削除後：法令上の必要がない限り30日以内に消去。" },
-          { h: "8. 利用者の権利", b: "アクセス、訂正、削除、ポータビリティ、異議申立、制限、同意の撤回。連絡先：privacy@soccerlink.app。原則1か月以内に回答、最大2か月まで延長可能です。" },
-          { h: "9. Cookieとローカルストレージ", b: "セッション、設定、キャッシュのためにローカルストレージを使用します。匿名化された利用データのためのFirebase Analyticsは設定で無効化できます。" },
-          { h: "10. 未成年者", b: "対象年齢は13歳以上です。18歳未満：保護者の同意が必要。フランスでは16歳未満は保護者の同意が必須。13歳未満のデータは意図して収集しません。" },
-          { h: "11. ポリシーの変更", b: "ポリシーは更新される可能性があります。重要な変更はアプリ内で通知し、改めて同意を求める場合があります。" },
-          { h: "12. お問い合わせと苦情", b: "Soccer Link — privacy@soccerlink.app。CNIL：3 Place de Fontenoy, TSA 80715, 75334 Paris Cedex 07, www.cnil.fr。" },
-        ],
-      },
+      "fr": {
+        "title": "Politique de confidentialité - SoccerLink",
+        "updated": "Dernière mise à jour : 25 avril 2026",
+        "intro": "La présente politique de confidentialité explique comment SZCZ SOFTWARES collecte, utilise, conserve et protège les données personnelles des utilisateurs de l'application SoccerLink. Elle est rédigée conformément au Règlement général sur la protection des données (RGPD - règlement UE 2016/679) et à la loi Informatique et Libertés du 6 janvier 1978 modifiée.",
+        "sections": [
+          {
+            "h": "1. Responsable du traitement",
+            "b": "Le responsable du traitement est : SZCZ SOFTWARES SAS au capital de 1 000 euros SIREN : 100 523 067 SIRET : 100 523 067 00013 RCS Boulogne-sur-Mer : 100 523 067 Siège social : 95 avenue de Deauville, 62520 Le Touquet-Paris-Plage, France Site web : https://szczsoftwares.fr Email : dev@szczsoftwares.fr SZCZ SOFTWARES n'a pas désigné de délégué à la protection des données. Toute demande relative aux données personnelles peut être envoyée à l'adresse ci-dessus."
+          },
+          {
+            "h": "2. Données collectées",
+            "b": "SoccerLink peut collecter les catégories de données suivantes, selon votre utilisation de l'application : Données d'identification - Nom et prénom ou nom affiché ; - Adresse email ; - Photo de profil, si vous en ajoutez une ; - Ville ou zone géographique renseignée ; - Identifiants techniques liés à votre compte. Données de profil sportif - Rôle dans le football amateur : joueur, entraîneur, arbitre, dirigeant, parent ou autre rôle disponible dans l'application ; - Informations sportives : poste, pied préféré, taille, club, biographie, expérience, certifications ou informations équivalentes ; - Informations liées aux clubs, équipes, offres, candidatures, publications et interactions créées dans l'application. Données de communication et d'utilisation - Messages échangés dans l'application ; - Connexions, demandes, relations et interactions avec d'autres utilisateurs ; - Publications, commentaires, candidatures, offres et contenus que vous choisissez de partager ; - Préférences de notification, de confidentialité et de compte. Données techniques - Informations relatives à l'appareil, au système d'exploitation et à la version de l'application ; - Journaux techniques nécessaires au fonctionnement et à la sécurité ; - Rapports de crash et d'erreurs via Firebase Crashlytics ; - Données de performance via Firebase Performance Monitoring ; - Événements d'utilisation via Firebase Analytics, lorsque la collecte analytique est activée."
+          },
+          {
+            "h": "3. Finalités des traitements",
+            "b": "Les données sont utilisées pour : - Créer, authentifier et gérer votre compte utilisateur ; - Fournir les fonctionnalités de SoccerLink : profils, clubs, messagerie, recherche, offres, candidatures, publications et notifications ; - Permettre la communication entre utilisateurs ; - Gérer vos préférences de confidentialité et de notification ; - Assurer la sécurité, prévenir les abus et protéger l'intégrité du service ; - Diagnostiquer les incidents techniques et améliorer les performances ; - Mesurer l'utilisation de l'application lorsque l'analytics est activé ; - Répondre aux demandes de support ; - Respecter les obligations légales applicables."
+          },
+          {
+            "h": "4. Bases légales",
+            "b": "Les traitements reposent, selon les cas, sur : - L'exécution du contrat, lorsque le traitement est nécessaire à la fourniture du service ; - Votre consentement, notamment pour l'acceptation des documents contractuels et certaines fonctionnalités optionnelles ; - L'intérêt légitime de SZCZ SOFTWARES à sécuriser, maintenir et améliorer l'application ; - Le respect d'obligations légales. Vous pouvez retirer votre consentement lorsque le traitement concerné repose sur celui-ci, sans remettre en cause la licéité du traitement effectué avant le retrait."
+          },
+          {
+            "h": "5. Visibilité des données",
+            "b": "Certaines informations de profil peuvent être visibles par d'autres utilisateurs selon les fonctionnalités utilisées et vos paramètres de confidentialité : nom affiché, photo, ville, rôle, club, informations sportives ou contenus publiés. Vous restez responsable des informations que vous choisissez de rendre visibles ou de communiquer à d'autres utilisateurs."
+          },
+          {
+            "h": "6. Sous-traitants et prestataires",
+            "b": "SZCZ SOFTWARES utilise notamment les prestataires suivants : - Google Firebase / Google Cloud : authentification, base de données Firestore, stockage de fichiers, hébergement, fonctions serveur, notifications push, crash reporting, performance monitoring et analytics ; - Google Sign-In : connexion via compte Google, si vous choisissez ce mode d'authentification ; - Algolia SAS : moteur de recherche et indexation des profils, clubs ou contenus nécessaires à la recherche dans l'application. Ces prestataires traitent les données pour le compte de SZCZ SOFTWARES ou selon leurs propres responsabilités lorsque leurs services l'imposent. Ils sont soumis à des obligations contractuelles de confidentialité et de sécurité. SZCZ SOFTWARES ne vend pas les données personnelles des utilisateurs."
+          },
+          {
+            "h": "7. Transferts hors Union européenne",
+            "b": "Certains prestataires, notamment Google, peuvent traiter des données en dehors de l'Union européenne. Lorsque cela se produit, les transferts sont encadrés par des mécanismes reconnus, tels que le EU-US Data Privacy Framework lorsque applicable, les clauses contractuelles types de la Commission européenne et des mesures complémentaires de sécurité."
+          },
+          {
+            "h": "8. Sécurité",
+            "b": "SZCZ SOFTWARES met en oeuvre des mesures techniques et organisationnelles destinées à protéger les données : - Connexions chiffrées via HTTPS/TLS ; - Authentification sécurisée ; - Règles de sécurité Firestore et Storage limitant l'accès aux données ; - Séparation des opérations sensibles côté serveur lorsque nécessaire ; - Surveillance des erreurs, incidents et performances ; - Contrôle des accès aux outils d'administration et aux services tiers. Aucune mesure de sécurité ne peut garantir une protection absolue. En cas d'incident présentant un risque pour les droits et libertés des personnes concernées, SZCZ SOFTWARES prendra les mesures prévues par la réglementation applicable."
+          },
+          {
+            "h": "9. Durées de conservation",
+            "b": "Les données sont conservées pendant les durées nécessaires aux finalités décrites ci-dessus : - Données de compte : pendant la durée d'existence du compte ; - Données de profil et contenus publiés : pendant la durée d'existence du compte ou jusqu'à suppression par l'utilisateur lorsque la fonctionnalité le permet ; - Messages : tant que les fils de conversation existent et selon les règles de suppression applicables ; - Données analytiques : 14 mois maximum, sous réserve de la configuration des services utilisés ; - Rapports de crash : 90 jours maximum, sauf nécessité technique ou sécurité particulière ; - Logs techniques : 12 mois maximum, sauf obligation légale ou besoin de sécurité. Après suppression du compte, les données personnelles sont supprimées ou anonymisées dans un délai raisonnable, en principe sous 30 jours, sauf obligation légale de conservation ou nécessité de conservation de preuves."
+          },
+          {
+            "h": "10. Stockage local et technologies similaires",
+            "b": "L'application utilise des technologies de stockage local nécessaires à son fonctionnement, notamment pour : - Maintenir votre session de connexion ; - Sauvegarder certaines préférences ; - Améliorer les performances par mise en cache ; - Gérer des paramètres locaux de l'application. Firebase Analytics peut être utilisé pour collecter des données d'utilisation. Vous pouvez désactiver la collecte de données analytiques dans les paramètres de l'application lorsque cette option est disponible."
+          },
+          {
+            "h": "11. Mineurs",
+            "b": "SoccerLink est destinée aux personnes âgées d'au moins 13 ans. Les mineurs doivent utiliser l'application avec l'autorisation de leurs parents ou représentants légaux. En France, lorsque le consentement est requis pour le traitement de données d'un mineur de moins de 15 ans, ce consentement doit être donné ou autorisé par le titulaire de l'autorité parentale, conformément aux règles applicables. Si SZCZ SOFTWARES constate que des données d'un enfant ont été collectées sans autorisation nécessaire, elles seront supprimées dans les meilleurs délais."
+          },
+          {
+            "h": "12. Vos droits",
+            "b": "Vous disposez des droits suivants sur vos données personnelles : - Droit d'accès ; - Droit de rectification ; - Droit à l'effacement ; - Droit à la limitation du traitement ; - Droit d'opposition ; - Droit à la portabilité ; - Droit de retirer votre consentement lorsque le traitement repose sur celui-ci ; - Droit de définir des directives relatives au sort de vos données après votre décès. Pour exercer vos droits, contactez SZCZ SOFTWARES à l'adresse : dev@szczsoftwares.fr Une réponse sera apportée dans un délai d'un mois à compter de la réception de la demande. Ce délai peut être prolongé de deux mois en cas de demande complexe ou d'un nombre important de demandes."
+          },
+          {
+            "h": "13. Réclamation auprès de la CNIL",
+            "b": "Si vous estimez que vos droits ne sont pas respectés, vous pouvez introduire une réclamation auprès de la CNIL : Commission Nationale de l'Informatique et des Libertés 3 place de Fontenoy - TSA 80715 75334 Paris Cedex 07 https://www.cnil.fr"
+          },
+          {
+            "h": "14. Modification de la politique",
+            "b": "SZCZ SOFTWARES peut modifier la présente politique de confidentialité afin de tenir compte de l'évolution de l'application, des services utilisés ou de la réglementation. En cas de modification importante, les utilisateurs seront informés par tout moyen approprié, notamment dans l'application."
+          }
+        ]
+      }
     },
     "cgu": {
-      fr: {
-        title: "Conditions Générales d'Utilisation — Soccer Link",
-        updated: "Dernière mise à jour : mars 2026",
-        intro: "Les présentes CGU définissent les modalités et conditions d'utilisation de l'application Soccer Link, ainsi que les droits et obligations des parties.",
-        sections: [
-          { h: "1. Objet", b: "Soccer Link est une application mobile et web permettant aux acteurs du football amateur (joueurs, entraîneurs, arbitres, dirigeants, parents) de se connecter et d'échanger." },
-          { h: "2. Description du service", b: "Créer un profil, rechercher et se connecter avec d'autres utilisateurs, rejoindre ou créer des clubs, communiquer via messagerie, consulter et publier des offres, partager des infos sportives. Disponible iOS, Android et web." },
-          { h: "3. Inscription et compte", b: "Création par e-mail/mot de passe ou Google Sign-In. Acceptation explicite des CGU et de la politique de confidentialité. Informations exactes, confidentialité des identifiants. Accessible à partir de 13 ans ; moins de 16/18 ans : autorisation du représentant légal." },
-          { h: "4. Règles de conduite", b: "Respect des autres utilisateurs, pas de contenu illégal, offensant ou discriminatoire, pas d'usurpation d'identité, pas d'usage commercial non autorisé, pas de compromission de sécurité, pas de collecte des données d'autres utilisateurs, pas de spam, signalement des contenus inappropriés." },
-          { h: "5. Notifications push", b: "Notifications pour messages reçus, demandes d'amis et autres événements pertinents. Désactivables à tout moment dans les paramètres." },
-          { h: "6. Propriété intellectuelle", b: "L'Application et ses éléments sont la propriété exclusive de Soccer Link. Vos contenus restent votre propriété ; licence non exclusive, gratuite et mondiale accordée à Soccer Link pour le fonctionnement de l'Application, prenant fin à la suppression du contenu ou du compte." },
-          { h: "7. Responsabilité", b: "Soccer Link s'efforce d'assurer la disponibilité, sans garantie absolue. Non responsable des contenus publiés par les utilisateurs ni des dommages directs ou indirects liés à l'utilisation." },
-          { h: "8. Modification et résiliation", b: "CGU modifiables avec information des utilisateurs ; un nouveau consentement peut être requis. Suppression du compte via paramètres, effacement des données sous 30 jours. Soccer Link peut suspendre un compte en cas de violation." },
-          { h: "9. Droit applicable et médiation", b: "Droit français. Recherche amiable avant toute action judiciaire. Médiation de la consommation disponible conformément aux articles L.611-1 et suivants du Code de la consommation." },
-          { h: "10. Contact", b: "Soccer Link — contact@soccerlink.app." },
-        ],
+      "en": {
+        "title": "SoccerLink Terms of Use",
+        "updated": "Last updated: April 25, 2026",
+        "intro": "These Terms of Use define the rules for accessing and using the SoccerLink application. By creating an account or using SoccerLink, you accept these Terms and the Privacy Policy.",
+        "sections": [
+          {
+            "h": "1. Publisher",
+            "b": "SoccerLink is published by SZCZ SOFTWARES, SAS with share capital of EUR 1,000. SIREN: 100 523 067. SIRET: 100 523 067 00013. RCS Boulogne-sur-Mer: 100 523 067. Registered office: 95 avenue de Deauville, 62520 Le Touquet-Paris-Plage, France. Website: https://szczsoftwares.fr. Email: dev@szczsoftwares.fr."
+          },
+          {
+            "h": "2. Service purpose",
+            "b": "SoccerLink is a mobile and web app for amateur football stakeholders, including players, coaches, referees, managers, parents, clubs and people involved in sports life. The app allows users to create and manage a profile, search for and connect with other users, create, manage or join clubs and teams, communicate through messaging, publish, view or manage amateur-football offers, and share sports information, publications and football-related content. Available features may change over time."
+          },
+          {
+            "h": "3. Service access",
+            "b": "Access to certain features requires creating an account by email and password or through a third-party authentication service such as Google Sign-In. Users agree to provide accurate, complete and up-to-date information and are responsible for keeping credentials confidential and for all actions performed from their account. SoccerLink is intended for people aged at least 13. Minors must have authorization from their parents or legal representatives."
+          },
+          {
+            "h": "4. Conduct rules",
+            "b": "Users must use SoccerLink fairly, respectfully and lawfully. It is prohibited to publish or transmit illegal, insulting, discriminatory, hateful, violent, pornographic, defamatory or harmful content; harass, threaten or intimidate another user; impersonate a person, club or organization; distribute false or misleading information or information harming another person's reputation; collect other users' data without authorization; send unsolicited messages, abusive advertising or spam; use the app for unauthorized commercial purposes; attempt to bypass, disrupt or compromise app security; or infringe SZCZ SOFTWARES' or third parties' intellectual property rights. In case of breach, SZCZ SOFTWARES may moderate content, limit access to features, suspend or delete an account, including without prior notice for serious breaches."
+          },
+          {
+            "h": "5. User-published content",
+            "b": "Users remain the owners of content they publish or transmit in SoccerLink. By publishing content, they grant SZCZ SOFTWARES a non-exclusive, free, worldwide license, limited to the time necessary to host, reproduce, display, transmit and technically adapt that content for app operation. Users warrant that they hold the necessary rights over their content and will not infringe third-party rights."
+          },
+          {
+            "h": "6. Messaging and interactions",
+            "b": "SoccerLink may allow users to exchange messages and interact. SZCZ SOFTWARES is not a party to exchanges between users and does not guarantee the accuracy, reliability or quality of information communicated by users. Users should exercise caution in exchanges, especially when communicating personal, sports, professional or minor-related information."
+          },
+          {
+            "h": "7. Notifications",
+            "b": "The app may send service-related notifications, including messages, requests, invitations, events, offers or important information. Users can manage or disable notifications in the app or device settings."
+          },
+          {
+            "h": "8. Intellectual property",
+            "b": "The SoccerLink app, its structure, interfaces, features, texts, graphics, logos, software, databases and technical elements are protected by intellectual property law. Unless prior written authorization is granted, any unauthorized reproduction, representation, modification, extraction, reuse or exploitation of all or part of SoccerLink is prohibited."
+          },
+          {
+            "h": "9. Availability and service changes",
+            "b": "SZCZ SOFTWARES strives to ensure proper operation of SoccerLink without guaranteeing permanent or error-free availability. Access may be temporarily suspended for maintenance, updates, corrections, security or force majeure. SZCZ SOFTWARES may modify, add or remove features to improve the service or address technical, legal or operational constraints."
+          },
+          {
+            "h": "10. Liability",
+            "b": "SZCZ SOFTWARES is not liable for content published by users, interactions, agreements or disputes between users, clubs or third parties, inaccurate or outdated information provided by a user, misuse of the app, temporary service unavailability, or indirect damages resulting from use or inability to use SoccerLink. Users are solely responsible for their use of the service and the information they share."
+          },
+          {
+            "h": "11. Account deletion",
+            "b": "Users may request or perform account deletion from the app settings when the feature is available. Deletion leads to erasure or anonymization of personal data within a reasonable period, in principle within 30 days, unless legal retention or evidence preservation is required. Some content or technical traces may remain when necessary for service operation, security, legal compliance or because they were shared with other users."
+          },
+          {
+            "h": "12. Personal data",
+            "b": "Personal data is processed in accordance with the SoccerLink Privacy Policy. For any personal data request, contact dev@szczsoftwares.fr."
+          },
+          {
+            "h": "13. Changes to the Terms",
+            "b": "SZCZ SOFTWARES may modify these Terms at any time, including to reflect changes in the app or legal framework. Users will be informed of significant changes by any appropriate means. In case of substantial change, new acceptance may be requested."
+          },
+          {
+            "h": "14. Governing law and disputes",
+            "b": "These Terms are governed by French law. In case of difficulty, users are invited to contact SZCZ SOFTWARES at dev@szczsoftwares.fr to seek an amicable solution. Failing amicable resolution, the competent French courts may be seized, subject to mandatory consumer rules."
+          }
+        ]
       },
-      en: {
-        title: "Terms of Use — Soccer Link",
-        updated: "Last updated: March 2026",
-        intro: "These Terms of Use define the terms and conditions for using the Soccer Link application, as well as the rights and obligations of the parties.",
-        sections: [
-          { h: "1. Purpose", b: "Soccer Link is a mobile and web application allowing amateur football stakeholders (players, coaches, referees, managers, parents) to connect and exchange." },
-          { h: "2. Service description", b: "Create a profile, search and connect with other users, join or create clubs, message, browse and post opportunities, share sports info. Available on iOS, Android and web." },
-          { h: "3. Sign-up & account", b: "Sign up with email/password or Google Sign-In. Explicit acceptance of Terms and Privacy Policy. Accurate information, credential confidentiality. Ages 13+; under 16/18: legal representative's authorization required." },
-          { h: "4. Conduct rules", b: "Respect other users, no illegal/offensive/discriminatory content, no impersonation, no unauthorized commercial use, no security compromise, no data scraping, no spam, report inappropriate content." },
-          { h: "5. Push notifications", b: "Notifications for received messages, friend requests and other relevant events. Can be disabled at any time in settings." },
-          { h: "6. Intellectual property", b: "The App and its elements are the exclusive property of Soccer Link. Your content remains yours; non-exclusive, free, worldwide license to Soccer Link for App operation, ending upon content or account deletion." },
-          { h: "7. Liability", b: "Soccer Link strives for availability, no absolute guarantee. Not liable for user-published content or for direct/indirect damages related to use." },
-          { h: "8. Changes & termination", b: "Terms may change with user notice; renewed consent may be required. Account deletion via settings, data erased within 30 days. Soccer Link may suspend accounts for violations." },
-          { h: "9. Governing law & mediation", b: "French law. Amicable resolution before any legal action. Consumer mediation available under articles L.611-1 et seq. of the French Consumer Code." },
-          { h: "10. Contact", b: "Soccer Link — contact@soccerlink.app." },
-        ],
-      },
-      ja: {
-        title: "利用規約 — Soccer Link",
-        updated: "最終更新日:2026年3月",
-        intro: "本利用規約は、Soccer Linkアプリの利用条件と、当事者の権利義務を定めるものです。",
-        sections: [
-          { h: "1. 目的", b: "Soccer Linkは、アマチュアサッカー関係者（選手、コーチ、審判、運営、保護者）が繋がり交流するためのモバイル／Webアプリです。" },
-          { h: "2. サービス概要", b: "プロフィール作成、ユーザー検索・接続、クラブ参加・作成、メッセージ機能、募集の閲覧・投稿、スポーツ情報の共有。iOS、Android、Webで利用可能。" },
-          { h: "3. 登録とアカウント", b: "メール／パスワードまたはGoogle Sign-Inで登録。利用規約とプライバシーポリシーへの明示的な同意が必要です。正確な情報、認証情報の秘密保持。対象は13歳以上、16／18歳未満は法定代理人の同意が必要です。" },
-          { h: "4. 行動規範", b: "他ユーザーへの敬意、違法・攻撃的・差別的コンテンツの禁止、なりすまし禁止、無断の商用利用禁止、セキュリティ侵害禁止、データの自動収集禁止、スパム禁止、不適切なコンテンツの通報。" },
-          { h: "5. プッシュ通知", b: "受信メッセージ、友達リクエスト、その他関連イベントについての通知。設定からいつでも無効にできます。" },
-          { h: "6. 知的財産権", b: "本アプリおよびその構成要素はSoccer Linkの独占的財産です。利用者のコンテンツの権利は利用者に帰属しますが、アプリ運営のためにSoccer Linkに非独占的・無償・全世界的なライセンスを付与し、コンテンツまたはアカウント削除時に終了します。" },
-          { h: "7. 責任", b: "Soccer Linkは可用性に努めますが絶対的な保証はしません。ユーザー投稿コンテンツや、利用に伴う直接・間接の損害について責任を負いません。" },
-          { h: "8. 変更と終了", b: "規約は利用者への通知のうえ変更されることがあり、改めて同意を求める場合があります。設定からアカウント削除可能、データは30日以内に消去されます。違反があった場合、Soccer Linkはアカウントを停止することがあります。" },
-          { h: "9. 準拠法と仲介", b: "フランス法に準拠します。法的手続き前に友好的解決を図ります。フランス消費法典L.611-1以下に基づく消費者仲介の利用も可能です。" },
-          { h: "10. お問い合わせ", b: "Soccer Link — contact@soccerlink.app。" },
-        ],
-      },
+      "fr": {
+        "title": "Conditions générales d'utilisation - SoccerLink",
+        "updated": "Dernière mise à jour : 25 avril 2026",
+        "intro": "Les présentes Conditions générales d'utilisation (CGU) définissent les règles d'accès et d'utilisation de l'application SoccerLink. En créant un compte ou en utilisant SoccerLink, vous acceptez les présentes CGU ainsi que la Politique de confidentialité.",
+        "sections": [
+          {
+            "h": "1. Éditeur",
+            "b": "SoccerLink est éditée par : SZCZ SOFTWARES SAS au capital de 1 000 euros SIREN : 100 523 067 SIRET : 100 523 067 00013 RCS Boulogne-sur-Mer : 100 523 067 Siège social : 95 avenue de Deauville, 62520 Le Touquet-Paris-Plage, France Site web : https://szczsoftwares.fr Email : dev@szczsoftwares.fr"
+          },
+          {
+            "h": "2. Objet du service",
+            "b": "SoccerLink est une application mobile et web destinée aux acteurs du football amateur, notamment joueurs, entraîneurs, arbitres, dirigeants, parents, clubs et personnes impliquées dans la vie sportive. L'application permet notamment de : - Créer et gérer un profil utilisateur ; - Rechercher et se connecter avec d'autres utilisateurs ; - Créer, gérer ou rejoindre des clubs et équipes ; - Communiquer via une messagerie ; - Publier, consulter ou gérer des offres liées au football amateur ; - Partager des informations sportives, des publications et des contenus liés à l'activité footballistique. Les fonctionnalités disponibles peuvent évoluer dans le temps."
+          },
+          {
+            "h": "3. Accès au service",
+            "b": "L'accès à certaines fonctionnalités nécessite la création d'un compte, par email et mot de passe ou via un service d'authentification tiers tel que Google Sign-In. L'utilisateur s'engage à fournir des informations exactes, complètes et à jour. Il est responsable de la confidentialité de ses identifiants et de toutes les actions réalisées depuis son compte. SoccerLink est destinée aux personnes âgées d'au moins 13 ans. Les mineurs doivent disposer de l'autorisation de leurs parents ou représentants légaux."
+          },
+          {
+            "h": "4. Règles de conduite",
+            "b": "L'utilisateur s'engage à utiliser SoccerLink de manière loyale, respectueuse et conforme à la loi. Il est notamment interdit de : - Publier ou transmettre un contenu illégal, injurieux, discriminatoire, haineux, violent, pornographique, diffamatoire ou portant atteinte à autrui ; - Harceler, menacer ou intimider un autre utilisateur ; - Usurper l'identité d'une personne, d'un club ou d'une organisation ; - Diffuser des informations fausses, trompeuses ou portant atteinte à la réputation d'autrui ; - Collecter les données d'autres utilisateurs sans autorisation ; - Envoyer des messages non sollicités, publicités abusives ou spams ; - Utiliser l'application à des fins commerciales non autorisées ; - Tenter de contourner, perturber ou compromettre la sécurité de l'application ; - Porter atteinte aux droits de propriété intellectuelle de SZCZ SOFTWARES ou de tiers. En cas de violation des présentes CGU, SZCZ SOFTWARES peut prendre toute mesure appropriée, notamment modérer un contenu, limiter l'accès à certaines fonctionnalités, suspendre ou supprimer un compte. En cas de manquement grave, une mesure peut être prise sans préavis."
+          },
+          {
+            "h": "5. Contenus publiés par les utilisateurs",
+            "b": "L'utilisateur reste propriétaire des contenus qu'il publie ou transmet dans SoccerLink. En publiant un contenu, l'utilisateur accorde à SZCZ SOFTWARES une licence non exclusive, gratuite, mondiale et limitée à la durée nécessaire pour héberger, reproduire, afficher, transmettre et adapter techniquement ce contenu dans le cadre du fonctionnement de l'application. L'utilisateur garantit disposer des droits nécessaires sur les contenus qu'il publie et s'engage à ne pas porter atteinte aux droits de tiers."
+          },
+          {
+            "h": "6. Messagerie et interactions",
+            "b": "SoccerLink peut permettre aux utilisateurs d'échanger des messages et d'interagir entre eux. SZCZ SOFTWARES n'est pas partie aux échanges entre utilisateurs et ne garantit pas l'exactitude, la fiabilité ou la qualité des informations communiquées par les utilisateurs. L'utilisateur doit faire preuve de prudence dans ses échanges, notamment lorsqu'il communique des informations personnelles, sportives, professionnelles ou relatives à un mineur."
+          },
+          {
+            "h": "7. Notifications",
+            "b": "L'application peut envoyer des notifications relatives au fonctionnement du service : messages, demandes, invitations, événements, offres ou informations importantes. L'utilisateur peut gérer ou désactiver les notifications dans les paramètres de l'application ou de son appareil."
+          },
+          {
+            "h": "8. Propriété intellectuelle",
+            "b": "L'application SoccerLink, sa structure, ses interfaces, ses fonctionnalités, ses textes, graphismes, logos, logiciels, bases de données et éléments techniques sont protégés par le droit de la propriété intellectuelle. Sauf autorisation écrite préalable, toute reproduction, représentation, modification, extraction, réutilisation ou exploitation non autorisée de tout ou partie de SoccerLink est interdite."
+          },
+          {
+            "h": "9. Disponibilité et évolution du service",
+            "b": "SZCZ SOFTWARES s'efforce d'assurer le bon fonctionnement de SoccerLink, sans garantir une disponibilité permanente ou exempte d'erreurs. L'accès à l'application peut être suspendu temporairement pour maintenance, mise à jour, correction, sécurité ou cas de force majeure. SZCZ SOFTWARES peut modifier, ajouter ou supprimer des fonctionnalités afin d'améliorer le service ou de tenir compte de contraintes techniques, juridiques ou opérationnelles."
+          },
+          {
+            "h": "10. Responsabilité",
+            "b": "SZCZ SOFTWARES ne peut être tenue responsable : - Des contenus publiés par les utilisateurs ; - Des interactions, accords ou litiges entre utilisateurs, clubs ou tiers ; - Des informations inexactes ou non mises à jour fournies par un utilisateur ; - D'une mauvaise utilisation de l'application ; - D'une indisponibilité temporaire du service ; - Des dommages indirects résultant de l'utilisation ou de l'impossibilité d'utiliser SoccerLink. L'utilisateur est seul responsable de l'utilisation qu'il fait du service et des informations qu'il partage."
+          },
+          {
+            "h": "11. Suppression du compte",
+            "b": "L'utilisateur peut demander ou effectuer la suppression de son compte depuis les paramètres de l'application lorsque la fonctionnalité est disponible. La suppression entraîne l'effacement ou l'anonymisation des données personnelles dans un délai raisonnable, en principe sous 30 jours, sauf obligation légale de conservation ou nécessité de conservation de preuves. Certains contenus ou traces techniques peuvent subsister lorsqu'ils sont nécessaires au fonctionnement du service, à la sécurité, au respect d'obligations légales ou lorsqu'ils ont été partagés avec d'autres utilisateurs."
+          },
+          {
+            "h": "12. Données personnelles",
+            "b": "Les données personnelles sont traitées conformément à la Politique de confidentialité de SoccerLink. Pour toute demande relative aux données personnelles : dev@szczsoftwares.fr"
+          },
+          {
+            "h": "13. Modification des CGU",
+            "b": "SZCZ SOFTWARES peut modifier les présentes CGU à tout moment, notamment pour tenir compte de l'évolution de l'application ou du cadre légal. Les utilisateurs seront informés des modifications importantes par tout moyen approprié. En cas de modification substantielle, une nouvelle acceptation pourra être demandée."
+          },
+          {
+            "h": "14. Droit applicable et litiges",
+            "b": "Les présentes CGU sont soumises au droit français. En cas de difficulté, l'utilisateur est invité à contacter SZCZ SOFTWARES afin de rechercher une solution amiable : dev@szczsoftwares.fr À défaut de résolution amiable, les tribunaux français compétents pourront être saisis, sous réserve des règles impératives applicables aux consommateurs."
+          }
+        ]
+      }
     },
     "cgv": {
-      fr: {
-        title: "Conditions Générales de Vente — Soccer Link",
-        updated: "Dernière mise à jour : mars 2026",
-        intro: "Les présentes CGV s'appliquent à tout achat effectué au sein de l'application Soccer Link.",
-        sections: [
-          { h: "1. Vendeur", b: "Soccer Link — contact@soccerlink.app." },
-          { h: "2. Objet", b: "Vente de produits et services numériques dans l'Application : achats in-app liés à des fonctionnalités premium ou à une visibilité accrue ; abonnements périodiques selon les offres disponibles." },
-          { h: "3. Prix", b: "Affichés en EUR ou devise locale, TTC. Prix applicables : ceux en vigueur à la validation. Modifiables à tout moment." },
-          { h: "4. Processus d'achat", b: "Via l'App Store (iOS) ou Google Play (Android). Paiement géré par ces plateformes tierces ; Soccer Link n'accède pas aux informations bancaires." },
-          { h: "5. Abonnements", b: "Durée déterminée indiquée dans l'Application, renouvellement automatique sauf résiliation avant échéance. Résiliation : iOS via Réglages > Identifiant Apple > Abonnements ; Android via Google Play > Abonnements. Effet en fin de période, pas de remboursement au prorata sauf disposition légale." },
-          { h: "6. Droit de rétractation", b: "Non applicable aux contenus numériques fournis sur support immatériel dont l'exécution a commencé avec l'accord du consommateur (article L221-28 du Code de la consommation)." },
-          { h: "7. Remboursements", b: "Apple : reportaproblem.apple.com. Google Play : via l'historique des commandes. Réclamations : contact@soccerlink.app." },
-          { h: "8. Droit applicable", b: "Droit français. Recherche amiable avant toute procédure judiciaire." },
-          { h: "9. Contact", b: "Soccer Link — contact@soccerlink.app." },
-        ],
+      "en": {
+        "title": "SoccerLink Terms of Sale",
+        "updated": "Last updated: April 25, 2026",
+        "intro": "These Terms of Sale are intended to govern paid offers that may later be provided in SoccerLink. As of the last update, SoccerLink does not yet offer purchases, subscriptions, paid premium features or sale of goods or services to users.",
+        "sections": [
+          {
+            "h": "1. Seller",
+            "b": "Future SoccerLink paid offers will be provided by SZCZ SOFTWARES, SAS with share capital of EUR 1,000. SIREN: 100 523 067. SIRET: 100 523 067 00013. RCS Boulogne-sur-Mer: 100 523 067. Registered office: 95 avenue de Deauville, 62520 Le Touquet-Paris-Plage, France. Website: https://szczsoftwares.fr. Email: dev@szczsoftwares.fr."
+          },
+          {
+            "h": "2. No current paid offer",
+            "b": "To date, use of SoccerLink is not billed by SZCZ SOFTWARES. No payment should be sent outside an official flow made available in the app or on a website operated by SZCZ SOFTWARES. If a paid offer is introduced later, mandatory pre-contractual information will be communicated before any order, including offer details, tax-inclusive price, duration and conditions, accepted payment methods, renewal or cancellation terms where applicable, withdrawal-right conditions where applicable, and customer service and dispute-settlement information."
+          },
+          {
+            "h": "3. Update before commercial launch",
+            "b": "Before launching any paid offer, SZCZ SOFTWARES will update these Terms of Sale to specify the conditions applicable to purchases, subscriptions, premium features or billed services. Users will have to accept the applicable Terms of Sale before any paid order."
+          },
+          {
+            "h": "4. Prices",
+            "b": "As long as no paid offer is provided, no price applies. Prices for future offers will be indicated in euros, including taxes where required by regulations. SZCZ SOFTWARES may change prices at any time without retroactive effect on already validated orders, unless otherwise accepted by the user."
+          },
+          {
+            "h": "5. Payment",
+            "b": "Payment methods for future offers will be specified at the time of order. If purchases are offered through a third-party platform such as Apple's App Store or Google Play, that platform's payment, billing, renewal and refund terms may also apply."
+          },
+          {
+            "h": "6. Subscriptions and renewal",
+            "b": "If subscriptions are offered later, their characteristics will be specified before subscription: subscription term, price, billing frequency, included features, renewal conditions and cancellation procedures. When a subscription is taken through a third-party platform, cancellation will generally have to be performed from the user's account on that platform."
+          },
+          {
+            "h": "7. Right of withdrawal",
+            "b": "Rules concerning the right of withdrawal will be specified before any paid order. For digital content or services provided immediately, users may be asked to expressly waive their right of withdrawal where the law permits it in order to access the service before the end of the legal period."
+          },
+          {
+            "h": "8. Customer service",
+            "b": "For any question about a future order or paid offer, contact dev@szczsoftwares.fr."
+          },
+          {
+            "h": "9. Personal data",
+            "b": "Personal data processed in connection with a future order will be described in the Privacy Policy. Depending on the payment method used, certain data may be processed by payment providers or third-party platforms under their own terms."
+          },
+          {
+            "h": "10. Consumer mediation",
+            "b": "If paid offers intended for consumers are provided, SZCZ SOFTWARES will indicate the competent consumer mediator before commercial launch or no later than in the Terms of Sale applicable at the time of order."
+          },
+          {
+            "h": "11. Governing law",
+            "b": "These Terms of Sale are governed by French law. In case of difficulty, users are invited to contact SZCZ SOFTWARES at dev@szczsoftwares.fr to seek an amicable solution."
+          }
+        ]
       },
-      en: {
-        title: "Terms of Sale — Soccer Link",
-        updated: "Last updated: March 2026",
-        intro: "These Terms of Sale apply to any purchase made within the Soccer Link application.",
-        sections: [
-          { h: "1. Seller", b: "Soccer Link — contact@soccerlink.app." },
-          { h: "2. Purpose", b: "Sale of digital products and services within the App: in-app purchases for premium features or enhanced visibility; periodic subscriptions per the available offers." },
-          { h: "3. Pricing", b: "Shown in EUR or local currency, tax included. Applicable prices: those in force at validation. May change at any time." },
-          { h: "4. Purchase process", b: "Via the App Store (iOS) or Google Play (Android). Payment handled by those third-party platforms; Soccer Link does not access payment details." },
-          { h: "5. Subscriptions", b: "Fixed duration shown in the App, automatic renewal unless canceled before the date. Cancellation: iOS via Settings > Apple ID > Subscriptions; Android via Google Play > Subscriptions. Effective at period end, no pro-rata refund unless legally required." },
-          { h: "6. Right of withdrawal", b: "Not applicable to digital content provided on an intangible medium whose execution has begun with the consumer's agreement (French Consumer Code L221-28)." },
-          { h: "7. Refunds", b: "Apple: reportaproblem.apple.com. Google Play: via your order history. Complaints: contact@soccerlink.app." },
-          { h: "8. Governing law", b: "French law. Amicable resolution before any legal proceedings." },
-          { h: "9. Contact", b: "Soccer Link — contact@soccerlink.app." },
-        ],
-      },
-      ja: {
-        title: "販売条件 — Soccer Link",
-        updated: "最終更新日:2026年3月",
-        intro: "本販売条件は、Soccer Linkアプリ内で行われるすべての購入に適用されます。",
-        sections: [
-          { h: "1. 販売者", b: "Soccer Link — contact@soccerlink.app。" },
-          { h: "2. 目的", b: "本アプリ内のデジタル商品・サービスの販売：プレミアム機能や視認性向上のためのアプリ内購入、提供中のオファーに基づく定期サブスクリプション。" },
-          { h: "3. 価格", b: "ユーロまたは現地通貨建てで税込表示。適用価格は決済時点で有効なものです。いつでも変更される可能性があります。" },
-          { h: "4. 購入手続き", b: "App Store（iOS）またはGoogle Play（Android）経由。決済は当該第三者プラットフォームが処理し、Soccer Linkは決済情報にアクセスしません。" },
-          { h: "5. サブスクリプション", b: "アプリ内に表示される所定の期間で自動更新されます。期日前に解約しない限り更新されます。解約：iOSは設定 > Apple ID > サブスクリプションから。Androidは Google Play > サブスクリプションから。期間終了時に有効、法令で定める場合を除き日割返金はありません。" },
-          { h: "6. 撤回権", b: "消費者の同意のもと履行が開始された無形デジタルコンテンツには適用されません（フランス消費法典L221-28）。" },
-          { h: "7. 返金", b: "Apple：reportaproblem.apple.com。Google Play：注文履歴から。苦情：contact@soccerlink.app。" },
-          { h: "8. 準拠法", b: "フランス法に準拠。法的手続き前に友好的解決を図ります。" },
-          { h: "9. お問い合わせ", b: "Soccer Link — contact@soccerlink.app。" },
-        ],
-      },
+      "fr": {
+        "title": "Conditions générales de vente - SoccerLink",
+        "updated": "Dernière mise à jour : 25 avril 2026",
+        "intro": "Les présentes Conditions générales de vente (CGV) ont vocation à encadrer les offres payantes qui pourraient être proposées ultérieurement dans SoccerLink. À la date de dernière mise à jour, SoccerLink ne propose pas encore d'achat, d'abonnement, de fonctionnalité premium payante ou de vente de biens ou services aux utilisateurs.",
+        "sections": [
+          {
+            "h": "1. Vendeur",
+            "b": "Les futures offres payantes de SoccerLink seront proposées par : SZCZ SOFTWARES SAS au capital de 1 000 euros SIREN : 100 523 067 SIRET : 100 523 067 00013 RCS Boulogne-sur-Mer : 100 523 067 Siège social : 95 avenue de Deauville, 62520 Le Touquet-Paris-Plage, France Site web : https://szczsoftwares.fr Email : dev@szczsoftwares.fr"
+          },
+          {
+            "h": "2. Absence d'offre payante actuelle",
+            "b": "À ce jour, l'utilisation de SoccerLink ne donne lieu à aucune facturation par SZCZ SOFTWARES. Aucun paiement ne doit être transmis en dehors d'un parcours officiel mis à disposition dans l'application ou sur un site exploité par SZCZ SOFTWARES. Si une offre payante est mise en place ultérieurement, les informations précontractuelles obligatoires seront communiquées avant toute commande, notamment : - Le détail de l'offre ; - Le prix toutes taxes comprises ; - La durée et les conditions de l'offre ; - Les moyens de paiement acceptés ; - Les modalités de renouvellement ou de résiliation, le cas échéant ; - Les conditions relatives au droit de rétractation, lorsque celui-ci est applicable ; - Les informations relatives au service client et au règlement des litiges."
+          },
+          {
+            "h": "3. Mise à jour avant lancement commercial",
+            "b": "Avant tout lancement d'une offre payante, SZCZ SOFTWARES mettra à jour les présentes CGV afin de préciser les conditions applicables aux achats, abonnements, fonctionnalités premium ou services facturés. L'utilisateur devra accepter les CGV applicables avant toute commande payante."
+          },
+          {
+            "h": "4. Prix",
+            "b": "Tant qu'aucune offre payante n'est proposée, aucun prix n'est applicable. Les prix des futures offres seront indiqués en euros, toutes taxes comprises lorsque la réglementation l'exige. SZCZ SOFTWARES pourra modifier ses prix à tout moment, sans effet rétroactif sur les commandes déjà validées, sauf disposition contraire acceptée par l'utilisateur."
+          },
+          {
+            "h": "5. Paiement",
+            "b": "Les moyens de paiement des futures offres seront précisés au moment de la commande. Si les achats sont proposés via une plateforme tierce, telle que l'App Store d'Apple ou Google Play, les conditions de paiement, de facturation, de renouvellement et de remboursement de cette plateforme pourront également s'appliquer."
+          },
+          {
+            "h": "6. Abonnements et renouvellement",
+            "b": "Si des abonnements sont proposés ultérieurement, leurs caractéristiques seront précisées avant souscription : - Durée de l'abonnement ; - Prix ; - Périodicité de facturation ; - Fonctionnalités incluses ; - Conditions de renouvellement ; - Modalités de résiliation. Lorsque l'abonnement est souscrit via une plateforme tierce, la résiliation devra généralement être effectuée depuis le compte de l'utilisateur sur cette plateforme."
+          },
+          {
+            "h": "7. Droit de rétractation",
+            "b": "Les règles relatives au droit de rétractation seront précisées avant toute commande payante. Pour les contenus ou services numériques fournis immédiatement, l'utilisateur pourra être amené à renoncer expressément à son droit de rétractation lorsque la loi le permet, afin d'accéder au service avant la fin du délai légal."
+          },
+          {
+            "h": "8. Service client",
+            "b": "Pour toute question relative à une future commande ou offre payante : Email : dev@szczsoftwares.fr"
+          },
+          {
+            "h": "9. Données personnelles",
+            "b": "Les données personnelles traitées dans le cadre d'une future commande seront décrites dans la Politique de confidentialité. Selon le moyen de paiement utilisé, certaines données pourront être traitées par des prestataires de paiement ou plateformes tierces selon leurs propres conditions."
+          },
+          {
+            "h": "10. Médiation de la consommation",
+            "b": "Si des offres payantes destinées à des consommateurs sont proposées, SZCZ SOFTWARES indiquera le médiateur de la consommation compétent avant le lancement commercial ou au plus tard dans les CGV applicables au moment de la commande."
+          },
+          {
+            "h": "11. Droit applicable",
+            "b": "Les présentes CGV sont soumises au droit français. En cas de difficulté, l'utilisateur est invité à contacter SZCZ SOFTWARES afin de rechercher une solution amiable : dev@szczsoftwares.fr"
+          }
+        ]
+      }
     },
     "mentions-legales": {
-      fr: {
-        title: "Mentions légales — Soccer Link",
-        updated: "Dernière mise à jour : avril 2026",
-        intro: "Les présentes mentions légales s'appliquent à l'application Soccer Link et à ses sites associés, conformément à la loi n°2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique.",
-        sections: [
-          { h: "1. Éditeur", b: "Soccer Link, exploitée par SZCZ Softwares (SASU), Bastian Niszczota. Siège social : France. E-mail : contact@soccerlink.app." },
-          { h: "2. Directeur de la publication", b: "Bastian Niszczota, en sa qualité de représentant légal." },
-          { h: "3. Hébergement", b: "Application et services backend hébergés par Google Ireland Limited (Firebase Hosting, Cloud Firestore, Cloud Functions, Cloud Storage), Gordon House, Barrow Street, Dublin 4, Irlande. Moteur de recherche fourni par Algolia SAS, 55 rue d'Amsterdam, 75008 Paris, France." },
-          { h: "4. Distribution", b: "L'Application est disponible via l'App Store (Apple Distribution International, Hollyhill Industrial Estate, Hollyhill, Cork, Irlande), Google Play (Google Ireland Limited) et le web. Soccer Link n'est pas responsable des conditions propres à ces plateformes." },
-          { h: "5. Propriété intellectuelle", b: "L'Application Soccer Link, son code, sa charte graphique, ses logos, son nom et l'ensemble de ses contenus sont la propriété exclusive de Soccer Link, sauf mention contraire. Toute reproduction non autorisée est interdite." },
-          { h: "6. Marques", b: "« Soccer Link » et le logo associé sont des marques de Soccer Link. Les marques tierces (Apple, Google, Algolia, Firebase, etc.) demeurent la propriété de leurs détenteurs respectifs." },
-          { h: "7. Contenus utilisateurs", b: "Les utilisateurs conservent la propriété des contenus qu'ils publient. Conformément aux CGU, ils accordent à Soccer Link une licence d'utilisation strictement limitée au fonctionnement du service." },
-          { h: "8. Crédits & licences tiers", b: "Polices, icônes et bibliothèques sous licences open source. La liste détaillée est disponible dans l'Application : Paramètres > À propos > Licences." },
-          { h: "9. Limitation de responsabilité", b: "Soccer Link s'efforce d'assurer la disponibilité du service, sans en garantir l'absence d'interruption ou d'erreur. Soccer Link ne saurait être tenu responsable des contenus publiés par les utilisateurs ni des dommages directs ou indirects liés à l'utilisation de l'Application." },
-          { h: "10. Liens externes", b: "L'Application peut renvoyer vers des ressources tierces sur lesquelles Soccer Link n'exerce aucun contrôle et décline toute responsabilité." },
-          { h: "11. Données personnelles", b: "Le traitement des données personnelles est détaillé dans la Politique de confidentialité disponible depuis l'Application et sur szczsoftwares.fr/soccer-link/privacy." },
-          { h: "12. Droit applicable", b: "Les présentes mentions sont soumises au droit français. Tout litige relève des juridictions françaises compétentes, sans préjudice des dispositions impératives consommateur de l'Union européenne." },
-          { h: "13. Contact", b: "Soccer Link — contact@soccerlink.app." },
-        ],
+      "en": {
+        "title": "Legal Notice - SoccerLink",
+        "updated": "Last updated: April 25, 2026",
+        "intro": "In accordance with the French law on confidence in the digital economy, this legal notice identifies the publisher of the SoccerLink app and the main technical providers used.",
+        "sections": [
+          {
+            "h": "1. App publisher",
+            "b": "SoccerLink is published by SZCZ SOFTWARES, SAS with share capital of EUR 1,000. SIREN: 100 523 067. SIRET: 100 523 067 00013. RCS Boulogne-sur-Mer: 100 523 067. APE/NAF code: 6201Z - Computer programming. Intra-community VAT number: FR93 100 523 067. Registered office: 95 avenue de Deauville, 62520 Le Touquet-Paris-Plage, France. Website: https://szczsoftwares.fr. Email: dev@szczsoftwares.fr. Publishing director: Bastian Niszczota, president of SZCZ SOFTWARES."
+          },
+          {
+            "h": "2. Hosting and technical providers",
+            "b": "The app and its data are hosted or processed through Google Cloud / Firebase and Algolia. Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland, is used notably for authentication, database, file storage, server functions, push notifications, usage analytics, crash reports and performance monitoring. Algolia SAS, 55 rue d'Amsterdam, 75008 Paris, France, is used for search and indexing features."
+          },
+          {
+            "h": "3. Intellectual property",
+            "b": "The SoccerLink app, its structure, interfaces, texts, graphics, logos, features, databases, software and technical elements are protected by intellectual property law. Without prior written authorization from SZCZ SOFTWARES, any reproduction, representation, modification, adaptation, extraction, reuse or distribution of all or part of the app is prohibited. Third-party trademarks, logos or content remain the property of their respective owners."
+          },
+          {
+            "h": "4. User content",
+            "b": "Users remain responsible for content they publish, transmit or share in SoccerLink. SZCZ SOFTWARES may moderate, remove or restrict access to any content that is manifestly unlawful, contrary to the Terms of Use or infringing third-party rights, under the conditions provided in the Terms of Use."
+          },
+          {
+            "h": "5. Personal data",
+            "b": "Personal data processing carried out in SoccerLink is described in the Privacy Policy. For personal data requests, contact dev@szczsoftwares.fr. Users have rights of access, rectification, erasure, objection, restriction and portability under applicable regulations. In case of complaint, users may contact the CNIL: Commission Nationale de l'Informatique et des Libertés, 3 place de Fontenoy - TSA 80715, 75334 Paris Cedex 07, https://www.cnil.fr."
+          },
+          {
+            "h": "6. Local storage, cookies and analytics",
+            "b": "SoccerLink uses local storage technologies necessary for app operation, including maintaining the session, saving preferences and improving performance. The app may also use Firebase Analytics to measure service use and improve user experience. Where available, users may disable analytics data collection in the app settings."
+          },
+          {
+            "h": "7. Liability",
+            "b": "SZCZ SOFTWARES strives to provide a reliable, secure and accessible app, without being able to guarantee permanent availability or total absence of errors. SZCZ SOFTWARES cannot be held liable for content published by users, exchanges between users or misuse of the app."
+          },
+          {
+            "h": "8. Contact",
+            "b": "For any question about the app or this legal notice, contact dev@szczsoftwares.fr or visit https://szczsoftwares.fr."
+          },
+          {
+            "h": "9. Governing law",
+            "b": "This legal notice is governed by French law. In case of dispute, the parties will first seek an amicable solution. Failing that, the competent French courts may be seized, subject to mandatory applicable rules."
+          }
+        ]
       },
-      en: {
-        title: "Legal Notice — Soccer Link",
-        updated: "Last updated: April 2026",
-        intro: "This legal notice applies to the Soccer Link application and its associated sites, in compliance with French Act No. 2004-575 of 21 June 2004 on confidence in the digital economy.",
-        sections: [
-          { h: "1. Publisher", b: "Soccer Link, operated by SZCZ Softwares (SASU), Bastian Niszczota. Registered office: France. Email: contact@soccerlink.app." },
-          { h: "2. Publishing director", b: "Bastian Niszczota, as legal representative." },
-          { h: "3. Hosting", b: "App and backend services hosted by Google Ireland Limited (Firebase Hosting, Cloud Firestore, Cloud Functions, Cloud Storage), Gordon House, Barrow Street, Dublin 4, Ireland. Search engine provided by Algolia SAS, 55 rue d'Amsterdam, 75008 Paris, France." },
-          { h: "4. Distribution", b: "The App is available via the App Store (Apple Distribution International, Hollyhill Industrial Estate, Hollyhill, Cork, Ireland), Google Play (Google Ireland Limited) and on the web. Soccer Link is not responsible for terms specific to these platforms." },
-          { h: "5. Intellectual property", b: "The Soccer Link App, its code, visual identity, logos, name and all of its content are the exclusive property of Soccer Link, unless otherwise stated. Any unauthorized reproduction is prohibited." },
-          { h: "6. Trademarks", b: "\"Soccer Link\" and its logo are trademarks of Soccer Link. Third-party trademarks (Apple, Google, Algolia, Firebase, etc.) remain the property of their respective owners." },
-          { h: "7. User content", b: "Users retain ownership of the content they post. Under the Terms of Use, they grant Soccer Link a license strictly limited to operating the service." },
-          { h: "8. Third-party credits & licenses", b: "Fonts, icons and libraries under open-source licenses. The full list is available in-app: Settings > About > Licenses." },
-          { h: "9. Liability", b: "Soccer Link strives to ensure service availability without guaranteeing the absence of interruptions or errors. Soccer Link cannot be held liable for content published by users or for direct or indirect damages related to use of the App." },
-          { h: "10. External links", b: "The App may link to third-party resources over which Soccer Link has no control and disclaims any liability." },
-          { h: "11. Personal data", b: "Personal data processing is detailed in the Privacy Policy available from the App and at szczsoftwares.fr/soccer-link/privacy." },
-          { h: "12. Governing law", b: "This notice is governed by French law. Any dispute falls under the jurisdiction of French courts, without prejudice to mandatory EU consumer rights." },
-          { h: "13. Contact", b: "Soccer Link — contact@soccerlink.app." },
-        ],
-      },
-      ja: {
-        title: "法的事項 — Soccer Link",
-        updated: "最終更新日：2026年4月",
-        intro: "本法的事項は、デジタル経済における信頼に関するフランス法律2004年6月21日第2004-575号に従い、Soccer Linkアプリおよび関連サイトに適用されます。",
-        sections: [
-          { h: "1. 発行者", b: "Soccer Link（SZCZ Softwares（SASU）、Bastian Niszczotaが運営）。本社所在地：フランス。メール：contact@soccerlink.app。" },
-          { h: "2. 発行責任者", b: "Bastian Niszczota（法的代理人として）。" },
-          { h: "3. ホスティング", b: "アプリおよびバックエンドはGoogle Ireland Limited（Firebase Hosting、Cloud Firestore、Cloud Functions、Cloud Storage、Gordon House, Barrow Street, Dublin 4, Ireland）でホストされています。検索エンジンはAlgolia SAS（55 rue d'Amsterdam, 75008 Paris, France）が提供します。" },
-          { h: "4. 配布", b: "本アプリはApp Store（Apple Distribution International、Hollyhill Industrial Estate, Hollyhill, Cork, Ireland）、Google Play（Google Ireland Limited）、およびWebで提供されます。これらプラットフォーム固有の条件についてSoccer Linkは責任を負いません。" },
-          { h: "5. 知的財産権", b: "Soccer Linkアプリ、コード、ビジュアルアイデンティティ、ロゴ、名称、ならびにすべてのコンテンツは、別段の記載がない限りSoccer Linkの独占的財産です。無断複製は禁じられています。" },
-          { h: "6. 商標", b: "「Soccer Link」および関連ロゴはSoccer Linkの商標です。第三者商標（Apple、Google、Algolia、Firebase等）は各所有者の財産です。" },
-          { h: "7. ユーザーコンテンツ", b: "投稿コンテンツの所有権はユーザーに帰属します。利用規約に基づき、サービス運営に厳密に必要な範囲でSoccer Linkにライセンスを許諾します。" },
-          { h: "8. 第三者クレジット・ライセンス", b: "フォント、アイコン、ライブラリはオープンソースライセンスで提供されています。詳細はアプリ内：設定 > このアプリについて > ライセンスでご確認いただけます。" },
-          { h: "9. 責任", b: "Soccer Linkはサービスの可用性確保に努めますが、中断や誤りの不在を保証するものではありません。ユーザー投稿コンテンツや、利用に関連する直接・間接の損害について責任を負いません。" },
-          { h: "10. 外部リンク", b: "本アプリには第三者リソースへのリンクが含まれる場合があります。Soccer Linkは当該リソースを管理しておらず、その内容について責任を負いません。" },
-          { h: "11. 個人データ", b: "個人データの取扱いについては、アプリ内およびszczsoftwares.fr/soccer-link/privacyのプライバシーポリシーをご参照ください。" },
-          { h: "12. 準拠法", b: "本通知はフランス法に準拠します。EUの強行法規による消費者の権利を妨げない範囲で、フランスの裁判所が管轄を有します。" },
-          { h: "13. お問い合わせ", b: "Soccer Link — contact@soccerlink.app。" },
-        ],
-      },
+      "fr": {
+        "title": "Mentions légales - SoccerLink",
+        "updated": "Dernière mise à jour : 25 avril 2026",
+        "intro": "Conformément à la loi pour la confiance dans l'économie numérique (LCEN), les présentes mentions légales identifient l'éditeur de l'application SoccerLink et les principaux prestataires techniques utilisés.",
+        "sections": [
+          {
+            "h": "1. Éditeur de l'application",
+            "b": "L'application SoccerLink est éditée par : SZCZ SOFTWARES SAS au capital de 1 000 euros SIREN : 100 523 067 SIRET : 100 523 067 00013 RCS Boulogne-sur-Mer : 100 523 067 Code APE / NAF : 6201Z - Programmation informatique Numéro de TVA intracommunautaire : FR93 100 523 067 Siège social : 95 avenue de Deauville, 62520 Le Touquet-Paris-Plage, France Site web : https://szczsoftwares.fr Email : dev@szczsoftwares.fr Directeur de la publication : Bastian Niszczota, président de SZCZ SOFTWARES."
+          },
+          {
+            "h": "2. Hébergement et prestataires techniques",
+            "b": "L'application et ses données sont hébergées ou traitées via les services suivants : Google Cloud / Firebase Google Ireland Limited Gordon House, Barrow Street Dublin 4, Irlande Firebase est utilisé notamment pour l'authentification, la base de données, le stockage de fichiers, les fonctions serveur, les notifications push, l'analyse d'utilisation, les rapports de crash et la surveillance des performances. Algolia Algolia SAS 55 rue d'Amsterdam 75008 Paris, France Algolia est utilisé pour les fonctionnalités de recherche et d'indexation."
+          },
+          {
+            "h": "3. Propriété intellectuelle",
+            "b": "L'application SoccerLink, sa structure, ses interfaces, ses textes, graphismes, logos, fonctionnalités, bases de données, logiciels et éléments techniques sont protégés par le droit de la propriété intellectuelle. Sauf autorisation écrite préalable de SZCZ SOFTWARES, toute reproduction, représentation, modification, adaptation, extraction, réutilisation ou diffusion de tout ou partie de l'application est interdite. Les marques, logos ou contenus appartenant à des tiers restent la propriété de leurs titulaires respectifs."
+          },
+          {
+            "h": "4. Contenus des utilisateurs",
+            "b": "Les utilisateurs restent responsables des contenus qu'ils publient, transmettent ou partagent dans SoccerLink. SZCZ SOFTWARES peut modérer, retirer ou limiter l'accès à tout contenu manifestement illicite, contraire aux CGU ou portant atteinte aux droits de tiers, dans les conditions prévues par les Conditions générales d'utilisation."
+          },
+          {
+            "h": "5. Données personnelles",
+            "b": "Les traitements de données personnelles réalisés dans le cadre de SoccerLink sont décrits dans la Politique de confidentialité. Pour toute demande relative aux données personnelles : Email : dev@szczsoftwares.fr Les utilisateurs disposent notamment de droits d'accès, de rectification, d'effacement, d'opposition, de limitation et de portabilité dans les conditions prévues par la réglementation applicable. En cas de réclamation, l'utilisateur peut contacter la CNIL : Commission Nationale de l'Informatique et des Libertés 3 place de Fontenoy - TSA 80715 75334 Paris Cedex 07 https://www.cnil.fr"
+          },
+          {
+            "h": "6. Stockage local, cookies et analytics",
+            "b": "SoccerLink utilise des technologies de stockage local nécessaires au fonctionnement de l'application, notamment pour maintenir la session, sauvegarder des préférences et améliorer les performances. L'application peut également utiliser Firebase Analytics pour mesurer l'utilisation du service et améliorer l'expérience utilisateur. Lorsque l'option est disponible, l'utilisateur peut désactiver la collecte de données analytiques dans les paramètres de l'application."
+          },
+          {
+            "h": "7. Responsabilité",
+            "b": "SZCZ SOFTWARES s'efforce de fournir une application fiable, sécurisée et accessible, sans pouvoir garantir une disponibilité permanente ni l'absence totale d'erreurs. SZCZ SOFTWARES ne peut être tenue responsable des contenus publiés par les utilisateurs, des échanges entre utilisateurs ou d'une mauvaise utilisation de l'application."
+          },
+          {
+            "h": "8. Contact",
+            "b": "Pour toute question relative à l'application ou aux présentes mentions légales : Email : dev@szczsoftwares.fr Site web : https://szczsoftwares.fr"
+          },
+          {
+            "h": "9. Droit applicable",
+            "b": "Les présentes mentions légales sont soumises au droit français. En cas de litige, les parties chercheront d'abord une solution amiable. À défaut, les juridictions françaises compétentes pourront être saisies, sous réserve des règles impératives applicables."
+          }
+        ]
+      }
     },
     "account-deletion": {
-      fr: {
-        title: "Suppression de compte — Soccer Link",
-        updated: "Dernière mise à jour : mars 2026",
-        intro: "Conformément au RGPD et aux exigences de l'App Store et de Google Play, vous pouvez à tout moment demander la suppression de votre compte Soccer Link et de l'ensemble des données personnelles associées.",
-        sections: [
-          { h: "1. Depuis l'application", b: "Paramètres > Compte > « Supprimer mon compte » > confirmer. Votre compte et vos données sont supprimés." },
-          { h: "2. Par e-mail", b: "Envoyer un e-mail à privacy@soccerlink.app avec l'objet « Suppression de compte Soccer Link », en précisant l'adresse associée et votre nom d'utilisateur si connu. Traitement sous 30 jours max, avec confirmation." },
-          { h: "3. Données supprimées", b: "Profil (nom, photo, bio, localisation, rôle, données spécifiques), données sociales (amis, demandes, connexions), messages et conversations, appartenance aux clubs, index de recherche Algolia, données d'authentification Firebase Auth, fichiers Firebase Storage." },
-          { h: "4. Données conservées", b: "Analytics anonymisés (politique Firebase Analytics), données de facturation (obligations légales), rapports de crash anonymisés (amélioration du service)." },
-          { h: "5. Conséquences", b: "Suppression irréversible. Votre profil n'est plus visible. Les messages dans des conversations existantes peuvent être supprimés ou anonymisés. Si abonnement actif, résilier manuellement au préalable." },
-          { h: "6. Contact", b: "Soccer Link — privacy@soccerlink.app." },
-        ],
+      "fr": {
+        "title": "Suppression de compte - SoccerLink",
+        "updated": "Derniere mise a jour : 25 avril 2026",
+        "intro": "Vous pouvez demander la suppression de votre compte SoccerLink et des donnees personnelles associees depuis l'application ou par email.",
+        "sections": [
+          {
+            "h": "1. Depuis l'application",
+            "b": "Ouvrez les parametres de SoccerLink, puis Compte > Supprimer mon compte, et confirmez la demande lorsque la fonctionnalite est disponible."
+          },
+          {
+            "h": "2. Par email",
+            "b": "Envoyez une demande a dev@szczsoftwares.fr avec l'objet 'Suppression de compte SoccerLink', en precisant l'adresse email associee et votre nom d'utilisateur si vous le connaissez."
+          },
+          {
+            "h": "3. Donnees supprimees",
+            "b": "Les donnees de profil, donnees sportives, relations, demandes, messages, publications, candidatures, appartenance aux clubs, fichiers stockes, donnees d'authentification et index de recherche associes au compte sont supprimes ou anonymises."
+          },
+          {
+            "h": "4. Donnees conservees",
+            "b": "Certaines donnees peuvent etre conservees lorsque la loi l'exige, lorsqu'elles sont necessaires a la securite du service, a la conservation de preuves, aux sauvegardes temporaires ou sous forme anonymisee et agregee."
+          },
+          {
+            "h": "5. Delai",
+            "b": "La demande est traitee dans un delai raisonnable, en principe sous 30 jours, sauf obligation legale de conservation ou contrainte technique particuliere."
+          },
+          {
+            "h": "6. Consequences",
+            "b": "La suppression est irreversible. Le profil n'est plus visible et les contenus deja partages avec d'autres utilisateurs peuvent etre supprimes ou anonymises selon les contraintes du service."
+          },
+          {
+            "h": "7. Contact",
+            "b": "SZCZ Softwares - dev@szczsoftwares.fr."
+          }
+        ]
       },
-      en: {
-        title: "Account Deletion — Soccer Link",
-        updated: "Last updated: March 2026",
-        intro: "In accordance with the GDPR and App Store / Google Play requirements, you may at any time request the deletion of your Soccer Link account and associated personal data.",
-        sections: [
-          { h: "1. From the app", b: "Settings > Account > \"Delete my account\" > confirm. Your account and data are deleted." },
-          { h: "2. By email", b: "Email privacy@soccerlink.app with subject \"Soccer Link account deletion,\" providing the associated email and your username if known. Processed within 30 days max, with confirmation." },
-          { h: "3. Data deleted", b: "Profile (name, photo, bio, location, role, specific data), social data (friends, requests, connections), messages and conversations, club memberships, Algolia search index, Firebase Auth data, Firebase Storage files." },
-          { h: "4. Data retained", b: "Anonymized analytics (Firebase Analytics policy), billing data (legal obligations), anonymized crash reports (service improvement)." },
-          { h: "5. Consequences", b: "Deletion is irreversible. Your profile is no longer visible. Messages in existing conversations may be deleted or anonymized. If you have an active subscription, cancel it manually first." },
-          { h: "6. Contact", b: "Soccer Link — privacy@soccerlink.app." },
-        ],
-      },
-      ja: {
-        title: "アカウント削除 — Soccer Link",
-        updated: "最終更新日:2026年3月",
-        intro: "GDPRおよびApp Store／Google Playの要件に従い、Soccer Linkのアカウントおよび関連する個人データの削除をいつでもリクエストできます。",
-        sections: [
-          { h: "1. アプリから削除", b: "設定 > アカウント > 「アカウントを削除する」 > 確認。アカウントとデータが削除されます。" },
-          { h: "2. メールから削除", b: "件名「Soccer Linkアカウント削除」とし、登録メールアドレスと、わかればユーザー名を記載してprivacy@soccerlink.appまでご連絡ください。最長30日以内に処理し、完了をご連絡します。" },
-          { h: "3. 削除されるデータ", b: "プロフィール（氏名、写真、自己紹介、所在地、ロール、固有データ）、ソーシャルデータ（友達、リクエスト、繋がり）、メッセージと会話、クラブ所属、Algolia検索インデックス、Firebase Auth情報、Firebase Storageのファイル。" },
-          { h: "4. 保持されるデータ", b: "匿名化された分析データ（Firebase Analyticsポリシー）、請求データ（法令上の義務）、匿名化されたクラッシュレポート（サービス改善）。" },
-          { h: "5. 結果", b: "削除は取り消せません。プロフィールは表示されなくなります。既存の会話内のメッセージは削除または匿名化される場合があります。有効なサブスクリプションがある場合は、事前に手動で解約してください。" },
-          { h: "6. お問い合わせ", b: "Soccer Link — privacy@soccerlink.app。" },
-        ],
-      },
-    },
-  },
+      "en": {
+        "title": "Account Deletion - SoccerLink",
+        "updated": "Last updated: April 25, 2026",
+        "intro": "You can request deletion of your SoccerLink account and associated personal data from the app or by email.",
+        "sections": [
+          {
+            "h": "1. From the app",
+            "b": "Open SoccerLink settings, then Account > Delete my account, and confirm the request when the feature is available."
+          },
+          {
+            "h": "2. By email",
+            "b": "Send a request to dev@szczsoftwares.fr with subject \"SoccerLink account deletion\", providing the associated email address and your username if known."
+          },
+          {
+            "h": "3. Data deleted",
+            "b": "Profile data, sports data, relationships, requests, messages, publications, applications, club memberships, stored files, authentication data and search indexes associated with the account are deleted or anonymized."
+          },
+          {
+            "h": "4. Data retained",
+            "b": "Some data may be retained where required by law, where necessary for service security, evidence preservation, temporary backups, or in anonymized and aggregated form."
+          },
+          {
+            "h": "5. Timing",
+            "b": "The request is processed within a reasonable period, in principle within 30 days, unless a legal retention obligation or specific technical constraint applies."
+          },
+          {
+            "h": "6. Consequences",
+            "b": "Deletion is irreversible. The profile is no longer visible and content already shared with other users may be deleted or anonymized depending on service constraints."
+          },
+          {
+            "h": "7. Contact",
+            "b": "SZCZ Softwares - dev@szczsoftwares.fr."
+          }
+        ]
+      }
+    }
+  }
 };
 
 Object.assign(window, {
-  PROJECTS, SERVICES, STACK, STATS, COPY, CATEGORY_META, PROJECT_LEGAL,
+  PROJECTS, SERVICES, STACK, STATS, COPY, CATEGORY_META,
+  PROJECT_LEGAL,
   Cursor, Prompt, Tag, StatusDot, AsciiRule, Placeholder, tx,
 });
+

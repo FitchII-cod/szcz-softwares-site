@@ -155,6 +155,7 @@ function Topbar({ route, section, lang, setLang, theme, setTheme, onGo, onMenu, 
   const crumbs = [];
   if (route === ROUTES.HOME) crumbs.push(section || "home");
   else if (route === ROUTES.PROJECT) crumbs.push("projects", section);
+  else if (route === ROUTES.PROJECT_LEGAL) crumbs.push("projects", section, "legal");
   else if (route === ROUTES.PRIVACY) crumbs.push("legal", "privacy");
   else if (route === ROUTES.LEGAL) crumbs.push("legal", "notice");
 

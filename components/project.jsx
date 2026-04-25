@@ -117,7 +117,7 @@ function ProjectPage({ slug, lang, onBack, onOpen, onOpenLegal }) {
             {legalDocs.map(doc => (
               <button key={doc.id} className="project-legal-card" onClick={() => onOpenLegal(slug, doc.id)}>
                 <span className="project-legal-hash">##</span>
-                <span className="project-legal-name">{doc[lang]}</span>
+                <span className="project-legal-name">{doc[lang] || doc.en || doc.fr}</span>
                 <span className="project-legal-ext">.md</span>
                 <span className="project-legal-arrow">→</span>
               </button>
