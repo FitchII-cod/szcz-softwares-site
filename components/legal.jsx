@@ -3,15 +3,15 @@
 const LEGAL_COPY = {
   privacy: {
     fr: {
-      title: "Politique de confidentialit?",
-      updated: "Derni?re mise ? jour : avril 2026",
+      title: "Politique de confidentialité",
+      updated: "Dernière mise à jour : avril 2026",
       sections: [
-        { h: "1. Responsable du traitement", b: "SZCZ Softwares, exploit?e par Bastian Niszczota, est responsable des donn?es collect?es via ce site et ses applications. Contact : dev@szczsoftwares.fr." },
-        { h: "2. Donn?es collect?es", b: "Les formulaires de contact enregistrent votre nom, e-mail et message. Nos applications peuvent collecter un identifiant utilisateur, des pr?f?rences et des statistiques d'usage anonymis?es pour le bon fonctionnement du service." },
-        { h: "3. Finalit?s", b: "R?pondre ? vos demandes, fournir et am?liorer le service, respecter nos obligations l?gales. Aucune donn?e n'est vendue ? des tiers." },
-        { h: "4. Dur?e de conservation", b: "Les messages de contact sont conserv?s 24 mois. Les donn?es applicatives sont supprim?es sur demande ou ? la fermeture du compte." },
-        { h: "5. Vos droits", b: "Vous disposez d'un droit d'acc?s, de rectification, d'effacement, d'opposition et de portabilit?. Exercez-les par e-mail ? dev@szczsoftwares.fr." },
-        { h: "6. Cookies", b: "Seuls des cookies strictement n?cessaires sont utilis?s. Aucun cookie publicitaire ou de tra?age tiers n'est d?pos?." },
+        { h: "1. Responsable du traitement", b: "SZCZ Softwares, exploitée par Bastian Niszczota, est responsable des données collectées via ce site et ses applications. Contact : dev@szczsoftwares.fr." },
+        { h: "2. Données collectées", b: "Les formulaires de contact enregistrent votre nom, e-mail et message. Nos applications peuvent collecter un identifiant utilisateur, des préférences et des statistiques d'usage anonymisées pour le bon fonctionnement du service." },
+        { h: "3. Finalités", b: "Répondre à vos demandes, fournir et améliorer le service, respecter nos obligations légales. Aucune donnée n'est vendue à des tiers." },
+        { h: "4. Durée de conservation", b: "Les messages de contact sont conservés 24 mois. Les données applicatives sont supprimées sur demande ou à la fermeture du compte." },
+        { h: "5. Vos droits", b: "Vous disposez d'un droit d'accès, de rectification, d'effacement, d'opposition et de portabilité. Exercez-les par e-mail à dev@szczsoftwares.fr." },
+        { h: "6. Cookies", b: "Seuls des cookies strictement nécessaires sont utilisés. Aucun cookie publicitaire ou de traçage tiers n'est déposé." },
       ],
     },
     en: {
@@ -27,35 +27,35 @@ const LEGAL_COPY = {
       ],
     },
     ja: {
-      title: "??????????",
-      updated: "?????: 2026?4?",
+      title: "プライバシーポリシー",
+      updated: "最終更新日: 2026年4月",
       sections: [
-        { h: "1. ???", b: "???????????????????????????Bastian Niszczota?????SZCZ Softwares??????: dev@szczsoftwares.fr?" },
-        { h: "2. ???????", b: "??????????????????????????????????????????????????????????????????????????????????????" },
-        { h: "3. ????", b: "????????????????????????????????????????????????????????????" },
-        { h: "4. ????", b: "????????????24???????????????????????????????????????????????" },
-        { h: "5. ??????", b: "?????????????????????????????????????????????? dev@szczsoftwares.fr ??????????????" },
-        { h: "6. Cookie", b: "??????Cookie???????????Cookie??????????Cookie????????" },
+        { h: "1. 管理者", b: "本サイトおよび関連アプリで収集されるデータの管理者は、Bastian Niszczotaが運営するSZCZ Softwaresです。連絡先: dev@szczsoftwares.fr。" },
+        { h: "2. 収集するデータ", b: "お問い合わせフォームでは、お名前、メールアドレス、メッセージを記録します。アプリではサービス運営のため、ユーザー識別子、設定、匿名化された利用統計を収集する場合があります。" },
+        { h: "3. 利用目的", b: "お問い合わせへの返信、サービスの提供と改善、法令上の義務の遵守を目的とします。データを第三者に販売することはありません。" },
+        { h: "4. 保存期間", b: "お問い合わせメッセージは24か月間保存されます。アプリのデータは、ユーザーからの依頼またはアカウント閉鎖時に削除されます。" },
+        { h: "5. 利用者の権利", b: "利用者は、アクセス、訂正、削除、異議申立て、データポータビリティの権利を有します。権利行使は dev@szczsoftwares.fr までメールでご連絡ください。" },
+        { h: "6. Cookie", b: "厳密に必要なCookieのみを使用します。広告Cookieや第三者トラッキングCookieは設置しません。" },
       ],
     },
   },
   legal: {
     fr: {
-      title: "Mentions l?gales",
-      updated: "Derni?re mise ? jour : avril 2026",
+      title: "Mentions légales",
+      updated: "Dernière mise à jour : avril 2026",
       sections: [
-        { h: "?diteur", b: "SZCZ Softwares ? Bastian Niszczota, d?veloppeur ind?pendant. Si?ge : Nantes, France. E-mail : dev@szczsoftwares.fr." },
-        { h: "H?bergement", b: "Ce site est h?berg? par Firebase Hosting (Google Ireland Limited), Gordon House, Barrow Street, Dublin 4, Irlande." },
-        { h: "Propri?t? intellectuelle", b: "L'ensemble des contenus, textes, ?l?ments graphiques, logos et code de ce site sont la propri?t? exclusive de SZCZ Softwares, sauf mention contraire." },
-        { h: "Limitation de responsabilit?", b: "Les informations pr?sent?es le sont ? titre indicatif. SZCZ Softwares ne saurait ?tre tenu responsable d'erreurs ?ventuelles ou d'une interruption du service." },
-        { h: "Droit applicable", b: "Les pr?sentes mentions sont soumises au droit fran?ais. Tout litige rel?ve de la juridiction comp?tente." },
+        { h: "Éditeur", b: "SZCZ Softwares, SASU au capital social de 1 000 euros, immatriculée au RCS de Boulogne-sur-Mer sous le numéro 100 523 067. Président : Bastian Niszczota. Siège social : 95 avenue de Deauville, 62520 Le Touquet-Paris-Plage, France. E-mail : dev@szczsoftwares.fr." },
+        { h: "Hébergement", b: "Ce site est hébergé par Firebase Hosting (Google Ireland Limited), Gordon House, Barrow Street, Dublin 4, Irlande." },
+        { h: "Propriété intellectuelle", b: "L'ensemble des contenus, textes, éléments graphiques, logos et code de ce site sont la propriété exclusive de SZCZ Softwares, sauf mention contraire." },
+        { h: "Limitation de responsabilité", b: "Les informations présentées le sont à titre indicatif. SZCZ Softwares ne saurait être tenu responsable d'erreurs éventuelles ou d'une interruption du service." },
+        { h: "Droit applicable", b: "Les présentes mentions sont soumises au droit français. Tout litige relève de la juridiction compétente." },
       ],
     },
     en: {
       title: "Legal notice",
       updated: "Last updated: April 2026",
       sections: [
-        { h: "Publisher", b: "SZCZ Softwares ? Bastian Niszczota, independent developer. Registered office: Nantes, France. Email: dev@szczsoftwares.fr." },
+        { h: "Publisher", b: "SZCZ Softwares, SASU with share capital of EUR 1,000, registered with the Boulogne-sur-Mer Trade and Companies Register under number 100 523 067. President: Bastian Niszczota. Registered office: 95 avenue de Deauville, 62520 Le Touquet-Paris-Plage, France. Email: dev@szczsoftwares.fr." },
         { h: "Hosting", b: "This site is hosted by Firebase Hosting (Google Ireland Limited), Gordon House, Barrow Street, Dublin 4, Ireland." },
         { h: "Intellectual property", b: "All content, text, graphics, logos and code on this site are the exclusive property of SZCZ Softwares, unless otherwise stated." },
         { h: "Liability", b: "Information is provided for reference. SZCZ Softwares cannot be held liable for any errors or service interruptions." },
@@ -63,14 +63,14 @@ const LEGAL_COPY = {
       ],
     },
     ja: {
-      title: "????",
-      updated: "?????: 2026?4?",
+      title: "法的事項",
+      updated: "最終更新日: 2026年4月",
       sections: [
-        { h: "???", b: "SZCZ Softwares ? Bastian Niszczota??????????: ????????????: dev@szczsoftwares.fr?" },
-        { h: "??????", b: "????? Firebase Hosting (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland) ????????????????" },
-        { h: "?????", b: "?????????????????????????????????????????SZCZ Softwares?????????" },
-        { h: "????", b: "?????????????????SZCZ Softwares????????????????????????" },
-        { h: "???", b: "?????????????????????????????????" },
+        { h: "発行者", b: "SZCZ Softwares、資本金1,000ユーロのSASU。Boulogne-sur-Mer商業会社登録簿に番号100 523 067で登録されています。代表者: Bastian Niszczota。所在地: 95 avenue de Deauville, 62520 Le Touquet-Paris-Plage, France。メール: dev@szczsoftwares.fr。" },
+        { h: "ホスティング", b: "本サイトは Firebase Hosting (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland) によりホスティングされています。" },
+        { h: "知的財産権", b: "本サイトのコンテンツ、テキスト、グラフィック、ロゴ、コードは、別段の記載がない限りSZCZ Softwaresの独占的財産です。" },
+        { h: "責任制限", b: "掲載情報は参考目的で提供されます。SZCZ Softwaresは、誤りやサービス中断について責任を負いません。" },
+        { h: "準拠法", b: "本通知はフランス法に準拠します。紛争は管轄裁判所の判断に従います。" },
       ],
     },
   },
@@ -82,7 +82,7 @@ function LegalPage({ kind, lang, onBack }) {
     <article className="legal-page">
       <div className="project-hero-meta">
         <button className="breadcrumb" onClick={onBack}>
-          <span className="breadcrumb-back">←</span> cd ..
+          <span className="breadcrumb-back">{"←"}</span> cd ..
         </button>
         <span className="breadcrumb-sep">/</span>
         <span className="breadcrumb-current">legal/{kind}.md</span>
@@ -119,7 +119,7 @@ function ProjectLegalPage({ slug, docId, lang, onBack, onOpenProject }) {
     <article className="legal-page">
       <div className="project-hero-meta">
         <button className="breadcrumb" onClick={onBack}>
-          <span className="breadcrumb-back">←</span> cd ..
+          <span className="breadcrumb-back">{"←"}</span> cd ..
         </button>
         <span className="breadcrumb-sep">/</span>
         <button className="breadcrumb breadcrumb--link" onClick={() => onOpenProject(slug)}>

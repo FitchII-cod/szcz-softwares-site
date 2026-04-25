@@ -350,11 +350,11 @@ function Contact({ lang }) {
             <ul className="contact-channels">
               <li>
                 <span className="chan-key">email</span>
-                <a href="mailto:bastianniszczota@gmail.com">bastianniszczota@gmail.com</a>
+                <a href="mailto:dev@szczsoftwares.fr">dev@szczsoftwares.fr</a>
               </li>
               <li>
                 <span className="chan-key">linkedin</span>
-                <a href="#">/in/bastian-niszczota</a>
+                <a href="https://www.linkedin.com/company/szczsoftwares/" target="_blank" rel="noreferrer">/company/szczsoftwares</a>
               </li>
               <li>
                 <span className="chan-key">github</span>
