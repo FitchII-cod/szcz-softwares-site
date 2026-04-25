@@ -16,7 +16,7 @@ const DEFAULTS = {
 };
 
 const HOME_SECTIONS = ["home", "work", "services", "stack", "about", "contact"];
-const LEGAL_DOC_IDS = ["privacy", "cgu", "cgv", "account-deletion"];
+const LEGAL_DOC_IDS = ["privacy", "cgu", "cgv", "mentions-legales", "account-deletion"];
 
 // ---- URL <-> nav state mapping (clean URLs like /susumou/cgu) ----
 

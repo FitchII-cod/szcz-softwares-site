@@ -28,6 +28,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://szczsoftwares.fr/susumou/mentions-legales</loc>
+    <lastmod>2026-04-25</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://szczsoftwares.fr/susumou/account-deletion</loc>
     <lastmod>2026-04-25</lastmod>
     <priority>0.5</priority>
@@ -50,6 +55,11 @@
   </url>
   <url>
     <loc>https://szczsoftwares.fr/soccer-link/cgv</loc>
+    <lastmod>2026-04-25</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://szczsoftwares.fr/soccer-link/mentions-legales</loc>
     <lastmod>2026-04-25</lastmod>
     <priority>0.5</priority>
   </url>
