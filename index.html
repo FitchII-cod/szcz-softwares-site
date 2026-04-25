@@ -3,9 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>SZCZ Softwares — Web • Apps • IA • Blockchain • Games</title>
+  <title>SZCZ Softwares — Web · Mobile · AI · Chain · Games</title>
   <meta name="description" content="Studio perso : développement web, apps mobiles, IA (LLM/RAG), blockchain (NFT/contrats), jeux indés." />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/logo.jpg">
   <meta property="og:title" content="SZCZ Softwares" />
   <meta property="og:description" content="Web, mobile, IA, blockchain et jeux indés — de l'idée au déploiement." />
   <meta property="og:image" content="https://szcz-softwares.com/assets/og-image.png" />
@@ -15,134 +16,24 @@
   <meta name="twitter:title" content="SZCZ Softwares" />
   <meta name="twitter:description" content="Web, mobile, IA, blockchain et jeux indés — de l'idée au déploiement." />
   <meta name="twitter:image" content="https://szcz-softwares.com/assets/og-image.png" />
-  <meta name="theme-color" content="#2563EB" />
-  <link rel="preload" href="styles.css" as="style" />
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="preload" href="script.js" as="script" />
-  <link rel="preload" href="config.json" as="fetch" crossorigin />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-  <script defer src="script.js"></script>
+  <meta name="theme-color" content="#0c0f10" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 </head>
 <body>
-  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
-  <header class="site-header" role="banner">
-    <a class="brand" href="index.html" aria-label="Retour à l'accueil">
-      <img src="assets/logo.jpg" alt="Logo SZCZ Softwares" class="logo" loading="eager" />
-      <span class="brand-text"><span class="strong">SZCZ</span> Softwares</span>
-    </a>
-    <nav class="nav" aria-label="Navigation principale">
-      <button class="nav-toggle" aria-expanded="false" aria-label="Ouvrir le menu">☰</button>
-      <ul class="nav-list">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#projets">Projets</a></li>
-        <li><a href="#expertise">Expertise</a></li>
-        <li><a href="#a-propos">À propos</a></li>
-        <li><a href="#contact" class="btn btn-primary">Contact</a></li>
-        <li><button id="themeToggle" class="btn btn-ghost" aria-label="Basculer le thème">🌓</button></li>
-      </ul>
-    </nav>
-  </header>
+  <div id="root"></div>
 
-  <main id="main-content" role="main">
-    <section class="hero">
-      <div class="hero-content">
-        <h1 id="hero-title">Je construis des produits web, apps et outils intelligents.</h1>
-        <p id="hero-subtitle">Web, mobile, IA, blockchain et jeux indés — de l’idée au déploiement.</p>
-        <div class="cta-group">
-          <a href="#contact" class="btn btn-primary">Discutons de votre projet</a>
-          <a href="#projets" class="btn btn-outline">Voir le portfolio</a>
-        </div>
-        <div class="badges" id="badges"></div>
-      </div>
-      <div class="hero-art" aria-hidden="true">
-        <div class="gradient-orb"></div>
-        <div class="card-stack">
-          <div class="card">Next.js&nbsp;Web</div>
-          <div class="card">Flutter&nbsp;Mobile</div>
-          <div class="card">LLM&nbsp;/&nbsp;RAG</div>
-          <div class="card">Web3&nbsp;/&nbsp;NFT</div>
-        </div>
-      </div>
-    </section>
-
-    <section id="services" class="section">
-      <h2>Services</h2>
-      <div class="grid cards" id="services-grid"></div>
-    </section>
-
-    <section id="projets" class="section">
-      <div class="section-head">
-        <h2>Projets sélectionnés</h2>
-        <a class="link" href="#" id="download-cv" style="display:none">Voir le profil</a>
-      </div>
-      <div class="grid projects" id="projects-grid"></div>
-    </section>
-
-    <section id="expertise" class="section">
-      <h2>Stack & Expertise</h2>
-      <ul class="tag-cloud" id="stack"></ul>
-      <div class="stats" id="stats"></div>
-    </section>
-
-    <section id="a-propos" class="section about">
-      <div class="about-content">
-        <h2>À propos</h2>
-        <p id="about-text">Je conçois des solutions sobres et efficaces : de l’idée au déploiement, avec une approche produit et métier. Mon terrain de jeu : web & mobile, IA (LLM/RAG), blockchain (NFT/contrats), jeux vidéo indés, et automatisations.</p>
-        <ul class="checklist">
-          <li>Approche <strong>Lean</strong> orientée valeur</li>
-          <li>Design <strong>clean</strong> & accessible</li>
-          <li>Data-driven & <strong>KPI</strong> clairs</li>
-        </ul>
-      </div>
-      <aside class="about-aside">
-        <div class="card kpis" id="kpi-cards"></div>
-      </aside>
-    </section>
-
-    <section id="contact" class="section contact">
-      <h2>Contact</h2>
-      <div class="contact-grid">
-        <form id="contact-form" class="card" name="contact" aria-labelledby="contact-heading">
-          <label for="contact-name">Votre nom
-            <input id="contact-name" name="name" type="text" required autocomplete="name" aria-required="true" />
-          </label>
-          <label for="contact-email">Votre e-mail
-            <input id="contact-email" name="email" type="email" required autocomplete="email" aria-required="true" />
-          </label>
-          <label for="contact-message">Message
-            <textarea id="contact-message" name="message" rows="5" required aria-required="true"></textarea>
-          </label>
-          <button class="btn btn-primary" type="submit">Envoyer</button>
-          <p class="form-ok" role="status" aria-live="polite" hidden>Merci ! Je reviens vers vous rapidement.</p>
-        </form>
-        <div class="card contact-side">
-          <h3>Disponibilités & Zones</h3>
-          <p>Basé en France. Missions à distance, déplacements en Europe & Japon.</p>
-          <ul class="tag-cloud small" id="contact-channels"></ul>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer" role="contentinfo">
-    <p>© <span id="year"></span> SZCZ Softwares — Tous droits réservés.</p>
-    <nav class="foot-nav">
-      <a href="#a-propos">À propos</a>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
-      <a href="privacy.html">Confidentialité</a>
-      <a href="mentions-legales.html">Mentions légales</a>
-      <button id="backToTop" class="btn btn-ghost">↑ Haut</button>
-    </nav>
-    <div class="social-links">
-      <a href="https://linkedin.com/company/szcz-softwares" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-      </a>
-      <a href="https://github.com/FitchII-cod" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-      </a>
-    </div>
-  </footer>
+  <script type="text/babel" src="components/shared.jsx"></script>
+  <script type="text/babel" src="components/home.jsx"></script>
+  <script type="text/babel" src="components/project.jsx"></script>
+  <script type="text/babel" src="components/legal.jsx"></script>
+  <script type="text/babel" src="app.jsx"></script>
 </body>
 </html>
