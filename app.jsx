@@ -52,6 +52,7 @@ function urlFromNav(nav) {
 
 function titleFromNav(nav, lang) {
   const base = "SZCZ Softwares";
+  const c = (window.COPY && window.COPY[lang]) || {};
   if (nav.route === ROUTES.PROJECT) {
     const p = (window.PROJECTS || []).find(x => x.slug === nav.section);
     return p ? `${p.title} — ${base}` : base;
@@ -59,11 +60,11 @@ function titleFromNav(nav, lang) {
   if (nav.route === ROUTES.PROJECT_LEGAL) {
     const p = (window.PROJECTS || []).find(x => x.slug === nav.section);
     const doc = p && (p.legal || []).find(d => d.id === nav.doc);
-    if (p && doc) return `${p.title} · ${doc[lang] || doc.fr} — ${base}`;
+    if (p && doc) return `${p.title} · ${doc[lang] || doc.en || doc.fr} — ${base}`;
     return base;
   }
-  if (nav.route === ROUTES.PRIVACY) return `${lang === "fr" ? "Confidentialité" : "Privacy"} — ${base}`;
-  if (nav.route === ROUTES.LEGAL) return `${lang === "fr" ? "Mentions légales" : "Legal notice"} — ${base}`;
+  if (nav.route === ROUTES.PRIVACY) return `${c.privacy_title || "Privacy"} — ${base}`;
+  if (nav.route === ROUTES.LEGAL) return `${c.legal_title || "Legal notice"} — ${base}`;
   return `${base} — Web · Mobile · AI · Chain · Games`;
 }
 
@@ -182,6 +183,7 @@ function Topbar({ route, section, lang, setLang, theme, setTheme, onGo, onMenu, 
         <div className="lang-toggle" role="group" aria-label="Language">
           <button className={`lang-btn ${lang === "fr" ? "lang-btn--active" : ""}`} onClick={() => setLang("fr")}>FR</button>
           <button className={`lang-btn ${lang === "en" ? "lang-btn--active" : ""}`} onClick={() => setLang("en")}>EN</button>
+          <button className={`lang-btn ${lang === "ja" ? "lang-btn--active" : ""}`} onClick={() => setLang("ja")} aria-label="日本語">JA</button>
         </div>
         <button className="theme-toggle" onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
           {theme === "dark" ? "◐ light" : "◑ dark"}
