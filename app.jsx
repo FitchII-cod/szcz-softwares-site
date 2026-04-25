@@ -1,4 +1,4 @@
-// Root app — routing, theme, language, tweaks
+// Root app — routing, theme, language
 
 const { useState, useEffect } = React;
 
@@ -10,13 +10,10 @@ const ROUTES = {
   PROJECT_LEGAL: "project-legal",
 };
 
-const ACCENT_SWATCHES = [
-  { label: "green", hue: 145 },
-  { label: "amber", hue: 75 },
-  { label: "blue", hue: 250 },
-  { label: "pink", hue: 340 },
-  { label: "red", hue: 25 },
-];
+const DEFAULTS = {
+  defaultLang: "fr",
+  defaultTheme: "dark",
+};
 
 function Sidebar({ route, section, lang, onNav, onGo, projects }) {
   const c = COPY[lang];
@@ -121,75 +118,9 @@ function Topbar({ route, section, lang, setLang, theme, setTheme, onGo }) {
   );
 }
 
-function TweaksPanel({ tweaks, setTweak, onClose }) {
-  return (
-    <div className="tweaks-panel">
-      <div className="tweaks-head">
-        <div className="tweaks-title">Tweaks</div>
-        <button className="tweaks-close" onClick={onClose} aria-label="close">×</button>
-      </div>
-
-      <div className="tweak-row">
-        <span className="tweak-label">accent</span>
-        <div className="tweak-swatches">
-          {ACCENT_SWATCHES.map(s => (
-            <button
-              key={s.label}
-              className={`tweak-swatch ${tweaks.accentLabel === s.label ? "tweak-swatch--active" : ""}`}
-              style={{ background: `oklch(0.70 0.17 ${s.hue})` }}
-              onClick={() => setTweak({ accentHue: s.hue, accentLabel: s.label })}
-              aria-label={s.label}
-            />
-          ))}
-        </div>
-      </div>
-
-      <div className="tweak-row">
-        <span className="tweak-label">density</span>
-        <div className="tweak-options">
-          {["compact", "comfortable", "spacious"].map(d => (
-            <button
-              key={d}
-              className={`tweak-opt ${tweaks.density === d ? "tweak-opt--active" : ""}`}
-              onClick={() => setTweak({ density: d })}
-            >{d}</button>
-          ))}
-        </div>
-      </div>
-
-      <div className="tweak-row">
-        <span className="tweak-label">default lang</span>
-        <div className="tweak-options">
-          {["fr", "en"].map(l => (
-            <button key={l}
-              className={`tweak-opt ${tweaks.defaultLang === l ? "tweak-opt--active" : ""}`}
-              onClick={() => setTweak({ defaultLang: l })}
-            >{l}</button>
-          ))}
-        </div>
-      </div>
-
-      <div className="tweak-row">
-        <span className="tweak-label">default theme</span>
-        <div className="tweak-options">
-          {["dark", "light"].map(t => (
-            <button key={t}
-              className={`tweak-opt ${tweaks.defaultTheme === t ? "tweak-opt--active" : ""}`}
-              onClick={() => setTweak({ defaultTheme: t })}
-            >{t}</button>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
-
 function App() {
-  const defaults = window.__TWEAK_DEFAULTS__;
-  const [tweaks, setTweaks] = useState(defaults);
-  const [tweaksOpen, setTweaksOpen] = useState(false);
-  const [lang, setLang] = useState(() => localStorage.getItem("szcz-lang") || defaults.defaultLang);
-  const [theme, setTheme] = useState(() => localStorage.getItem("szcz-theme") || defaults.defaultTheme);
+  const [lang, setLang] = useState(() => localStorage.getItem("szcz-lang") || DEFAULTS.defaultLang);
+  const [theme, setTheme] = useState(() => localStorage.getItem("szcz-theme") || DEFAULTS.defaultTheme);
   const [nav, setNav] = useState(() => {
     try {
       return JSON.parse(localStorage.getItem("szcz-nav")) || { route: ROUTES.HOME, section: "home" };
@@ -205,39 +136,6 @@ function App() {
   useEffect(() => {
     document.documentElement.classList.toggle("light", theme === "light");
   }, [theme]);
-
-  // Accent hue → CSS var
-  useEffect(() => {
-    const h = tweaks.accentHue;
-    document.documentElement.style.setProperty("--accent", `oklch(0.80 0.17 ${h})`);
-    document.documentElement.style.setProperty("--accent-dim", `oklch(0.80 0.17 ${h} / 0.15)`);
-    document.documentElement.style.setProperty("--accent-2", `oklch(0.80 0.17 ${(h + 70) % 360})`);
-  }, [tweaks.accentHue]);
-
-  // Density
-  useEffect(() => {
-    const map = { compact: "0.85", comfortable: "1", spacious: "1.15" };
-    document.documentElement.style.setProperty("--density", map[tweaks.density] || "1");
-  }, [tweaks.density]);
-
-  // Tweak edit mode wiring (BEFORE announce)
-  useEffect(() => {
-    const handler = (e) => {
-      if (e.data?.type === "__activate_edit_mode") setTweaksOpen(true);
-      if (e.data?.type === "__deactivate_edit_mode") setTweaksOpen(false);
-    };
-    window.addEventListener("message", handler);
-    window.parent.postMessage({ type: "__edit_mode_available" }, "*");
-    return () => window.removeEventListener("message", handler);
-  }, []);
-
-  const setTweak = (patch) => {
-    setTweaks(prev => {
-      const next = { ...prev, ...patch };
-      window.parent.postMessage({ type: "__edit_mode_set_keys", edits: patch }, "*");
-      return next;
-    });
-  };
 
   // Scroll to section in home view
   const scrollToSection = (id) => {
@@ -364,7 +262,6 @@ function App() {
         </div>
       </div>
 
-      {tweaksOpen && <TweaksPanel tweaks={tweaks} setTweak={setTweak} onClose={() => setTweaksOpen(false)} />}
     </div>
   );
 }
